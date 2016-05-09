@@ -1,0 +1,370 @@
+  [1m[36m (121.4ms)[0m  [1mDROP DATABASE IF EXISTS "space_age_development"[0m
+  [1m[35m (122.0ms)[0m  DROP DATABASE IF EXISTS "space_age_test"
+  [1m[36m (304.3ms)[0m  [1mCREATE DATABASE "space_age_development" ENCODING = 'unicode'[0m
+  [1m[35m (249.0ms)[0m  CREATE DATABASE "space_age_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "order_packages" ("id" serial primary key, "user_id" integer, "order_id" integer, "package_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_order_packages_on_order_id" ON "order_packages" USING btree ("order_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_order_packages_on_package_id" ON "order_packages" USING btree ("package_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_order_packages_on_user_id" ON "order_packages" USING btree ("user_id")
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "status" integer DEFAULT 0, "total_cost" decimal(20,2)) [0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_orders_on_user_id" ON "orders" USING btree ("user_id")
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "packages" ("id" serial primary key, "title" character varying, "price" decimal, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "destination_id" integer, "status" integer DEFAULT 0, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_packages_on_destination_id" ON "packages" USING btree ("destination_id")
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "password_digest" character varying, "email" character varying, "password_confirmation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "role" integer DEFAULT 0) [0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "order_packages" ADD CONSTRAINT "fk_rails_273ab81fbb"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "order_packages" ADD CONSTRAINT "fk_rails_0460959e0e"
+FOREIGN KEY ("package_id")
+  REFERENCES "packages" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "order_packages" ADD CONSTRAINT "fk_rails_b91fae3edd"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "orders" ADD CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "packages" ADD CONSTRAINT "fk_rails_72648286cc"
+FOREIGN KEY ("destination_id")
+  REFERENCES "destinations" ("id")
+
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160424215610')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160419172456')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160419190420')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160419190603')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160420225203')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160421185408')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160421213617')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160422114555')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160422142300')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160422235247')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160423054759')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160423174049')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160423183825')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160423210829')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160424203836')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160424204404')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160424215552')
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.5ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "order_packages" ("id" serial primary key, "user_id" integer, "order_id" integer, "package_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_order_packages_on_order_id" ON "order_packages" USING btree ("order_id")
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_order_packages_on_package_id" ON "order_packages" USING btree ("package_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_order_packages_on_user_id" ON "order_packages" USING btree ("user_id")
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "status" integer DEFAULT 0, "total_cost" decimal(20,2)) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_orders_on_user_id" ON "orders" USING btree ("user_id")
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "packages" ("id" serial primary key, "title" character varying, "price" decimal, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "destination_id" integer, "status" integer DEFAULT 0, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_packages_on_destination_id" ON "packages" USING btree ("destination_id")
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "password_digest" character varying, "email" character varying, "password_confirmation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "role" integer DEFAULT 0) [0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "order_packages" ADD CONSTRAINT "fk_rails_273ab81fbb"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "order_packages" ADD CONSTRAINT "fk_rails_0460959e0e"
+FOREIGN KEY ("package_id")
+  REFERENCES "packages" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "order_packages" ADD CONSTRAINT "fk_rails_b91fae3edd"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "orders" ADD CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "packages" ADD CONSTRAINT "fk_rails_72648286cc"
+FOREIGN KEY ("destination_id")
+  REFERENCES "destinations" ("id")
+
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160424215610')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160419172456')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160419190420')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160419190603')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160420225203')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160421185408')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160421213617')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160422114555')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160422142300')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160422235247')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160423054759')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160423174049')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160423183825')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160423210829')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160424203836')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160424204404')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160424215552')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDestination Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "destinations" WHERE "destinations"."planet" = 'Mars' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "destinations" ("planet", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["planet", "Mars"], ["created_at", "2016-05-09 23:43:43.905357"], ["updated_at", "2016-05-09 23:43:43.905357"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/ddb431760f55f887c541d2c5d222db0720160509-8165-fefa8u.jpg'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/ddb431760f55f887c541d2c5d222db0720160509-8165-10davuf.jpg'
+  [1m[36mPackage Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Mars Adventure' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["title", "Mars Adventure"], ["description", "It's a God-awful small affair\n                                   To the girl with the mousy hair\n                                   But her mummy is yelling no\n                                   And her daddy has told her to go\n                                   But her friend is nowhere to be seen\n                                   Now she walks through her sunken dream\n                                   To the seat with the clearest view"], ["price", "1003.0"], ["image_file_name", "planet_mars_1.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 5042], ["image_updated_at", "2016-05-09 23:43:43.921394"], ["destination_id", 1], ["created_at", "2016-05-09 23:43:43.939511"], ["updated_at", "2016-05-09 23:43:43.939511"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/99e1a06581b8be49948018684e0eb60020160509-8165-ja97fv.jpg'
+  [1m[35m (0.1ms)[0m  BEGIN
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/99e1a06581b8be49948018684e0eb60020160509-8165-3kz2dz.jpg'
+  [1m[36mPackage Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Mars Family' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["title", "Mars Family"], ["description", "And she's hooked to the silver screen,\n                                   But the film is a saddening bore\n                                   For she's lived it ten times or more\n                                   She could spit in the eyes of fools\n                                   As they ask her to focus on\n                                   Sailors fighting in the dance hall\n                                   Oh man look at those cavemen go"], ["price", "1009.0"], ["image_file_name", "planet_mars_2.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 37705], ["image_updated_at", "2016-05-09 23:43:43.955237"], ["destination_id", 1], ["created_at", "2016-05-09 23:43:43.974197"], ["updated_at", "2016-05-09 23:43:43.974197"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/1982435ef3e14ea885c101432fdf793820160509-8165-ft40k1.jpg'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/1982435ef3e14ea885c101432fdf793820160509-8165-1euedqy.jpg'
+  [1m[36mPackage Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Mars Luxury' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["title", "Mars Luxury"], ["description", "It's the freakiest show\n                                   Take a look at the lawman\n                                   Beating up the wrong guy\n                                   Oh man wonder if he'll ever know\n                                   He's in the best selling show\n                                   Is there life on Mars?"], ["price", "1004.0"], ["image_file_name", "planet_mars_3.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 42717], ["image_updated_at", "2016-05-09 23:43:43.992675"], ["destination_id", 1], ["created_at", "2016-05-09 23:43:44.009885"], ["updated_at", "2016-05-09 23:43:44.009885"]]
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/383a8a8fafae2d1c87774f036903f34420160509-8165-gj32q8.jpg'
+  [1m[35m (0.1ms)[0m  BEGIN
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/383a8a8fafae2d1c87774f036903f34420160509-8165-u76zqm.jpg'
+  [1m[36mPackage Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Mars Weekend' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["title", "Mars Weekend"], ["description", "It's on America's tortured brow\n                                   That Mickey Mouse has grown up a cow\n                                   Now the workers have struck for fame\n                                   'Cause Lennon's on sale again\n                                   See the mice in their million hordes\n                                   From Ibiza to the Norfolk Broads"], ["price", "1003.0"], ["image_file_name", "planet_mars_4.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 95415], ["image_updated_at", "2016-05-09 23:43:44.023420"], ["destination_id", 1], ["created_at", "2016-05-09 23:43:44.041799"], ["updated_at", "2016-05-09 23:43:44.041799"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/9f172e77d33538ed107d7a6df882d53f20160509-8165-11s0p8t.jpg'
+  [1m[35m (0.1ms)[0m  BEGIN
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/9f172e77d33538ed107d7a6df882d53f20160509-8165-5b4oqf.jpg'
+  [1m[36mPackage Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Mars Service Trip' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["title", "Mars Service Trip"], ["description", "To my mother, my dog, and clowns\n                                   But the film is a saddening bore\n                                   'Cause I wrote it ten times or more\n                                   It's about to be writ again\n                                   As I ask you to focus on3\n                                   Sailors fighting in the dance hall"], ["price", "1008.0"], ["image_file_name", "planet_mars_5.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 115109], ["image_updated_at", "2016-05-09 23:43:44.061001"], ["destination_id", 1], ["created_at", "2016-05-09 23:43:44.080032"], ["updated_at", "2016-05-09 23:43:44.080032"]]
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDestination Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "destinations" WHERE "destinations"."planet" = 'Venus' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "destinations" ("planet", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["planet", "Venus"], ["created_at", "2016-05-09 23:43:44.092076"], ["updated_at", "2016-05-09 23:43:44.092076"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/512f8fad89232a402721cfb0acbda63320160509-8165-aq5qn.jpg'
+  [1m[35m (0.1ms)[0m  BEGIN
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/512f8fad89232a402721cfb0acbda63320160509-8165-s5lc9u.jpg'
+  [1m[36mPackage Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Venus Adventure' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["title", "Venus Adventure"], ["description", "Ground Control to Major Tom\n                                   Ground Control to Major Tom\n                                   Take your protein pills and put your helmet on\n                                   Ground Control to Major Tom (ten, nine, eight, seven, six)\n                                   Commencing countdown, engines on (five, four, three)"], ["price", "1007.0"], ["image_file_name", "planet_venus_1.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 552924], ["image_updated_at", "2016-05-09 23:43:44.104640"], ["destination_id", 2], ["created_at", "2016-05-09 23:43:44.123112"], ["updated_at", "2016-05-09 23:43:44.123112"]]
+  [1m[36m (5.7ms)[0m  [1mCOMMIT[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/8cf729b2f67260d9e1754543d397940220160509-8165-1kapwh.jpg'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/8cf729b2f67260d9e1754543d397940220160509-8165-1870964.jpg'
+  [1m[36mPackage Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Venus Family' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["title", "Venus Family"], ["description", "Check ignition and may God's love be with you (two, one, liftoff)\n                                   This is Ground Control to Major Tom\n                                   You've really made the grade\n                                   And the papers want to know whose shirts you wear\n                                   Now it's time to leave the capsule if you dare"], ["price", "1003.0"], ["image_file_name", "planet_venus_2.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 1222367], ["image_updated_at", "2016-05-09 23:43:44.142932"], ["destination_id", 2], ["created_at", "2016-05-09 23:43:44.163356"], ["updated_at", "2016-05-09 23:43:44.163356"]]
+  [1m[36m (7.7ms)[0m  [1mCOMMIT[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/f9da169fd7297a3b7549701ab841f18d20160509-8165-133458f.jpg'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/f9da169fd7297a3b7549701ab841f18d20160509-8165-1r5qdpb.jpg'
+  [1m[36mPackage Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Venus Luxury' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["title", "Venus Luxury"], ["description", "This is Major Tom to Ground Control\n                                   I'm stepping through the door\n                                   And I'm floating in a most peculiar way\n                                   And the stars look very different today\n                                   For here\n                                   Am I sitting in a tin can"], ["price", "1009.0"], ["image_file_name", "planet_venus_3.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 31989], ["image_updated_at", "2016-05-09 23:43:44.179017"], ["destination_id", 2], ["created_at", "2016-05-09 23:43:44.194971"], ["updated_at", "2016-05-09 23:43:44.194971"]]
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/160af4b37616266046291b771c3196e320160509-8165-1rbc343.jpg'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/160af4b37616266046291b771c3196e320160509-8165-12naygd.jpg'
+  [1m[36mPackage Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Venus Weekend' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["title", "Venus Weekend"], ["description", "Far above the world\n                                   Planet Earth is blue\n                                   And there's nothing I can do\n                                   Though I'm past one hundred thousand miles\n                                   I'm feeling very still\n                                   And I think my spaceship knows which way to go"], ["price", "1007.0"], ["image_file_name", "planet_venus_4.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 80308], ["image_updated_at", "2016-05-09 23:43:44.207021"], ["destination_id", 2], ["created_at", "2016-05-09 23:43:44.227042"], ["updated_at", "2016-05-09 23:43:44.227042"]]
+  [1m[36m (5.9ms)[0m  [1mCOMMIT[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/55db8dde977debca81e1c9ac329c517220160509-8165-1j8qmfh.jpg'
+  [1m[35m (0.1ms)[0m  BEGIN
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/55db8dde977debca81e1c9ac329c517220160509-8165-1op157u.jpg'
+  [1m[36mPackage Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Venus Service Trip' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["title", "Venus Service Trip"], ["description", "Tell my wife I love her very much she knows\n                                   Ground Control to Major Tom\n                                   Your circuit's dead, there's something wrong\n                                   Can you hear me, Major Tom?\n                                   Can you hear me, Major Tom?"], ["price", "1005.0"], ["image_file_name", "planet_venus_5.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 644088], ["image_updated_at", "2016-05-09 23:43:44.242295"], ["destination_id", 2], ["created_at", "2016-05-09 23:43:44.258543"], ["updated_at", "2016-05-09 23:43:44.258543"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mDestination Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "destinations" WHERE "destinations"."planet" = 'Moon' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "destinations" ("planet", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["planet", "Moon"], ["created_at", "2016-05-09 23:43:44.272038"], ["updated_at", "2016-05-09 23:43:44.272038"]]
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/971c87324536db92e089fa04ceb3009520160509-8165-1pwa8vv.jpg'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/971c87324536db92e089fa04ceb3009520160509-8165-1825ukp.jpg'
+  [1m[36mPackage Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Moon Adventure' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/c8f521520d229e7ba44610ae53ee7c6220160509-8165-ke8uj9.jpg'
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/c8f521520d229e7ba44610ae53ee7c6220160509-8165-16oy6vq.jpg'
+  [1m[35mPackage Exists (0.3ms)[0m  SELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Moon Family' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Moon Family"], ["description", "He told me\n                                   Let the children lose it\n                                   Let the children use it\n                                   Let all the children boogie\n                                   Starman waiting in the sky\n                                   He'd like to come and meet us\n                                   But he thinks he'd blow our minds"], ["price", "1006.0"], ["image_file_name", "planet_moon_2.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 339224], ["image_updated_at", "2016-05-09 23:43:44.600406"], ["destination_id", 3], ["created_at", "2016-05-09 23:43:44.616318"], ["updated_at", "2016-05-09 23:43:44.616318"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/5f7de53ad2f4b12be3430f178b0165b420160509-8165-x400ke.jpg'
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/5f7de53ad2f4b12be3430f178b0165b420160509-8165-m6zq34.jpg'
+  [1m[35mPackage Exists (0.3ms)[0m  SELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Moon Luxury' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Moon Luxury"], ["description", "There's a starman waiting in the sky\n                                   He'd like to come and meet us\n                                   But he thinks he'd blow our minds\n                                   There's a starman waiting in the sky\n                                   He's told us not to blow it\n                                   'Cause he knows it's all worthwhile"], ["price", "1007.0"], ["image_file_name", "planet_moon_3.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 4207014], ["image_updated_at", "2016-05-09 23:43:44.645482"], ["destination_id", 3], ["created_at", "2016-05-09 23:43:44.667916"], ["updated_at", "2016-05-09 23:43:44.667916"]]
+  [1m[35m (6.4ms)[0m  COMMIT
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/1986d0c333ac49a16d9143bd82ad507a20160509-8165-ekrkgu.jpg'
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/1986d0c333ac49a16d9143bd82ad507a20160509-8165-18auwpc.jpg'
+  [1m[35mPackage Exists (0.3ms)[0m  SELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Moon Weekend' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Moon Weekend"], ["description", "Ground Control to Major Tom\n                                   Ground Control to Major Tom\n                                   Take your protein pills and put your helmet on\n                                   Ground Control to Major Tom (ten, nine, eight, seven, six)\n                                   Commencing countdown, engines on (five, four, three)"], ["price", "1005.0"], ["image_file_name", "planet_moon_4.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 175397], ["image_updated_at", "2016-05-09 23:43:44.687259"], ["destination_id", 3], ["created_at", "2016-05-09 23:43:44.704913"], ["updated_at", "2016-05-09 23:43:44.704913"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/ac2b9500cf8c49a72a425982e4a1dfda20160509-8165-ghk9a7.jpg'
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/ac2b9500cf8c49a72a425982e4a1dfda20160509-8165-w0cc1d.jpg'
+  [1m[35mPackage Exists (0.3ms)[0m  SELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Moon Service Trip' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Moon Service Trip"], ["description", "Check ignition and may God's love be with you (two, one, liftoff)\n                                   This is Ground Control to Major Tom\n                                   You've really made the grade\n                                   And the papers want to know whose shirts you wear\n                                   Now it's time to leave the capsule if you dare"], ["price", "1009.0"], ["image_file_name", "planet_moon_5.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 215975], ["image_updated_at", "2016-05-09 23:43:44.723568"], ["destination_id", 3], ["created_at", "2016-05-09 23:43:44.740832"], ["updated_at", "2016-05-09 23:43:44.740832"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/3959e04105cf9368b5bee0dd851ba6be20160509-8165-19maft.jpg'
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/var/folders/0j/94cxxw0d0rn0lq24s_xkf2640000gn/T/3959e04105cf9368b5bee0dd851ba6be20160509-8165-1esvqkz.jpg'
+  [1m[35mPackage Exists (0.3ms)[0m  SELECT  1 AS one FROM "packages" WHERE "packages"."title" = 'Moon Popular Trip' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "packages" ("title", "description", "price", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "destination_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "Moon Popular Trip"], ["description", "Far above the world\n                                   Planet Earth is blue\n                                   And there's nothing I can do\n                                   Though I'm past one hundred thousand miles\n                                   I'm feeling very still\n                                   And I think my spaceship knows which way to go"], ["price", "1005.0"], ["image_file_name", "sold_out.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 17937], ["image_updated_at", "2016-05-09 23:43:44.766741"], ["destination_id", 3], ["status", 1], ["created_at", "2016-05-09 23:43:44.783863"], ["updated_at", "2016-05-09 23:43:44.783863"]]
+  [1m[35m (6.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'default_user_1' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'default_user_1.email.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "default_user_1"], ["email", "default_user_1.email.com"], ["password_digest", "$2a$10$CSVjYz6e6wthLdsW7zL7nOdCVWbUEehlFMvK.QGI/q0hXQieNWx2u"], ["created_at", "2016-05-09 23:43:44.880135"], ["updated_at", "2016-05-09 23:43:44.880135"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'default_user_2' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'default_user_2.email.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "default_user_2"], ["email", "default_user_2.email.com"], ["password_digest", "$2a$10$juhKPcB8OQQ3XhVR6YV29OCqmAsNOHlHmo9AaHQMcEFcVXJBfr9nC"], ["created_at", "2016-05-09 23:43:44.951922"], ["updated_at", "2016-05-09 23:43:44.951922"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'default_user_3' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'default_user_3.email.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "default_user_3"], ["email", "default_user_3.email.com"], ["password_digest", "$2a$10$Ducy9PWdObkMtbXRO.gomeTIWwQFbRf6z7GCN8k8lzxNzOlgGjf7q"], ["created_at", "2016-05-09 23:43:45.030110"], ["updated_at", "2016-05-09 23:43:45.030110"]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'jeneve' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jeneve.email.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "password_digest", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "jeneve"], ["email", "jeneve.email.com"], ["password_digest", "$2a$10$nWu0j5WGdHCv880t5systec7MnB8ru8cainb79gtOz0pOpgkydhrW"], ["role", 1], ["created_at", "2016-05-09 23:43:45.105374"], ["updated_at", "2016-05-09 23:43:45.105374"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'jon' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jon.email.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "email", "password_digest", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "jon"], ["email", "jon.email.com"], ["password_digest", "$2a$10$X98juL1.Ya.mOuzGJ8dhYucJBr/atBwOtL9Sm06F/JDmYR7TRyyU6"], ["role", 1], ["created_at", "2016-05-09 23:43:45.178265"], ["updated_at", "2016-05-09 23:43:45.178265"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'marina' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'marina.email.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "password_digest", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "marina"], ["email", "marina.email.com"], ["password_digest", "$2a$10$AU/CEA5LZkNgfRkcYn5s9uPckfVxdyAYHgOQ9aABc8o1piTqfJGzC"], ["role", 1], ["created_at", "2016-05-09 23:43:45.253612"], ["updated_at", "2016-05-09 23:43:45.253612"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "orders" ("user_id", "total_cost", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 1], ["total_cost", "2000.0"], ["created_at", "2016-05-09 23:43:45.264392"], ["updated_at", "2016-05-09 23:43:45.264392"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["order_id", 1], ["package_id", 1], ["created_at", "2016-05-09 23:43:45.273829"], ["updated_at", "2016-05-09 23:43:45.273829"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 1], ["order_id", 1], ["package_id", 2], ["created_at", "2016-05-09 23:43:45.276111"], ["updated_at", "2016-05-09 23:43:45.276111"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["order_id", 1], ["package_id", 3], ["created_at", "2016-05-09 23:43:45.277624"], ["updated_at", "2016-05-09 23:43:45.277624"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_packages" WHERE "order_packages"."order_id" = $1[0m  [["order_id", 1]]
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "orders" ("user_id", "total_cost", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 1], ["total_cost", "1500.0"], ["created_at", "2016-05-09 23:43:45.295685"], ["updated_at", "2016-05-09 23:43:45.295685"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["order_id", 2], ["package_id", 1], ["created_at", "2016-05-09 23:43:45.297713"], ["updated_at", "2016-05-09 23:43:45.297713"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 1], ["order_id", 2], ["package_id", 2], ["created_at", "2016-05-09 23:43:45.299416"], ["updated_at", "2016-05-09 23:43:45.299416"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["order_id", 2], ["package_id", 3], ["created_at", "2016-05-09 23:43:45.301981"], ["updated_at", "2016-05-09 23:43:45.301981"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_packages" WHERE "order_packages"."order_id" = $1[0m  [["order_id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "orders" ("user_id", "total_cost", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 1], ["total_cost", "1000.0"], ["created_at", "2016-05-09 23:43:45.305436"], ["updated_at", "2016-05-09 23:43:45.305436"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["order_id", 3], ["package_id", 1], ["created_at", "2016-05-09 23:43:45.307928"], ["updated_at", "2016-05-09 23:43:45.307928"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 1], ["order_id", 3], ["package_id", 2], ["created_at", "2016-05-09 23:43:45.309390"], ["updated_at", "2016-05-09 23:43:45.309390"]]
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["order_id", 3], ["package_id", 3], ["created_at", "2016-05-09 23:43:45.310823"], ["updated_at", "2016-05-09 23:43:45.310823"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "order_packages" WHERE "order_packages"."order_id" = $1[0m  [["order_id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "orders" ("user_id", "total_cost", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 2], ["total_cost", "1000.0"], ["created_at", "2016-05-09 23:43:45.313261"], ["updated_at", "2016-05-09 23:43:45.313261"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["order_id", 4], ["package_id", 3], ["created_at", "2016-05-09 23:43:45.315247"], ["updated_at", "2016-05-09 23:43:45.315247"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 2], ["order_id", 4], ["package_id", 4], ["created_at", "2016-05-09 23:43:45.316523"], ["updated_at", "2016-05-09 23:43:45.316523"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["order_id", 4], ["package_id", 5], ["created_at", "2016-05-09 23:43:45.317833"], ["updated_at", "2016-05-09 23:43:45.317833"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_packages" WHERE "order_packages"."order_id" = $1[0m  [["order_id", 4]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "orders" ("user_id", "total_cost", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 2], ["total_cost", "1000.0"], ["created_at", "2016-05-09 23:43:45.320554"], ["updated_at", "2016-05-09 23:43:45.320554"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["order_id", 5], ["package_id", 3], ["created_at", "2016-05-09 23:43:45.322573"], ["updated_at", "2016-05-09 23:43:45.322573"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 2], ["order_id", 5], ["package_id", 4], ["created_at", "2016-05-09 23:43:45.324512"], ["updated_at", "2016-05-09 23:43:45.324512"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["order_id", 5], ["package_id", 5], ["created_at", "2016-05-09 23:43:45.326394"], ["updated_at", "2016-05-09 23:43:45.326394"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_packages" WHERE "order_packages"."order_id" = $1[0m  [["order_id", 5]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "orders" ("user_id", "total_cost", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 2], ["total_cost", "3000.0"], ["created_at", "2016-05-09 23:43:45.329529"], ["updated_at", "2016-05-09 23:43:45.329529"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["order_id", 6], ["package_id", 3], ["created_at", "2016-05-09 23:43:45.333340"], ["updated_at", "2016-05-09 23:43:45.333340"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 2], ["order_id", 6], ["package_id", 4], ["created_at", "2016-05-09 23:43:45.335126"], ["updated_at", "2016-05-09 23:43:45.335126"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["order_id", 6], ["package_id", 5], ["created_at", "2016-05-09 23:43:45.336482"], ["updated_at", "2016-05-09 23:43:45.336482"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_packages" WHERE "order_packages"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "orders" ("user_id", "total_cost", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 3], ["total_cost", "5000.0"], ["created_at", "2016-05-09 23:43:45.340180"], ["updated_at", "2016-05-09 23:43:45.340180"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["order_id", 7], ["package_id", 5], ["created_at", "2016-05-09 23:43:45.341870"], ["updated_at", "2016-05-09 23:43:45.341870"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 3], ["order_id", 7], ["package_id", 6], ["created_at", "2016-05-09 23:43:45.343670"], ["updated_at", "2016-05-09 23:43:45.343670"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["order_id", 7], ["package_id", 7], ["created_at", "2016-05-09 23:43:45.347751"], ["updated_at", "2016-05-09 23:43:45.347751"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "order_packages" WHERE "order_packages"."order_id" = $1[0m  [["order_id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "orders" ("user_id", "total_cost", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 3], ["total_cost", "1000.0"], ["created_at", "2016-05-09 23:43:45.350374"], ["updated_at", "2016-05-09 23:43:45.350374"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["order_id", 8], ["package_id", 5], ["created_at", "2016-05-09 23:43:45.351568"], ["updated_at", "2016-05-09 23:43:45.351568"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 3], ["order_id", 8], ["package_id", 6], ["created_at", "2016-05-09 23:43:45.352709"], ["updated_at", "2016-05-09 23:43:45.352709"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["order_id", 8], ["package_id", 7], ["created_at", "2016-05-09 23:43:45.353814"], ["updated_at", "2016-05-09 23:43:45.353814"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "order_packages" WHERE "order_packages"."order_id" = $1[0m  [["order_id", 8]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "orders" ("user_id", "total_cost", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 3], ["total_cost", "5000.0"], ["created_at", "2016-05-09 23:43:45.355832"], ["updated_at", "2016-05-09 23:43:45.355832"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["order_id", 9], ["package_id", 5], ["created_at", "2016-05-09 23:43:45.357109"], ["updated_at", "2016-05-09 23:43:45.357109"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 3], ["order_id", 9], ["package_id", 6], ["created_at", "2016-05-09 23:43:45.358427"], ["updated_at", "2016-05-09 23:43:45.358427"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "order_packages" ("user_id", "order_id", "package_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["order_id", 9], ["package_id", 7], ["created_at", "2016-05-09 23:43:45.359713"], ["updated_at", "2016-05-09 23:43:45.359713"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "order_packages" WHERE "order_packages"."order_id" = $1[0m  [["order_id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]

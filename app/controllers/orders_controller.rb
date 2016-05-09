@@ -1,13 +1,12 @@
 class OrdersController < ApplicationController
+  before_action :logged_in_user, only: [:show]
 
   def index
     @orders = current_user.orders
   end
 
   def show
-    if current_user.nil?
-      render file: "/public/404"
-    elsif current_user == Order.find(params[:id]).user || current_user.admin?
+    if current_user == Order.find(params[:id]).user || current_user.admin?
       @order = Order.find(params[:id])
     else
       render file: "/public/404"
