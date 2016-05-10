@@ -1,7 +1,7 @@
 <br>
 <div class="row small-6 offset-3">
-  <h4 class="centered-text">Welcome to Your Dashboard, <%= @user.username.capitalize %></h4>
-  <h4 class="centered-text"><%= @user.email %></h4>
+  <h4 class="centered-text">Welcome to Your Dashboard, <%= current_user.username.capitalize %></h4>
+  <h4 class="centered-text"><%= current_user.email %></h4>
 </div>
 <br>
 <hr>
