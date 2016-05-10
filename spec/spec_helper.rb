@@ -35,6 +35,10 @@ RSpec.configure do |config|
   # library (such as bogus or mocha) by changing the `mock_with` option here.
 RSpec.configure do |config|
   config.mock_with :mocha
+
+  config.after(:suite) do
+    FileUtils.rm_rf(Dir["#{Rails.root}/public/system"])
+  end
 end
 
 

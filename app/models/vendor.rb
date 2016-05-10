@@ -3,6 +3,8 @@ class Vendor < ActiveRecord::Base
 
   has_many :photos
 
+  validates_presence_of :name
+
   def generate_slug
     self.slug = self.name.parameterize
   end
