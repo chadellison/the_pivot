@@ -9,9 +9,7 @@ class TripPackagesController < ApplicationController
   end
 
    def show
-    unless @trip.itinerary.nil?
-      @packages = @trip.find_packages
-    end
+    @packages = @trip.find_packages if @trip.itinerary
   end
 
   def update

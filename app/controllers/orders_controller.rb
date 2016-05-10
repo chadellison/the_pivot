@@ -14,11 +14,14 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order = Order.create(user_id: current_user.id, total_cost: @trip.total_price, status: 1)
-    order.create_packages(@trip)
-    flash[:success] = "Order was Successfully Placed"
-    session[:trip].clear
-    redirect_to orders_path
+    new_order = OrderGenerator.new(current_user, @trip)
+    if new_order
+      flash[:success] = "Order was Successfully Placed"
+      session[:trip].clear
+      redirect_to orders_path
+    else
+      redirect_to "/trip"
+    end
   end
 
 end

@@ -83,9 +83,11 @@ RSpec.describe Order, type: :model do
     order = Order.new(id: 1)
     order.save(validate: false)
     trip = Trip.new({ "1" => 1, "2" => 2 })
+    user = User.new(id: 1)
+    user.save(validate: false)
 
-    order.create_packages(trip)
+    OrderGenerator.new(user, trip)
 
-    expect(order.packages.count). to eq(3)
+    expect(Order.last.packages.count).to eq(3)
   end
 end

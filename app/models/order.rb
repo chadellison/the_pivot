@@ -1,19 +1,11 @@
 class Order < ActiveRecord::Base
+  include ApplicationHelper
+
   belongs_to :user
   has_many :order_packages
   has_many :packages, through: :order_packages
 
   enum status: %w(Pending Paid Cancelled)
-
-  def create_packages(trip)
-    trip.itinerary.each_pair do |key, value|
-      value.times do
-        order_packages.create(user_id: user_id,
-                              order_id: id,
-                              package_id: key.to_i)
-      end
-    end
-  end
 
   def package_total_price
     packages.sum(:price)
@@ -29,10 +21,6 @@ class Order < ActiveRecord::Base
 
   def subtotal(package)
     package_quantity(package.id) * package.price
-  end
-
-  def format_time(time)
-    time.strftime("%B %d, %Y @ %l:%M%p")
   end
 
   def package_names

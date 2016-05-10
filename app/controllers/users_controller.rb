@@ -20,9 +20,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
-    if @user.update_attributes(params_check)
-      flash[:error] = "Success! Your account updated."
+    if current_user.update_attributes(params_check)
+      flash[:success] = "Success! Your account updated."
     else
       flash[:error] = "Your account could not be updated. Please check your input and try again."
     end
@@ -30,8 +29,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @destination = Destination.new
     @package = Package.new
   end
 
