@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates_presence_of :username, :email, :password, :password_confirmation
   validates :username, :email, uniqueness: true
-  # scope :platform_admin?, -> { roles.exists?(name: "platform_admin") }
+
 
   def platform_admin?
     roles.exists?(name: "platform_admin")
