@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424215610) do
+ActiveRecord::Schema.define(version: 20160510223442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,21 +44,20 @@ ActiveRecord::Schema.define(version: 20160424215610) do
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
-  create_table "packages", force: :cascade do |t|
+  create_table "photos", force: :cascade do |t|
     t.string   "title"
     t.decimal  "price"
     t.string   "description"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.integer  "destination_id"
-    t.integer  "status",             default: 0
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "vendor_id"
   end
 
-  add_index "packages", ["destination_id"], name: "index_packages_on_destination_id", using: :btree
+  add_index "photos", ["vendor_id"], name: "index_photos_on_vendor_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -70,9 +69,16 @@ ActiveRecord::Schema.define(version: 20160424215610) do
     t.integer  "role",                  default: 0
   end
 
+  create_table "vendors", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "slug"
+  end
+
   add_foreign_key "order_packages", "orders"
-  add_foreign_key "order_packages", "packages"
+  add_foreign_key "order_packages", "photos", column: "package_id"
   add_foreign_key "order_packages", "users"
   add_foreign_key "orders", "users"
-  add_foreign_key "packages", "destinations"
+  add_foreign_key "photos", "vendors"
 end

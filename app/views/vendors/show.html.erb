@@ -1,0 +1,4 @@
+<h1><%= @vendor.name %></h1>
+<% @vendor.photos.each do |photo| %>
+  <%= link_to image_tag(photo.image.url, alt: photo.image.url), photo_path(photo.id) %>
+<% end %>

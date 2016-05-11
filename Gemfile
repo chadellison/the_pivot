@@ -28,7 +28,6 @@ gem 'stripe'
 
 # Use Unicorn as the app server
 gem 'unicorn'
-gem 'haml'
 gem 'bcrypt', '~> 3.1.7'
 gem 'faraday'
 gem 'paperclip'
