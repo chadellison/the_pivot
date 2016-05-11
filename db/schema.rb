@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511012726) do
+ActiveRecord::Schema.define(version: 20160511022214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,14 @@ ActiveRecord::Schema.define(version: 20160511012726) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "vendor_admins", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "vendor_id"
+  end
+
+  add_index "vendor_admins", ["user_id"], name: "index_vendor_admins_on_user_id", using: :btree
+  add_index "vendor_admins", ["vendor_id"], name: "index_vendor_admins_on_vendor_id", using: :btree
+
   create_table "vendors", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -80,4 +88,6 @@ ActiveRecord::Schema.define(version: 20160511012726) do
   add_foreign_key "order_packages", "users"
   add_foreign_key "orders", "users"
   add_foreign_key "photos", "vendors"
+  add_foreign_key "vendor_admins", "users"
+  add_foreign_key "vendor_admins", "vendors"
 end
