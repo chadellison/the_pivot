@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511022214) do
+ActiveRecord::Schema.define(version: 20160511192028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,22 @@ ActiveRecord::Schema.define(version: 20160511022214) do
 
   add_index "photos", ["vendor_id"], name: "index_photos_on_vendor_id", using: :btree
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_roles", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "vendor_id"
+    t.integer "role_id"
+  end
+
+  add_index "user_roles", ["role_id"], name: "index_user_roles_on_role_id", using: :btree
+  add_index "user_roles", ["user_id"], name: "index_user_roles_on_user_id", using: :btree
+  add_index "user_roles", ["vendor_id"], name: "index_user_roles_on_vendor_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password_digest"
@@ -67,14 +83,6 @@ ActiveRecord::Schema.define(version: 20160511022214) do
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end
-
-  create_table "vendor_admins", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "vendor_id"
-  end
-
-  add_index "vendor_admins", ["user_id"], name: "index_vendor_admins_on_user_id", using: :btree
-  add_index "vendor_admins", ["vendor_id"], name: "index_vendor_admins_on_vendor_id", using: :btree
 
   create_table "vendors", force: :cascade do |t|
     t.string   "name"
@@ -88,6 +96,7 @@ ActiveRecord::Schema.define(version: 20160511022214) do
   add_foreign_key "order_packages", "users"
   add_foreign_key "orders", "users"
   add_foreign_key "photos", "vendors"
-  add_foreign_key "vendor_admins", "users"
-  add_foreign_key "vendor_admins", "vendors"
+  add_foreign_key "user_roles", "roles"
+  add_foreign_key "user_roles", "users"
+  add_foreign_key "user_roles", "vendors"
 end
