@@ -2,12 +2,25 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :all_destinations
   before_action :set_trip
+  before_action :authorize!
 
   helper_method :current_user
 
   def logged_in_user
     unless current_user
       render file: "/public/404"
+    end
+  end
+
+  def current_permission
+    @current_permission ||= Permissions.new(current_user,
+                                                  params[:controller],
+                                                  params[:action])
+  end
+
+  def authorize!
+    unless current_permission.allow?
+      render file: 'public/404.html'
     end
   end
 
@@ -18,6 +31,7 @@ class ApplicationController < ActionController::Base
   def all_destinations
     @destinations = Destination.all
   end
+
 
   def set_trip
     @trip = Trip.new(session[:trip])

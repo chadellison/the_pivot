@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
   resources :photos, only: [:index, :show, :create]
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"

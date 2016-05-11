@@ -2,8 +2,8 @@ class Vendor < ActiveRecord::Base
   before_create :generate_slug
 
   has_many :photos
-  has_many :vendor_admins
-  has_many :users, through: :vendor_admins
+  has_many :user_roles
+  has_many :users, through: :user_roles
 
   validates_presence_of :name
 
