@@ -1,31 +1,9 @@
 <br>
 <div class="row small-6 offset-3">
   <h4 class="centered-text">Welcome to Your Dashboard, <%= @user.username %></h4>
-  <h4 class="centered-text"><%= @user.email %></h4>
+  <ul>
+    <% @user.vendors.each do |vendor| %>
+      <li><%= vendor.name %></li>
+    <% end %>
+  </ul>
 </div>
-<br>
-<hr>
-
-  <h4 class="text-center"><%= link_to "All Orders", admin_orders_path %></h4>
-    <%= render partial: "layouts/forms" %>
-    <ul class="accordion" data-accordion>
-      <li class="accordion-item" data-accordion-item>
-        <a href="#" class="accordian-title"><h3 class="text-center">Create a New Package</h3></a>
-        <div class="accordion-content" data-tab-content>
-          <div class="row small-4 offset-4">
-          <%= form_for @package do |f| %>
-            <%= f.text_field :title, placeholder: "Package Title" %>
-            <%= f.text_area :description, placeholder: "Package Description" %>
-            <%= f.label :price, "Choose a Price for the New Package" %>
-            <%= f.number_field :price, in: 1000..10000, step: "any" %>
-            <%= f.label :destination_id, "Choose a Destination for the New Package" %>
-            <%= f.collection_select :destination_id, @destinations, :id, :planet, include_blank: true %>
-            <%= f.label :image, "Choose an Image" %>
-            <%= f.file_field :image %>
-            <%= f.submit class: "button expanded"  %>
-          <% end %>
-        </div>
-        </div>
-      </li>
-    </ul>
- <br>

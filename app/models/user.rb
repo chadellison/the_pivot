@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   has_secure_password
   validates_presence_of :username, :email, :password, :password_confirmation
   validates :username, :email, uniqueness: true
+  # scope :vendor?, -> {count > 0}
 
-  def vendor?#(business)
-    # byebug
-    # business.id == vendors.id
+  def vendor?
+    !vendors.empty?
   end
 end

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   get '/signup', to: "users#new"
+
   # resources :users, only: [:create, :update]
   # resources :charges, only: [:new, :create]
 
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   #
   #
   # namespace :admin do
-  #   get '/dashboard', to: "users#show"
+  get '/dashboard/:id', to: "users#show", as: :dashboard
   #   resources :users, only: [:update, :delete]
   #   get '/orders' , to: "orders#index"
   # end
