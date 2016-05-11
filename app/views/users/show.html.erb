@@ -2,8 +2,10 @@
 <div class="row small-6 offset-3">
   <h4 class="centered-text">Welcome to Your Dashboard, <%= current_user.username.capitalize %></h4>
   <h4 class="centered-text"><%= current_user.email %></h4>
+  <ul>
+    <% current_user.vendors.each do |vendor| %>
+      <li><%= vendor.name %></li>
+    <% end %>
+  </ul>
 </div>
 <br>
-<hr>
-<h4 class="text-center"><%= link_to "Your Recent Orders", orders_path %></h4>
-<%= render partial: "layouts/forms" %>

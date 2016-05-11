@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @package = Package.new
+    
   end
 
   private

@@ -1353,3 +1353,553 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+  [1m[36m (28.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePackages (20160419172456)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (21.8ms)[0m  [1mCREATE TABLE "packages" ("id" serial primary key, "title" character varying, "price" decimal, "description" character varying, "image" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160419172456"]]
+  [1m[36m (5.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateDestinations (20160419190420)
+  [1m[35m (6.0ms)[0m  BEGIN
+  [1m[36m (12.8ms)[0m  [1mCREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160419190420"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddDestinationToPackages (20160419190603)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "packages" ADD "destination_id" integer[0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX  "index_packages_on_destination_id" ON "packages"  ("destination_id")
+  [1m[36m (1.8ms)[0m  [1mALTER TABLE "packages" ADD CONSTRAINT "fk_rails_72648286cc"
+FOREIGN KEY ("destination_id")
+  REFERENCES "destinations" ("id")
+[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160419190603"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20160420225203)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "password_digest" character varying, "email" character varying, "password_confirmation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160420225203"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateOrders (20160421185408)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "user_id" integer) [0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX  "index_orders_on_user_id" ON "orders"  ("user_id")
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "orders" ADD CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160421185408"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddRoletoUser (20160421213617)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (4.2ms)[0m  [1mALTER TABLE "users" ADD "role" integer DEFAULT 0[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160421213617"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateOrderPackages (20160422114555)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "order_packages" ("id" serial primary key, "user_id" integer, "order_id" integer, "package_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX  "index_order_packages_on_user_id" ON "order_packages"  ("user_id")
+  [1m[36m (0.5ms)[0m  [1mCREATE  INDEX  "index_order_packages_on_order_id" ON "order_packages"  ("order_id")[0m
+  [1m[35m (0.5ms)[0m  CREATE  INDEX  "index_order_packages_on_package_id" ON "order_packages"  ("package_id")
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "order_packages" ADD CONSTRAINT "fk_rails_b91fae3edd"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "order_packages" ADD CONSTRAINT "fk_rails_273ab81fbb"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "order_packages" ADD CONSTRAINT "fk_rails_0460959e0e"
+FOREIGN KEY ("package_id")
+  REFERENCES "packages" ("id")
+[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160422114555"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeOrdersTable (20160422142300)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "orders" ADD "created_at" timestamp NOT NULL[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "orders" ADD "updated_at" timestamp NOT NULL
+  [1m[36m (1.6ms)[0m  [1mALTER TABLE "orders" ADD "status" integer DEFAULT 0[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160422142300"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to AddColumnToOrderPackages (20160422235247)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "order_packages" ADD "sub_quantity" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160422235247"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddTotalCostToOrders (20160423054759)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "orders" ADD "total_cost" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160423054759"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to DeleteSubQuantityFromOrderPackages (20160423174049)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "order_packages" DROP "sub_quantity"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160423174049"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeColumnToOrders (20160423183825)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (2.9ms)[0m  [1mALTER TABLE "orders" ALTER COLUMN "total_cost" TYPE decimal(20,2)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160423183825"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddStatusToPackage (20160423210829)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (2.5ms)[0m  [1mALTER TABLE "packages" ADD "status" integer DEFAULT 0[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160423210829"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to AddPaperclipFieldsToPackage (20160424203836)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "packages" ADD "image_file_name" character varying[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "packages" ADD "image_content_type" character varying
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "packages" ADD "image_file_size" integer[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "packages" ADD "image_updated_at" timestamp
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160424203836"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to RemoveImageFromPackages (20160424204404)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "packages" DROP "image"
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160424204404"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+Migrating to RemoveColumnsFromPackage (20160424215552)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "packages" DROP "image_file_name"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "packages" DROP "image_content_type"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "packages" DROP "image_file_size"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "packages" DROP "image_updated_at"[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160424215552"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddPaperclipToPackages (20160424215610)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "packages" ADD "image_file_name" character varying[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "packages" ADD "image_content_type" character varying
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "packages" ADD "image_file_size" integer[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "packages" ADD "image_updated_at" timestamp
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160424215610"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to CreateVendors (20160510214709)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "vendors" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160510214709"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to RenamePackagesToPhotos (20160510215115)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "packages" RENAME TO "photos"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "public"."packages_id_seq" RENAME TO "photos_id_seq"[0m
+  [1m[35m (0.2ms)[0m  ALTER INDEX "packages_pkey" RENAME TO "photos_pkey"
+  [1m[36m (0.2ms)[0m  [1mALTER INDEX "index_packages_on_destination_id" RENAME TO "index_photos_on_destination_id"[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160510215115"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveColumnsFromPhotos (20160510215453)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "photos" DROP "destination_id"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160510215453"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveStatusFromPhotos (20160510215739)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "photos" DROP "status"[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160510215739"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddVendorToPhoto (20160510222200)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "photos" ADD "vendor_id" integer[0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX  "index_photos_on_vendor_id" ON "photos"  ("vendor_id")
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "photos" ADD CONSTRAINT "fk_rails_240d17eab9"
+FOREIGN KEY ("vendor_id")
+  REFERENCES "vendors" ("id")
+[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160510222200"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddColumnSlugToVendors (20160510223442)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "vendors" ADD "slug" character varying[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160510223442"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveRoleFromUsers (20160511012726)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" DROP "role"[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160511012726"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'destinations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'order_packages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'orders'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'photos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'vendors'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/" for ::1 at 2016-05-10 19:53:59 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/christopher1/.rvm/gems/ruby-2.3.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (2.1ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/levels/1" for ::1 at 2016-05-10 19:54:04 -0600
+
+ActionController::RoutingError (No route matches [GET] "/levels/1"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/christopher1/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/christopher1/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/christopher1/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/christopher1/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/christopher1/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.7ms)
+  Rendered /Users/christopher1/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.6ms)
+  Rendered /Users/christopher1/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.1ms)
+  Rendered /Users/christopher1/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (80.9ms)
+  Rendered /Users/christopher1/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/christopher1/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/christopher1/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/christopher1/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/christopher1/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (297.6ms)
+  Rendered /Users/christopher1/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/christopher1/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/christopher1/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (342.2ms)
+
+
+Started GET "/login" for ::1 at 2016-05-10 19:54:04 -0600
+Processing by VendorsController#show as HTML
+  Parameters: {"vendor"=>"login"}
+  [1m[35mVendor Load (0.3ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."slug" = $1 LIMIT 1  [["slug", "login"]]
+  Rendered public/404.html within layouts/application (0.3ms)
+  Rendered layouts/_nav.html.erb (0.2ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 2696ms (Views: 2680.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/_settings.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/cart.self-efb318822ddf2d9407ef2848b10fdb5dd7b6fadc84383f45916cbedf4d90234c.css?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/footer.self-9ef4c38175215411f6b711a3f43a327a20860f90b50f0f4f6dc4e62fe660de1c.css?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/flash.self-8544d60943c05470cde07471e413c09022b38c37b5bf0bd07dac6d3a17450eae.css?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/custom.self-452af11335c3dcf4a6f8689bfdf0151ba39839419d2cc8a5ad3ec08334a29adc.css?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation_and_overrides.self-d248cc3441577a779a7b2d2f49d32fea53ae9b1a8952a64aeb25a524e5d3eb66.css?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/hero_image.self-fe56e8140b4dfc0c48abf5ca6906781a4054ccee331baedd0f424dd0c336fb31.css?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/image_overlay.self-46b933c2d8e7f2ad9ee9d8e7e0a1a39a0f1528400747f11607d1e0fccc2507ad.css?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/log-in.self-1f2923805bf060d01275d07e6c7ee662df5010b1eb95945bbb341e6d431412d6.css?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/application.self-129932ab10f1d1e5a4621657c626d393bb0718716393ddba5dc5b25d244bd3d9.css?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2016-05-10 19:54:07 -0600
+
+
+Started GET "/assets/foundation-icons-8c44c3feedae5331a281278ea3ba91d2255928a2f3010d316d6fbb9052e0c2ec.woff" for ::1 at 2016-05-10 19:54:07 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateVendorAdminsTable (20160511022214)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "vendor_admins_tables" ("id" serial primary key, "users_id" integer, "vendors_id" integer) [0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_vendor_admins_tables_on_users_id" ON "vendor_admins_tables"  ("users_id")
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_vendor_admins_tables_on_vendors_id" ON "vendor_admins_tables"  ("vendors_id")[0m
+  [1m[35m (1.3ms)[0m  ALTER TABLE "vendor_admins_tables" ADD CONSTRAINT "fk_rails_420eecfa38"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateVendorAdminsTable (20160511022214)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "vendor_admins" ("id" serial primary key, "users_id" integer, "vendors_id" integer) [0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_vendor_admins_on_users_id" ON "vendor_admins"  ("users_id")
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_vendor_admins_on_vendors_id" ON "vendor_admins"  ("vendors_id")[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "vendor_admins" ADD CONSTRAINT "fk_rails_f74f61a640"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateVendorAdminsTable (20160511022214)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "vendor_admins" ("id" serial primary key, "user_id" integer, "vendor_id" integer) [0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX  "index_vendor_admins_on_user_id" ON "vendor_admins"  ("user_id")
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_vendor_admins_on_vendor_id" ON "vendor_admins"  ("vendor_id")[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "vendor_admins" ADD CONSTRAINT "fk_rails_f74f61a640"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "vendor_admins" ADD CONSTRAINT "fk_rails_3342a6bf96"
+FOREIGN KEY ("vendor_id")
+  REFERENCES "vendors" ("id")
+[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160511022214"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'destinations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'order_packages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'orders'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'photos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'vendor_admins'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'vendors'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m

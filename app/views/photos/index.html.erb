@@ -1,0 +1,34 @@
+<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
+  <ul class="orbit-container">
+    <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+    <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+    <li class="is-active orbit-slide">
+      <img class="orbit-image" src="https://images.unsplash.com/photo-1417577097439-425fb7dec05e?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=0fa9b1dc741ae8ca7c1ad725561fc6b5" alt="Space">
+      <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+    </li>
+    <li class="orbit-slide">
+      <img class="orbit-image" src="https://images.unsplash.com/photo-1447433819943-74a20887a81e?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=6aec177d11f79bc9d704cdf69db41e39" alt="Space">
+      <figcaption class="orbit-caption">Explore</figcaption>
+    </li>
+    <li class="orbit-slide">
+      <img class="orbit-image" src="https://images.unsplash.com/photo-1459624470348-67edb45d81b1?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=141a79ed0fc042bbf95cd2d225bcace1" alt="Space">
+      <figcaption class="orbit-caption">Lift</figcaption>
+    </li>
+    <li class="orbit-slide">
+      <img class="orbit-image" src="https://images.unsplash.com/photo-1457365050282-c53d772ef8b2?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=5814eb3b3c914cbbb967a6801b05c625" alt="Space">
+      <figcaption class="orbit-caption">Take Off</figcaption>
+    </li>
+    <nav class="orbit-bullets">
+      <button class="is-active" data-slide="0"><span class="show-for-sr"></span><span class="show-for-sr"></span></button>
+      <button data-slide="1"><span class="show-for-sr"></span></button>
+      <button data-slide="2"><span class="show-for-sr"></span></button>
+      <button data-slide="3"><span class="show-for-sr"></span></button>
+    </nav>
+  </ul>
+</div>
+<br>
+<hr>
+<h3 class="text-center"> Our Photos</h3>
+<hr>
+<br>
+<%= render partial: "shared/photos", locals: { photos: @photos } %>
