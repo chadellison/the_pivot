@@ -4,7 +4,8 @@
   resources :photos, only: [:index, :show, :create]
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
-  get '/signup', to: "users#new"
+  get '/signup', to: "users#new", as: :users
+  post '/signup', to: 'users#create'
 
   get '/dashboard/:id', to: "users#show", as: :dashboard
   get "/:vendor", to: "vendors#show", as: :vendor
