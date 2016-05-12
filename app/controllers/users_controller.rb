@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+    @photo = Photo.new
   end
 
   private
