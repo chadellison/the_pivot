@@ -1,23 +1,27 @@
-<br>
-<div class="row small-6 offset-3">
-  <h4 class="centered-text">Welcome to Your Dashboard, <%= current_user.username.capitalize %></h4>
-  <h4 class="centered-text"><%= current_user.email %></h4>
-  <ul>
+<div class="row">
+  <div class="small-3 columns side-menu full-height">
+    <br>
+    <a href="">Upload a Photo</a>
+  </div>
+  <div class="small-6 columns">
+    <br>
+    <h4 class="centered-text">Welcome to Your Dashboard, <%= current_user.username.capitalize %></h4>
+    <h4 class="centered-text"><%= current_user.email %></h4>
     <% current_user.vendors.each do |vendor| %>
-      <li><%= vendor.name %></li>
+      <%= link_to vendor.name, vendor_path(vendor.id), class: "vendor-links small-3 columns" %>
     <% end %>
-  </ul>
-  <% if current_user.vendor_admin? %>
-    <%= form_for(@photo) do |f| %>
-      <%= f.text_field :title, placeholder: "Photo Title" %>
-      <%= f.text_area :description, placeholder: "Photo Description" %>
-      <%= f.label :price, "Choose a Price for the New Photo" %>
-      <%= f.number_field :price, in: 1000..10000, step: "any" %>
-      <%= f.label :image, "Choose an Image" %>
-      <%= f.file_field :image %>
-      <%= f.submit "Create Photo", class: "button expanded" %>
+    <% if current_user.vendor_admin? %>
+      <%= form_for(@photo) do |f| %>
+        <%= f.text_field :title, placeholder: "Photo Title" %>
+        <%= f.text_area :description, placeholder: "Photo Description" %>
+        <%= f.label :price, "Choose a Price for the New Photo" %>
+        <%= f.number_field :price, in: 1000..10000, step: "any" %>
+        <%= f.label :image, "Choose an Image" %>
+        <%= f.file_field :image %>
+        <%= f.submit "Create Photo", class: "button expanded" %>
+      <% end %>
     <% end %>
-  <% end %>
 
+  </div>
+  <div class="small-3"></div>
 </div>
-<br>
