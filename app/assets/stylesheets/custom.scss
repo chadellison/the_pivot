@@ -117,14 +117,6 @@ div.callout {
   width: 100%;
 }
 
-.title-span {
-  font: bold 24px/45px Helvetica, Sans-Serif;
-  letter-spacing: -1px;
-  background: white; /* fallback color */
-  background: rgba(221, 213, 200, 0.7);
-  padding: 10px;
-  border-radius: 5px;
-}
 
 .show-info-container {
   height: 400px;
@@ -134,15 +126,9 @@ div.callout {
   border-radius: 5px;
 }
 
-
-.thumbnail {
-  height: 300px;
-  width: 400px;
-  object-fit: cover;
-}
-
 .fi-shopping-bag {
    font-size: 36px;
+   color: black;
    position: relative;
 }
 
