@@ -1,7 +1,11 @@
-<div class="row small-up-1 medium-up-2 large-up-4 featured-photos">
+
+<div class="row small up-1 medium-up-1 large-up-2">
   <% photos.each do |photo| %>
   <div class="column">
-    <%= link_to image_tag(photo.image.url, alt: photo.image.url), photo_path(photo.id) %>
+    <div class="flush vendor-photo">
+      <%= link_to image_tag(photo.image.url, alt: photo.image.url), photo_path(photo.id) %>
+      <%= link_to photo.vendor.name, vendor_path(photo.vendor.slug) %>
+    </div>
   </div>
   <% end %>
 </div>

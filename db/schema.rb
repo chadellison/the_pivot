@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512041846) do
+ActiveRecord::Schema.define(version: 20160512141544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20160512041846) do
 
   create_table "photos", force: :cascade do |t|
     t.string   "title"
-    t.decimal  "price"
     t.string   "description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -72,6 +71,7 @@ ActiveRecord::Schema.define(version: 20160512041846) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "vendor_id"
+    t.integer  "price"
   end
 
   add_index "photos", ["vendor_id"], name: "index_photos_on_vendor_id", using: :btree
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 20160512041846) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+    t.string   "about"
   end
 
   add_foreign_key "order_packages", "orders"
