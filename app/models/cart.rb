@@ -5,7 +5,7 @@ class Cart
     @cart_photos = initial_cart || {}
   end
 
-  def add_package(photo_id)
+  def add_photo(photo_id)
     cart_photos[photo_id.to_s] ||= 0
     cart_photos[photo_id.to_s] += 1
   end
@@ -16,7 +16,7 @@ class Cart
     end.sum
   end
 
-  def find_packages
+  def find_photos
     cart_photos.keys.map do |id|
       Photo.find(id)
     end

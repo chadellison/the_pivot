@@ -31,6 +31,12 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
+  config.paperclip_defaults = {
+    :url => "/system/:rails_env/:c/:attachment/:id_partition/:style/:filename",
+      :path => ":rails_root/spec/images"
+  }
+
+
   # Randomize the order test cases are executed.
   config.active_support.test_order = :random
 

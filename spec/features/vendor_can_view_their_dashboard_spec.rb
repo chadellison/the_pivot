@@ -33,9 +33,11 @@ RSpec.feature "Vendor can login" do
     fill_in "Password", with: user.password
     click_button "Sign In"
 
-    expect(current_path).to eq dashboard_path(user.id)
-    expect(page).not_to have_content(vendor.name)
-    expect(page).not_to have_content(vendor2.name)
+    within(".dashboard") do
+      expect(current_path).to eq dashboard_path(user.id)
+      expect(page).not_to have_content(vendor.name)
+      expect(page).not_to have_content(vendor2.name)
+    end
   end
 
 end
