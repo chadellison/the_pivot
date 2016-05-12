@@ -9,6 +9,8 @@
   get '/dashboard/:id', to: "users#show", as: :dashboard
   get "/:vendor", to: "vendors#show", as: :vendor
 
+  get '/category/:name', to: "categories#show", as: :category
+
   # namespace :vendor, path: '/:vendor', as: :vendor do
   #   get '/dashboard', to: 'dashboards#show', as: :dashboard
   # end
@@ -30,5 +32,4 @@
   #   get '/orders' , to: "orders#index"
   # end
   #
-  # get '/:planet', to: "destinations#show", as: :destination
 end

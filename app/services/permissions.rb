@@ -39,6 +39,7 @@ class Permissions
     def guest_permissions
       return true if controller == "sessions"
       return true if controller == "vendors" && action.in?(%w(show))
+      return true if controller == "categories" && action.in?(%w(show))
       return true if controller == "photos" && action.in?(%w(index show))
     end
 

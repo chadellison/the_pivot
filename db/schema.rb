@@ -16,6 +16,13 @@ ActiveRecord::Schema.define(version: 20160512141544) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "slug"
+  end
+
   create_table "destinations", force: :cascade do |t|
     t.string   "planet"
     t.datetime "created_at", null: false
@@ -43,6 +50,16 @@ ActiveRecord::Schema.define(version: 20160512141544) do
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "photo_categories", force: :cascade do |t|
+    t.integer  "photo_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "photo_categories", ["category_id"], name: "index_photo_categories_on_category_id", using: :btree
+  add_index "photo_categories", ["photo_id"], name: "index_photo_categories_on_photo_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.string   "title"
@@ -96,6 +113,8 @@ ActiveRecord::Schema.define(version: 20160512141544) do
   add_foreign_key "order_packages", "photos", column: "package_id"
   add_foreign_key "order_packages", "users"
   add_foreign_key "orders", "users"
+  add_foreign_key "photo_categories", "categories"
+  add_foreign_key "photo_categories", "photos"
   add_foreign_key "photos", "vendors"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
