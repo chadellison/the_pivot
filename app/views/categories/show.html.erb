@@ -1,1 +1,10 @@
 <h1><%= @category.name %> Photos</h1>
+
+<div class="row small-up-to-1 medium-up-to-1 large-up-to-1">
+  <% @photos.each do |photo| %>
+    <div class="column">
+      <%= link_to image_tag(photo.image.url), photo_path(photo)  %>
+      <%= link_to photo.vendor, vendor_path(photo.vendor.slug) %>
+    </div>
+    <% end  %>
+</div>

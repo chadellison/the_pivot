@@ -1,9 +1,8 @@
 class CategoriesController < ApplicationController
 
   def show
-    byebug
     @category = Category.find_by(slug: params[:name])
-    @photos = category.photos
+    @photos = @category.photos
   end
 
 
