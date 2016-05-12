@@ -3,7 +3,7 @@
   [1m[36m (304.3ms)[0m  [1mCREATE DATABASE "space_age_development" ENCODING = 'unicode'[0m
   [1m[35m (249.0ms)[0m  CREATE DATABASE "space_age_test" ENCODING = 'unicode'
   [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (4.0ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (4.0ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (1.8ms)[0m  [1mCREATE TABLE "order_packages" ("id" serial primary key, "user_id" integer, "order_id" integer, "package_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
   [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_order_packages_on_order_id" ON "order_packages" USING btree ("order_id")
   [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_order_packages_on_package_id" ON "order_packages" USING btree ("package_id")[0m
@@ -54,7 +54,7 @@ FOREIGN KEY ("destination_id")
   [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160424204404')[0m
   [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160424215552')
   [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (7.5ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (7.5ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (1.7ms)[0m  [1mCREATE TABLE "order_packages" ("id" serial primary key, "user_id" integer, "order_id" integer, "package_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
   [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_order_packages_on_order_id" ON "order_packages" USING btree ("order_id")
   [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_order_packages_on_package_id" ON "order_packages" USING btree ("package_id")[0m
@@ -572,7 +572,7 @@ Completed   in 2568ms (ActiveRecord: 0.0ms)
   [1m[36m (358.3ms)[0m  [1mCREATE DATABASE "space_age_development" ENCODING = 'unicode'[0m
   [1m[35m (245.4ms)[0m  CREATE DATABASE "space_age_test" ENCODING = 'unicode'
   [1m[36mSQL (1.9ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (34.5ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (34.5ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (2.1ms)[0m  [1mCREATE TABLE "order_packages" ("id" serial primary key, "user_id" integer, "order_id" integer, "package_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
   [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_order_packages_on_order_id" ON "order_packages" USING btree ("order_id")
   [1m[36m (2.1ms)[0m  [1mCREATE  INDEX  "index_order_packages_on_package_id" ON "order_packages" USING btree ("package_id")[0m
@@ -623,7 +623,7 @@ FOREIGN KEY ("destination_id")
   [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160424204404')[0m
   [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160424215552')
   [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (6.4ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (6.4ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (2.8ms)[0m  [1mCREATE TABLE "order_packages" ("id" serial primary key, "user_id" integer, "order_id" integer, "package_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
   [1m[35m (2.7ms)[0m  CREATE  INDEX  "index_order_packages_on_order_id" ON "order_packages" USING btree ("order_id")
   [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_order_packages_on_package_id" ON "order_packages" USING btree ("package_id")[0m
@@ -1479,7 +1479,7 @@ Migrating to AddPaperclipToPackages (20160424215610)
   [1m[35m (0.3ms)[0m  COMMIT
 Migrating to CreateVendors (20160510214709)
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-  [1m[35m (1.9ms)[0m  CREATE TABLE "vendors" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (1.9ms)[0m  CREATE TABLE "vendors" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160510214709"]]
   [1m[35m (0.3ms)[0m  COMMIT
 Migrating to RenamePackagesToPhotos (20160510215115)
@@ -1977,13 +1977,13 @@ Migrations are pending. To resolve this issue, run:
   [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_order_packages_on_package_id" ON "order_packages" USING btree ("package_id")[0m
   [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_order_packages_on_user_id" ON "order_packages" USING btree ("user_id")
   [1m[36m (1.5ms)[0m  [1mDROP TABLE "orders" CASCADE[0m
-  [1m[35m (27.7ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "status" integer DEFAULT 0, "total_cost" decimal(20,2)) 
+  [1m[35m (27.7ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "status" integer DEFAULT 0, "total_cost" decimal(20,2))
   [1m[36m (2.3ms)[0m  [1mCREATE  INDEX  "index_orders_on_user_id" ON "orders" USING btree ("user_id")[0m
-  [1m[35m (5.0ms)[0m  CREATE TABLE "photos" ("id" serial primary key, "title" character varying, "price" decimal, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "vendor_id" integer) 
+  [1m[35m (5.0ms)[0m  CREATE TABLE "photos" ("id" serial primary key, "title" character varying, "price" decimal, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "vendor_id" integer)
   [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_photos_on_vendor_id" ON "photos" USING btree ("vendor_id")[0m
   [1m[35m (1.3ms)[0m  DROP TABLE "users" CASCADE
   [1m[36m (2.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "password_digest" character varying, "email" character varying, "password_confirmation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
-  [1m[35m (2.1ms)[0m  CREATE TABLE "vendor_admins" ("id" serial primary key, "user_id" integer, "vendor_id" integer) 
+  [1m[35m (2.1ms)[0m  CREATE TABLE "vendor_admins" ("id" serial primary key, "user_id" integer, "vendor_id" integer)
   [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_vendor_admins_on_user_id" ON "vendor_admins" USING btree ("user_id")[0m
   [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_vendor_admins_on_vendor_id" ON "vendor_admins" USING btree ("vendor_id")
   [1m[36m (3.6ms)[0m  [1mCREATE TABLE "vendors" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "slug" character varying) [0m
@@ -2026,19 +2026,19 @@ FOREIGN KEY ("vendor_id")
   [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160511012726')[0m
   [1m[35mSQL (0.5ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
   [1m[36m (6.1ms)[0m  [1mCREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
-  [1m[35m (1.9ms)[0m  CREATE TABLE "order_packages" ("id" serial primary key, "user_id" integer, "order_id" integer, "package_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (1.9ms)[0m  CREATE TABLE "order_packages" ("id" serial primary key, "user_id" integer, "order_id" integer, "package_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_order_packages_on_order_id" ON "order_packages" USING btree ("order_id")[0m
   [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_order_packages_on_package_id" ON "order_packages" USING btree ("package_id")
   [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_order_packages_on_user_id" ON "order_packages" USING btree ("user_id")[0m
-  [1m[35m (2.1ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "status" integer DEFAULT 0, "total_cost" decimal(20,2)) 
+  [1m[35m (2.1ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "status" integer DEFAULT 0, "total_cost" decimal(20,2))
   [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_orders_on_user_id" ON "orders" USING btree ("user_id")[0m
-  [1m[35m (2.7ms)[0m  CREATE TABLE "photos" ("id" serial primary key, "title" character varying, "price" decimal, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "vendor_id" integer) 
+  [1m[35m (2.7ms)[0m  CREATE TABLE "photos" ("id" serial primary key, "title" character varying, "price" decimal, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "vendor_id" integer)
   [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_photos_on_vendor_id" ON "photos" USING btree ("vendor_id")[0m
-  [1m[35m (4.6ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying, "password_digest" character varying, "email" character varying, "password_confirmation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (4.6ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying, "password_digest" character varying, "email" character varying, "password_confirmation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (4.0ms)[0m  [1mCREATE TABLE "vendor_admins" ("id" serial primary key, "user_id" integer, "vendor_id" integer) [0m
   [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_vendor_admins_on_user_id" ON "vendor_admins" USING btree ("user_id")
   [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_vendor_admins_on_vendor_id" ON "vendor_admins" USING btree ("vendor_id")[0m
-  [1m[35m (2.6ms)[0m  CREATE TABLE "vendors" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "slug" character varying) 
+  [1m[35m (2.6ms)[0m  CREATE TABLE "vendors" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "slug" character varying)
   [1m[36m (6.2ms)[0m  [1mALTER TABLE "order_packages" ADD CONSTRAINT "fk_rails_273ab81fbb"
 FOREIGN KEY ("order_id")
   REFERENCES "orders" ("id")
@@ -2067,7 +2067,7 @@ FOREIGN KEY ("user_id")
 FOREIGN KEY ("vendor_id")
   REFERENCES "vendors" ("id")
 [0m
-  [1m[35m (1.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[35m (1.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL)
   [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
   [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
   [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160511022214')[0m
@@ -2101,7 +2101,7 @@ FOREIGN KEY ("vendor_id")
   [1m[36m (242.1ms)[0m  [1mCREATE DATABASE "space_age_development" ENCODING = 'unicode'[0m
   [1m[35m (244.1ms)[0m  CREATE DATABASE "space_age_test" ENCODING = 'unicode'
   [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (4.2ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (4.2ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (2.0ms)[0m  [1mCREATE TABLE "order_packages" ("id" serial primary key, "user_id" integer, "order_id" integer, "package_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
   [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_order_packages_on_order_id" ON "order_packages" USING btree ("order_id")
   [1m[36m (1.6ms)[0m  [1mCREATE  INDEX  "index_order_packages_on_package_id" ON "order_packages" USING btree ("package_id")[0m
@@ -2111,7 +2111,7 @@ FOREIGN KEY ("vendor_id")
   [1m[36m (7.1ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "title" character varying, "price" decimal, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "vendor_id" integer) [0m
   [1m[35m (2.1ms)[0m  CREATE  INDEX  "index_photos_on_vendor_id" ON "photos" USING btree ("vendor_id")
   [1m[36m (3.0ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "password_digest" character varying, "email" character varying, "password_confirmation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
-  [1m[35m (1.9ms)[0m  CREATE TABLE "vendor_admins" ("id" serial primary key, "user_id" integer, "vendor_id" integer) 
+  [1m[35m (1.9ms)[0m  CREATE TABLE "vendor_admins" ("id" serial primary key, "user_id" integer, "vendor_id" integer)
   [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_vendor_admins_on_user_id" ON "vendor_admins" USING btree ("user_id")[0m
   [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_vendor_admins_on_vendor_id" ON "vendor_admins" USING btree ("vendor_id")
   [1m[36m (3.0ms)[0m  [1mCREATE TABLE "vendors" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "slug" character varying) [0m
@@ -2172,7 +2172,7 @@ FOREIGN KEY ("vendor_id")
   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160510223442')[0m
   [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160511012726')
   [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (7.1ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (7.1ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (3.9ms)[0m  [1mCREATE TABLE "order_packages" ("id" serial primary key, "user_id" integer, "order_id" integer, "package_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
   [1m[35m (2.2ms)[0m  CREATE  INDEX  "index_order_packages_on_order_id" ON "order_packages" USING btree ("order_id")
   [1m[36m (1.6ms)[0m  [1mCREATE  INDEX  "index_order_packages_on_package_id" ON "order_packages" USING btree ("package_id")[0m
@@ -2182,7 +2182,7 @@ FOREIGN KEY ("vendor_id")
   [1m[36m (4.6ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "title" character varying, "price" decimal, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "vendor_id" integer) [0m
   [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_photos_on_vendor_id" ON "photos" USING btree ("vendor_id")
   [1m[36m (3.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "password_digest" character varying, "email" character varying, "password_confirmation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
-  [1m[35m (2.2ms)[0m  CREATE TABLE "vendor_admins" ("id" serial primary key, "user_id" integer, "vendor_id" integer) 
+  [1m[35m (2.2ms)[0m  CREATE TABLE "vendor_admins" ("id" serial primary key, "user_id" integer, "vendor_id" integer)
   [1m[36m (3.3ms)[0m  [1mCREATE  INDEX  "index_vendor_admins_on_user_id" ON "vendor_admins" USING btree ("user_id")[0m
   [1m[35m (2.3ms)[0m  CREATE  INDEX  "index_vendor_admins_on_vendor_id" ON "vendor_admins" USING btree ("vendor_id")
   [1m[36m (4.8ms)[0m  [1mCREATE TABLE "vendors" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "slug" character varying) [0m
@@ -2632,7 +2632,7 @@ ORDER BY c.conname
   [1m[36m (316.7ms)[0m  [1mCREATE DATABASE "space_age_development" ENCODING = 'unicode'[0m
   [1m[35m (243.8ms)[0m  CREATE DATABASE "space_age_test" ENCODING = 'unicode'
   [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (20.4ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (20.4ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (5.9ms)[0m  [1mCREATE TABLE "order_packages" ("id" serial primary key, "user_id" integer, "order_id" integer, "package_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
   [1m[35m (3.3ms)[0m  CREATE  INDEX  "index_order_packages_on_order_id" ON "order_packages" USING btree ("order_id")
   [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_order_packages_on_package_id" ON "order_packages" USING btree ("package_id")[0m
@@ -2642,11 +2642,11 @@ ORDER BY c.conname
   [1m[36m (11.2ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "title" character varying, "price" decimal, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "vendor_id" integer) [0m
   [1m[35m (2.8ms)[0m  CREATE  INDEX  "index_photos_on_vendor_id" ON "photos" USING btree ("vendor_id")
   [1m[36m (8.0ms)[0m  [1mCREATE TABLE "roles" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
-  [1m[35m (3.0ms)[0m  CREATE TABLE "user_roles" ("id" serial primary key, "user_id" integer, "vendor_id" integer, "role_id" integer) 
+  [1m[35m (3.0ms)[0m  CREATE TABLE "user_roles" ("id" serial primary key, "user_id" integer, "vendor_id" integer, "role_id" integer)
   [1m[36m (2.2ms)[0m  [1mCREATE  INDEX  "index_user_roles_on_role_id" ON "user_roles" USING btree ("role_id")[0m
   [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_user_roles_on_user_id" ON "user_roles" USING btree ("user_id")
   [1m[36m (3.8ms)[0m  [1mCREATE  INDEX  "index_user_roles_on_vendor_id" ON "user_roles" USING btree ("vendor_id")[0m
-  [1m[35m (10.2ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying, "password_digest" character varying, "email" character varying, "password_confirmation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (10.2ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying, "password_digest" character varying, "email" character varying, "password_confirmation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (8.0ms)[0m  [1mCREATE TABLE "vendors" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "slug" character varying) [0m
   [1m[35m (3.9ms)[0m  ALTER TABLE "order_packages" ADD CONSTRAINT "fk_rails_273ab81fbb"
 FOREIGN KEY ("order_id")
@@ -2680,7 +2680,7 @@ FOREIGN KEY ("user_id")
 FOREIGN KEY ("vendor_id")
   REFERENCES "vendors" ("id")
 [0m
-  [1m[35m (18.8ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[35m (18.8ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL)
   [1m[36m (2.6ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
   [1m[35m (1.1ms)[0m  SELECT version FROM "schema_migrations"
   [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160511192028')[0m
@@ -2712,7 +2712,7 @@ FOREIGN KEY ("vendor_id")
   [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160511191655')[0m
   [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160511191814')
   [1m[36mSQL (0.8ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (8.1ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (8.1ms)[0m  CREATE TABLE "destinations" ("id" serial primary key, "planet" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (2.0ms)[0m  [1mCREATE TABLE "order_packages" ("id" serial primary key, "user_id" integer, "order_id" integer, "package_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
   [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_order_packages_on_order_id" ON "order_packages" USING btree ("order_id")
   [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_order_packages_on_package_id" ON "order_packages" USING btree ("package_id")[0m
@@ -2722,11 +2722,11 @@ FOREIGN KEY ("vendor_id")
   [1m[36m (4.5ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "title" character varying, "price" decimal, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "vendor_id" integer) [0m
   [1m[35m (2.8ms)[0m  CREATE  INDEX  "index_photos_on_vendor_id" ON "photos" USING btree ("vendor_id")
   [1m[36m (7.2ms)[0m  [1mCREATE TABLE "roles" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
-  [1m[35m (7.8ms)[0m  CREATE TABLE "user_roles" ("id" serial primary key, "user_id" integer, "vendor_id" integer, "role_id" integer) 
+  [1m[35m (7.8ms)[0m  CREATE TABLE "user_roles" ("id" serial primary key, "user_id" integer, "vendor_id" integer, "role_id" integer)
   [1m[36m (2.6ms)[0m  [1mCREATE  INDEX  "index_user_roles_on_role_id" ON "user_roles" USING btree ("role_id")[0m
   [1m[35m (3.0ms)[0m  CREATE  INDEX  "index_user_roles_on_user_id" ON "user_roles" USING btree ("user_id")
   [1m[36m (2.1ms)[0m  [1mCREATE  INDEX  "index_user_roles_on_vendor_id" ON "user_roles" USING btree ("vendor_id")[0m
-  [1m[35m (7.8ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying, "password_digest" character varying, "email" character varying, "password_confirmation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (7.8ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying, "password_digest" character varying, "email" character varying, "password_confirmation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (15.5ms)[0m  [1mCREATE TABLE "vendors" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "slug" character varying) [0m
   [1m[35m (7.3ms)[0m  ALTER TABLE "order_packages" ADD CONSTRAINT "fk_rails_273ab81fbb"
 FOREIGN KEY ("order_id")
@@ -2760,7 +2760,7 @@ FOREIGN KEY ("user_id")
 FOREIGN KEY ("vendor_id")
   REFERENCES "vendors" ("id")
 [0m
-  [1m[35m (5.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[35m (5.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL)
   [1m[36m (3.2ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
   [1m[35m (1.7ms)[0m  SELECT version FROM "schema_migrations"
   [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160511192028')[0m
@@ -2792,6 +2792,511 @@ FOREIGN KEY ("vendor_id")
   [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160511191655')[0m
   [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160511191814')
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+<<<<<<< HEAD
+DEPRECATION WARNING: Defining a route where `to` is a controller without an action is deprecated. Please change `to: '/'` to `controller: '/'`. (called from block in <top (required)> at /Users/jonathanbernesser/Turing/3module/the_pivot/config/routes.rb:3)
+
+
+Started GET "/" for ::1 at 2016-05-11 16:48:16 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PhotosController#index as HTML
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+LoadError (Unable to autoload constant Trip, expected /Users/jonathanbernesser/Turing/3module/the_pivot/app/models/trip.rb to define it):
+  app/controllers/application_controller.rb:37:in `set_trip'
+
+
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (15.6ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (103.1ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (422.5ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (520.3ms)
+
+
+Started GET "/" for ::1 at 2016-05-11 16:48:17 -0600
+Processing by PhotosController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+LoadError (Unable to autoload constant Trip, expected /Users/jonathanbernesser/Turing/3module/the_pivot/app/models/trip.rb to define it):
+  app/controllers/application_controller.rb:37:in `set_trip'
+
+
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.7ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (2.9ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (49.2ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (109.7ms)
+
+
+Started GET "/" for ::1 at 2016-05-11 16:50:52 -0600
+Processing by PhotosController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+Completed 404 Not Found in 31ms (ActiveRecord: 6.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=5):
+  app/controllers/application_controller.rb:27:in `current_user'
+  app/controllers/application_controller.rb:15:in `current_permission'
+  app/controllers/application_controller.rb:21:in `authorize!'
+
+
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.7ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (47.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (108.1ms)
+
+
+Started GET "/" for ::1 at 2016-05-11 16:50:55 -0600
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 5]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=5):
+  app/controllers/application_controller.rb:27:in `current_user'
+  app/controllers/application_controller.rb:15:in `current_permission'
+  app/controllers/application_controller.rb:21:in `authorize!'
+
+
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.8ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (54.6ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (103.0ms)
+
+
+Started GET "/" for ::1 at 2016-05-11 16:51:07 -0600
+Processing by PhotosController#index as HTML
+  [1m[35mRole Exists (6.8ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "platform_admin"]]
+  [1m[36mRole Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", nil], ["name", "vendor_admin"]]
+  [1m[35mRole Exists (0.7ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "customer"]]
+  [1m[36mPhoto Load (0.6ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  Rendered shared/_photos.html.erb (2.7ms)
+  Rendered photos/index.html.erb within layouts/application (4.1ms)
+  [1m[35mDestination Load (6.1ms)[0m  SELECT "destinations".* FROM "destinations"
+  Rendered layouts/_nav.html.erb (50.0ms)
+Completed 500 Internal Server Error in 939ms (ActiveRecord: 18.4ms)
+
+ActionView::Template::Error (undefined local variable or method `trip_path' for #<#<Class:0x007f833e3cc7b0>:0x007f833eaff460>):
+     7:   </ul>
+     8:   <ul class="inline-list hide-for-small-only account-action">
+     9:     <li><a href="#" data-reveal-id="myModal">Login</a></li>
+    10:     <li><a href= "<%= trip_path %>" class="cart-icon">
+    11:          <i class="logo fi-shopping-bag"><span class="quantity"><%= @trip.quantity %></span></i>
+    12:         </a>
+    13:     </li>
+  app/views/layouts/_nav.html.erb:10:in `_app_views_layouts__nav_html_erb___1930984575789952679_70100832406900'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___2023061353107057735_70100834568720'
+
+
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.5ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (51.9ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (2.9ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (114.3ms)
+
+
+Started GET "/" for ::1 at 2016-05-11 16:51:28 -0600
+Processing by PhotosController#index as HTML
+  [1m[36mRole Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", nil], ["name", "platform_admin"]]
+  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "vendor_admin"]]
+  [1m[36mRole Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", nil], ["name", "customer"]]
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT "photos".* FROM "photos"
+  Rendered shared/_photos.html.erb (0.8ms)
+  Rendered photos/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_nav.html.erb (4.4ms)
+Completed 500 Internal Server Error in 114ms (ActiveRecord: 1.3ms)
+
+ActionView::Template::Error (undefined method `quantity' for nil:NilClass):
+     8:   <ul class="inline-list hide-for-small-only account-action">
+     9:     <li><a href="#" data-reveal-id="myModal">Login</a></li>
+    10:     <li><a href= "<%= cart_path %>" class="cart-icon">
+    11:          <i class="logo fi-shopping-bag"><span class="quantity"><%= @trip.quantity %></span></i>
+    12:         </a>
+    13:     </li>
+    14:   </ul>
+  app/views/layouts/_nav.html.erb:11:in `_app_views_layouts__nav_html_erb___1930984575789952679_70100832815280'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___2023061353107057735_70100834568720'
+
+
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (48.5ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (44.6ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/jonathanbernesser/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (95.7ms)
+
+
+Started GET "/" for ::1 at 2016-05-11 16:51:46 -0600
+Processing by PhotosController#index as HTML
+  [1m[36mRole Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", nil], ["name", "platform_admin"]]
+  [1m[35mRole Exists (0.2ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "vendor_admin"]]
+  [1m[36mRole Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", nil], ["name", "customer"]]
+  [1m[35mPhoto Load (0.3ms)[0m  SELECT "photos".* FROM "photos"
+  Rendered shared/_photos.html.erb (0.9ms)
+  Rendered photos/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_nav.html.erb (0.6ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 148ms (Views: 143.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/_settings.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/cart.self-e006a90c3e6b9677e9f50cd54d10e3b25a8ab32d473467d6d5dbd2db405d5416.css?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/custom.self-43eb66b86766bbc523257e6edba8327e84816f33782079d64f0cc43e246e005e.css?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/flash.self-2b1a4aeb1df865f3d98d0e50e6be6345d3f8153d2beb12ab78aa5389c5240fe0.css?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/footer.self-c81e82bba3f525b2d11c47da8e0ac74f27cdf08bf56c2e2b88a8cf99f61a4e1f.css?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/hero_image.self-a22c72db23507968b505dc7937262812ccc115a2efddba329f3dcb9667df720f.css?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation_and_overrides.self-ed73a17c0b5b9dcecceddf8fb8e3a7b87ed6960f63d8a02f61171e2b47f17852.css?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/image_overlay.self-71c9fda3cad718b270eca231e370d502d791458a8530c6604df756ac280373cd.css?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/log-in.self-9ec9148bfde9548146313b9b27172436b736492080d48fdc29da92af70f0cea8.css?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/application.self-129932ab10f1d1e5a4621657c626d393bb0718716393ddba5dc5b25d244bd3d9.css?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2016-05-11 16:51:46 -0600
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2016-05-11 16:51:47 -0600
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2016-05-11 16:51:47 -0600
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2016-05-11 16:51:47 -0600
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2016-05-11 16:51:47 -0600
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2016-05-11 16:51:47 -0600
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2016-05-11 16:51:47 -0600
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2016-05-11 16:51:47 -0600
+
+
+Started GET "/assets/foundation-icons-8c44c3feedae5331a281278ea3ba91d2255928a2f3010d316d6fbb9052e0c2ec.woff" for ::1 at 2016-05-11 16:51:47 -0600
+
+
+Started GET "/" for ::1 at 2016-05-11 16:54:50 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PhotosController#index as HTML
+  [1m[35mRole Exists (0.6ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "platform_admin"]]
+  [1m[36mRole Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", nil], ["name", "vendor_admin"]]
+  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "customer"]]
+  [1m[36mPhoto Load (0.4ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  Rendered shared/_photos.html.erb (2.4ms)
+  Rendered photos/index.html.erb within layouts/application (7.8ms)
+  Rendered layouts/_nav.html.erb (0.6ms)
+  Rendered layouts/_flash.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2898ms (Views: 2823.8ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/assets/cart.self-e006a90c3e6b9677e9f50cd54d10e3b25a8ab32d473467d6d5dbd2db405d5416.css?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/custom.self-43eb66b86766bbc523257e6edba8327e84816f33782079d64f0cc43e246e005e.css?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/flash.self-2b1a4aeb1df865f3d98d0e50e6be6345d3f8153d2beb12ab78aa5389c5240fe0.css?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/footer.self-c81e82bba3f525b2d11c47da8e0ac74f27cdf08bf56c2e2b88a8cf99f61a4e1f.css?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/nav.self-fbdb40d3564e15d42b7dad4f0e07e82d7a1a63545c3b2b901e9260839ffae858.css?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation_and_overrides.self-ed73a17c0b5b9dcecceddf8fb8e3a7b87ed6960f63d8a02f61171e2b47f17852.css?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/_settings.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/hero_image.self-a22c72db23507968b505dc7937262812ccc115a2efddba329f3dcb9667df720f.css?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/image_overlay.self-71c9fda3cad718b270eca231e370d502d791458a8530c6604df756ac280373cd.css?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/log-in.self-9ec9148bfde9548146313b9b27172436b736492080d48fdc29da92af70f0cea8.css?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/application.self-129932ab10f1d1e5a4621657c626d393bb0718716393ddba5dc5b25d244bd3d9.css?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2016-05-11 16:54:53 -0600
+
+
+Started GET "/assets/foundation-icons-8c44c3feedae5331a281278ea3ba91d2255928a2f3010d316d6fbb9052e0c2ec.woff" for ::1 at 2016-05-11 16:54:54 -0600
+
+
+Started GET "/" for ::1 at 2016-05-11 16:55:16 -0600
+Processing by PhotosController#index as HTML
+  [1m[35mRole Exists (0.6ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "platform_admin"]]
+  [1m[36mRole Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", nil], ["name", "vendor_admin"]]
+  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "customer"]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  Rendered shared/_photos.html.erb (0.8ms)
+  Rendered photos/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_nav.html.erb (0.2ms)
+  Rendered layouts/_flash.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 126ms (Views: 119.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cart" for ::1 at 2016-05-11 16:56:03 -0600
+
+ActionController::RoutingError (uninitialized constant CartController):
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:70:in `controller_reference'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:60:in `controller'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:39:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+=======
 
 
 Started GET "/" for 127.0.0.1 at 2016-05-11 17:34:00 -0600
@@ -2806,6 +3311,7 @@ Migrations are pending. To resolve this issue, run:
 ):
   activerecord (4.2.6) lib/active_record/migration.rb:392:in `check_pending!'
   activerecord (4.2.6) lib/active_record/migration.rb:373:in `call'
+>>>>>>> master
   actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
   activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
   activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
@@ -2836,388 +3342,3 @@ Migrations are pending. To resolve this issue, run:
   rack (1.6.4) lib/rack/lock.rb:17:in `call'
   rack (1.6.4) lib/rack/content_length.rb:15:in `call'
   rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
-  /Users/sespinos/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
-  /Users/sespinos/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
-  /Users/sespinos/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
-
-
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0@global/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0@global/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0@global/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0@global/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (75.5ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (406.6ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (471.9ms)
-
-
-Started GET "/" for 127.0.0.1 at 2016-05-11 17:34:01 -0600
-  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-
-ActiveRecord::PendingMigrationError (
-
-Migrations are pending. To resolve this issue, run:
-
-	bin/rake db:migrate RAILS_ENV=development
-
-):
-  activerecord (4.2.6) lib/active_record/migration.rb:392:in `check_pending!'
-  activerecord (4.2.6) lib/active_record/migration.rb:373:in `call'
-  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
-  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
-  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
-  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
-  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
-  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
-  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
-  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
-  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
-  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
-  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
-  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
-  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
-  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
-  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
-  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
-  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
-  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
-  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
-  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
-  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
-  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-  rack (1.6.4) lib/rack/lock.rb:17:in `call'
-  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
-  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
-  railties (4.2.6) lib/rails/engine.rb:518:in `call'
-  railties (4.2.6) lib/rails/application.rb:165:in `call'
-  rack (1.6.4) lib/rack/lock.rb:17:in `call'
-  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
-  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
-  /Users/sespinos/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
-  /Users/sespinos/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
-  /Users/sespinos/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
-
-
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0@global/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0@global/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0@global/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0@global/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.6ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (43.5ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (97.0ms)
-
-
-Started GET "/" for 127.0.0.1 at 2016-05-11 17:34:35 -0600
-  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-
-ActiveRecord::PendingMigrationError (
-
-Migrations are pending. To resolve this issue, run:
-
-	bin/rake db:migrate RAILS_ENV=development
-
-):
-  activerecord (4.2.6) lib/active_record/migration.rb:392:in `check_pending!'
-  activerecord (4.2.6) lib/active_record/migration.rb:373:in `call'
-  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
-  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
-  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
-  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
-  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
-  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
-  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
-  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
-  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
-  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
-  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
-  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
-  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
-  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
-  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
-  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
-  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
-  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
-  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
-  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
-  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
-  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-  rack (1.6.4) lib/rack/lock.rb:17:in `call'
-  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
-  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
-  railties (4.2.6) lib/rails/engine.rb:518:in `call'
-  railties (4.2.6) lib/rails/application.rb:165:in `call'
-  rack (1.6.4) lib/rack/lock.rb:17:in `call'
-  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
-  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
-  /Users/sespinos/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
-  /Users/sespinos/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
-  /Users/sespinos/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
-
-
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0@global/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.1ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0@global/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0@global/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0@global/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.6ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (341.1ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (395.7ms)
-  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to RemoveRoleFromUsers (20160511012726)
-  [1m[35m (0.1ms)[0m  BEGIN
-  [1m[36m (20.1ms)[0m  [1mALTER TABLE "users" DROP "role"[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160511012726"]]
-  [1m[36m (11.6ms)[0m  [1mCOMMIT[0m
-Migrating to CreateVendorAdminsTable (20160511022214)
-  [1m[35m (0.1ms)[0m  BEGIN
-  [1m[36m (29.2ms)[0m  [1mCREATE TABLE "vendor_admins" ("id" serial primary key, "user_id" integer, "vendor_id" integer) [0m
-  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_vendor_admins_on_user_id" ON "vendor_admins"  ("user_id")
-  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_vendor_admins_on_vendor_id" ON "vendor_admins"  ("vendor_id")[0m
-  [1m[35m (1.8ms)[0m  ALTER TABLE "vendor_admins" ADD CONSTRAINT "fk_rails_f74f61a640"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-
-  [1m[36m (1.5ms)[0m  [1mALTER TABLE "vendor_admins" ADD CONSTRAINT "fk_rails_3342a6bf96"
-FOREIGN KEY ("vendor_id")
-  REFERENCES "vendors" ("id")
-[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160511022214"]]
-  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
-Migrating to CreateRoles (20160511191655)
-  [1m[35m (5.9ms)[0m  BEGIN
-  [1m[36m (14.8ms)[0m  [1mCREATE TABLE "roles" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
-  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160511191655"]]
-  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
-Migrating to AddRoleToVendorAdmins (20160511191814)
-  [1m[35m (5.8ms)[0m  BEGIN
-  [1m[36m (0.5ms)[0m  [1mALTER TABLE "vendor_admins" ADD "role_id" integer[0m
-  [1m[35m (6.4ms)[0m  CREATE  INDEX  "index_vendor_admins_on_role_id" ON "vendor_admins"  ("role_id")
-  [1m[36m (2.0ms)[0m  [1mALTER TABLE "vendor_admins" ADD CONSTRAINT "fk_rails_05590cf77f"
-FOREIGN KEY ("role_id")
-  REFERENCES "roles" ("id")
-[0m
-  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160511191814"]]
-  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
-Migrating to ChangeVendorAdminsToUserRoles (20160511192028)
-  [1m[35m (0.1ms)[0m  BEGIN
-  [1m[36m (11.9ms)[0m  [1mALTER TABLE "vendor_admins" RENAME TO "user_roles"[0m
-  [1m[35m (0.3ms)[0m  ALTER TABLE "public"."vendor_admins_id_seq" RENAME TO "user_roles_id_seq"
-  [1m[36m (6.0ms)[0m  [1mALTER INDEX "vendor_admins_pkey" RENAME TO "user_roles_pkey"[0m
-  [1m[35m (0.3ms)[0m  ALTER INDEX "index_vendor_admins_on_role_id" RENAME TO "index_user_roles_on_role_id"
-  [1m[36m (0.2ms)[0m  [1mALTER INDEX "index_vendor_admins_on_user_id" RENAME TO "index_user_roles_on_user_id"[0m
-  [1m[35m (0.2ms)[0m  ALTER INDEX "index_vendor_admins_on_vendor_id" RENAME TO "index_user_roles_on_vendor_id"
-  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160511192028"]]
-  [1m[35m (0.3ms)[0m  COMMIT
-  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (3.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'destinations'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-
-  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'order_packages'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
-  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'orders'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-
-  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'photos'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
-  [1m[35m (1.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'roles'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-
-  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'user_roles'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
-  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'users'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-
-  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'vendors'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
-
-
-Started GET "/" for 127.0.0.1 at 2016-05-11 17:35:05 -0600
-  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Processing by Rails::WelcomeController#index as HTML
-  Rendered /Users/sespinos/.rvm/gems/ruby-2.3.0@global/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.7ms)
-Completed 200 OK in 11ms (Views: 11.2ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/login" for 127.0.0.1 at 2016-05-11 17:35:21 -0600
-Processing by SessionsController#new as HTML
-  [1m[35mRole Exists (0.6ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "platform_admin"]]
-  [1m[36mRole Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", nil], ["name", "vendor_admin"]]
-  [1m[35mRole Exists (0.2ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "customer"]]
-  Rendered sessions/new.html.erb within layouts/application (7.9ms)
-  Rendered layouts/_nav.html.erb (0.3ms)
-  Rendered layouts/_flash.html.erb (0.4ms)
-  Rendered layouts/_footer.html.erb (0.3ms)
-Completed 200 OK in 3153ms (Views: 3048.3ms | ActiveRecord: 8.1ms)
-
-
-Started GET "/login" for 127.0.0.1 at 2016-05-11 17:35:24 -0600
-Processing by SessionsController#new as HTML
-  [1m[36mRole Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", nil], ["name", "platform_admin"]]
-  [1m[35mRole Exists (0.2ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "vendor_admin"]]
-  [1m[36mRole Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", nil], ["name", "customer"]]
-  Rendered sessions/new.html.erb within layouts/application (1.0ms)
-  Rendered layouts/_nav.html.erb (0.0ms)
-  Rendered layouts/_flash.html.erb (0.1ms)
-  Rendered layouts/_footer.html.erb (0.0ms)
-Completed 200 OK in 98ms (Views: 94.3ms | ActiveRecord: 0.9ms)
-  [1m[36mPhoto Load (0.9ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
-  [1m[35m (0.2ms)[0m  BEGIN
-  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'sespinos' LIMIT 1[0m
-  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
-  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.1ms)[0m  BEGIN
-  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'sespinos' LIMIT 1[0m
-  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'sal@sal.com' LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.1ms)[0m  BEGIN
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'sespinos' LIMIT 1[0m
-  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'sal@sal.com' LIMIT 1
-  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "sespinos"], ["password_digest", "$2a$10$Sv07jb2Zj9CpV4Q89HnM/O.d/z.t0L7xzEEcQDIZ6YyR1CmUNUIW2"], ["email", "sal@sal.com"], ["created_at", "2016-05-11 23:36:40.199140"], ["updated_at", "2016-05-11 23:36:40.199140"]]
-  [1m[35m (1.3ms)[0m  COMMIT
-
-
-Started POST "/login" for 127.0.0.1 at 2016-05-11 17:36:48 -0600
-Processing by SessionsController#create as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i21A2GQa+zGWnSSc/jYbmUWCo/N58+EeiXjbLJcL2DfEJxFLtnDN275o+m1PQUjhYkQvwSOOjcprIW5SZp9a3w==", "session"=>{"username"=>"sespinos", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
-  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "platform_admin"]]
-  [1m[36mRole Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", nil], ["name", "vendor_admin"]]
-  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "customer"]]
-  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "sespinos"]]
-  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
-Redirected to http://127.0.0.1:3000/dashboard/1
-Completed 302 Found in 75ms (ActiveRecord: 1.4ms)
-
-
-Started GET "/dashboard/1" for 127.0.0.1 at 2016-05-11 17:36:48 -0600
-Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
-  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", 1], ["name", "platform_admin"]]
-  [1m[36mRole Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "vendor_admin"]]
-  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", 1], ["name", "customer"]]
-  Rendered public/404.html within layouts/application (0.4ms)
-  Rendered layouts/_nav.html.erb (0.3ms)
-  Rendered layouts/_flash.html.erb (0.5ms)
-  Rendered layouts/_footer.html.erb (0.4ms)
-Filter chain halted as :authorize! rendered or redirected
-Completed 200 OK in 209ms (Views: 203.3ms | ActiveRecord: 1.4ms)
-
-
-Started GET "/dashboard/" for 127.0.0.1 at 2016-05-11 17:37:16 -0600
-Processing by VendorsController#show as HTML
-  Parameters: {"vendor"=>"dashboard"}
-  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
-  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", 1], ["name", "platform_admin"]]
-  [1m[36mRole Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "vendor_admin"]]
-  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", 1], ["name", "customer"]]
-  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."slug" = $1 LIMIT 1[0m  [["slug", "dashboard"]]
-  Rendered public/404.html within layouts/application (0.4ms)
-  Rendered layouts/_nav.html.erb (0.1ms)
-  Rendered layouts/_flash.html.erb (0.1ms)
-  Rendered layouts/_footer.html.erb (0.0ms)
-Completed 200 OK in 124ms (Views: 113.4ms | ActiveRecord: 2.0ms)
-
-
-Started GET "/dashboard/1" for 127.0.0.1 at 2016-05-11 17:37:19 -0600
-Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
-  [1m[36mRole Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "platform_admin"]]
-  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", 1], ["name", "vendor_admin"]]
-  [1m[36mRole Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "customer"]]
-  Rendered public/404.html within layouts/application (0.1ms)
-  Rendered layouts/_nav.html.erb (0.1ms)
-  Rendered layouts/_flash.html.erb (0.1ms)
-  Rendered layouts/_footer.html.erb (0.1ms)
-Filter chain halted as :authorize! rendered or redirected
-Completed 200 OK in 180ms (Views: 174.8ms | ActiveRecord: 1.1ms)
-  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m

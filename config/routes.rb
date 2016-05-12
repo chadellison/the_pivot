@@ -1,4 +1,6 @@
   Rails.application.routes.draw do
+
+  root 'photos#index'
   resources :photos, only: [:index, :show, :create]
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
@@ -19,7 +21,7 @@
   #
   # delete '/logout', to: 'sessions#destroy'
   # get '/dashboard', to: "users#show"
-  # get '/trip', to: "trip_packages#show"
+  get '/cart', to: "carts#show"
   # get '/orders' , to: "orders#index"
   #
   #

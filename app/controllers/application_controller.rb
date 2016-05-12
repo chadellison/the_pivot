@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :all_destinations
-  before_action :set_trip
+  before_action :set_cart
   before_action :authorize!
-
   helper_method :current_user
 
   def logged_in_user
@@ -33,8 +32,8 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def set_trip
-    @trip = Trip.new(session[:trip])
+  def set_cart
+    @cart = Cart.new(session[:cart])
   end
 
 
