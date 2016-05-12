@@ -1,9 +1,24 @@
 class Seeds
 
   def initialize
+    create_categories
     create_roles
     create_vendors_and_photos
     create_users
+  end
+
+  def create_categories
+    puts "Creating Categories"
+    Category.create(name: "Nature")
+    Category.create(name: "Animals")
+    Category.create(name: "People")
+    Category.create(name: "Places")
+    Category.create(name: "Things")
+    Category.create(name: "Machines")
+    Category.create(name: "Cities")
+    Category.create(name: "Farms")
+    Category.create(name: "Sports")
+    puts "Created Categories"
   end
 
   def create_users
