@@ -17,6 +17,7 @@ RSpec.feature "Vendor can login" do
     click_button "Sign In"
 
     expect(current_path).to eq dashboard_path(user.id)
+  
     expect(page).to have_content("Vendor1")
     expect(page).to have_content("Vendor2")
   end

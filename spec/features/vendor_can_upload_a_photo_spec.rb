@@ -18,8 +18,6 @@ RSpec.feature "Vendor can upload a photo" do
     fill_in "Choose a Price for the New Photo", with: 1000.00
 
     click_on "Create Photo"
-    photo = Photo.find_by(title: "Super Lux")
-
     expect(current_path).to eq(dashboard_path(user.id))
     expect(page).to have_content("Photo: Super Lux Created")
   end
