@@ -24,6 +24,7 @@
   # delete '/logout', to: 'sessions#destroy'
   # get '/dashboard', to: "users#show"
   get '/cart', to: "carts#show"
+  post '/cart', to: "carts#create"
   # get '/orders' , to: "orders#index"
   #
   #

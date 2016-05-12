@@ -2,13 +2,13 @@ class CartsController < ApplicationController
 
   def create
     photo = Photo.find(params[:photo_id])
-    @cart.add_package(photo.id)
+    @cart.add_photo(photo.id)
     session[:cart] = @cart.cart_photos
-    redirect_to package_path(photo)
+    redirect_to vendor_path(photo.vendor.slug)
   end
 
    def show
-    @packages = @cart.find_packages if @cart.cart_photos
+    @photos = @cart.find_photos if @cart.cart_photos
   end
 
   def update

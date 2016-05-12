@@ -8,17 +8,10 @@ class Seeds
   end
 
   def create_categories
-    puts "Creating Categories"
-    Category.create(name: "All")
-    Category.create(name: "Nature")
-    Category.create(name: "Animals")
-    Category.create(name: "People")
-    Category.create(name: "Places")
-    Category.create(name: "Things")
-    Category.create(name: "Machines")
-    Category.create(name: "Cities")
-    Category.create(name: "Farms")
-    Category.create(name: "Sports")
+    categories = %w(buildings food nature people technology objects)
+    categories.each do |category|
+      Category.create(name: category)
+    end
     puts "Created Categories"
   end
 
@@ -47,16 +40,18 @@ class Seeds
     20.times do
       vendor = Vendor.create(name: Faker::Company.name,
                              about: Faker::Hipster.paragraph)
+      category = %w(buildings food nature people technology objects).sample
       rand(1..10).times do
-        category = %w(buildings food nature people technology objects).sample
-        vendor.photos.create(title: Faker::Hipster.sentence,
+        photo = vendor.photos.create(title: Faker::Hipster.sentence,
                              description: Faker::Hipster.paragraph(2),
                              price: Faker::Commerce.price,
                              image: Photo.image_from_url("https://source.unsplash.com/category/#{category}/1200x600"))
+        photo.categories << Category.find_by(name: "#{category}")
         puts "created vendor and photos"
       end
     end
   end
+
 end
 
 
