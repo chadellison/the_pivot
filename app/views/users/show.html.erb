@@ -7,5 +7,17 @@
       <li><%= vendor.name %></li>
     <% end %>
   </ul>
+  <% if current_user.vendor_admin? %>
+    <%= form_for(@photo) do |f| %>
+      <%= f.text_field :title, placeholder: "Photo Title" %>
+      <%= f.text_area :description, placeholder: "Photo Description" %>
+      <%= f.label :price, "Choose a Price for the New Photo" %>
+      <%= f.number_field :price, in: 1000..10000, step: "any" %>
+      <%= f.label :image, "Choose an Image" %>
+      <%= f.file_field :image %>
+      <%= f.submit "Create Photo", class: "button expanded" %>
+    <% end %>
+  <% end %>
+
 </div>
 <br>
