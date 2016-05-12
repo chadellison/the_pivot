@@ -1,6 +1,6 @@
 <br>
 <div class="row column cart">
-  <% if @trip.itinerary == {} %>
+  <% if @cart.cart_photos == {} %>
     <br>
     <h1 class= "text-center"> Your Cart is Empty </h1>
     <br>
@@ -9,7 +9,7 @@
       <thead>
         <tr>
           <th width "300"></th>
-          <th width "200">Package Name</th>
+          <th width "200">Photo Name</th>
           <th width "200" class="squish">Description</th>
           <th width "200">Price</th>
           <th width "100">Passengers</th>
@@ -18,32 +18,31 @@
 
         </tr>
       </thead>
-      <tbody class="package">
+      <tbody class="photo">
         <tr>
-        <% @packages.each do |package| %>
-            <td><%= image_tag package.image, class: "cart-image" %></td>
-            <td><%= package.title %></td>
-            <td><%= package.description %></td>
-            <td><%= package.price %></td>
-              <td><%= @trip.sub_quantity(package.id) %>
-                <%= link_to "", trip_package_path(package, package.id, operation: "+"), method: 'patch', class: "fi-arrow-up" %>
-                <% unless @trip.sub_quantity(package.id) == 1 %>
-                  <%= link_to "", trip_package_path(package, package.id, operation: "-"), method: 'patch', class: "fi-arrow-down" %>
+        <% @photos.each do |photo| %>
+            <td><%= image_tag photo.image, class: "cart-image" %></td>
+            <td><%= photo.title %></td>
+            <td><%= photo.description %></td>
+            <td><%= photo.price %></td>
+              <td><%= @cart.sub_quantity(photo.id) %>
+                <%= link_to "", trip_package_path(photo, photo.id, operation: "+"), method: 'patch', class: "fi-arrow-up" %>
+                <% unless @cart.sub_quantity(photo.id) == 1 %>
+                  <%= link_to "", trip_package_path(photo, photo.id, operation: "-"), method: 'patch', class: "fi-arrow-down" %>
                 <% end  %>
               </td>
-            <td><%= @trip.subtotal(package) %></td>
-            <td><%= link_to "", trip_package_path(package), method: :delete, class: "fi-x"  %></td>
+            <td><%= @cart.subtotal(photo) %></td>
+            <td><%= link_to "", trip_package_path(photo), method: :delete, class: "fi-x"  %></td>
         </tr>
         <% end %>
       </tbody>
     </table>
-    <div class="text-right">Total Price: <%= @trip.total_price %></div>
+    <div class="text-right">Total Price: <%= @cart.total_price %></div>
     <div class="text-center">
       <% unless current_user %>
         <%= link_to "Login or Create Account to Purchase", login_path, class: "button primary" %>
       <% else %>
       <%= render partial: "stripe" %>
-      <%= link_to "Checkout", orders_path, class: "hidden", method: :post %>
       <% end %>
     </div>
   <% end %>

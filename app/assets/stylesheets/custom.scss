@@ -1,10 +1,4 @@
 
-.off-canvas-wrap {
-  .inner-wrap{
-    min-height: 100vh;
-  }
-}
-
 @mixin background-image-spec {
   background-position: center center;
   background-size: cover;
@@ -23,9 +17,6 @@
 
 }
 
-.menu-centered {
-
-}
 
 .button {
   border-radius: 3px;
@@ -43,32 +34,6 @@
   text-align: center;
 }
 
-#data-stick-container {
-width: 100%;
-}
-
-.nav-button {
-  background-color: black
-}
-
-.nav-top {
-  background-image: url("https://images.unsplash.com/photo-1447774105426-9d78ea5204cd?crop=entropy&dpr=2&fit=crop&fm=jpg&h=650&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1250");
-}
-
-.welcome {
-  color: white
-}
-
-.sticky {
-  position: absolute;
-  z-index: 0;
-  transform: translate3d(0, 0, 0);
-}
-
-.sticky.is-stuck {
-  position: fixed;
-  z-index: 5;
-}
 
 .logo {
   color: white;
@@ -191,14 +156,4 @@ div.callout {
 
 .user-info {
   background-color: black;
-}
-
-.apod {
-  position: relative;
-}
-
-.apod-tooltip {
-  bottom: 50%;
-  position: absolute;
-  z-index: 1000;
 }

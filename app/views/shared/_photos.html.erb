@@ -1,13 +1,7 @@
 <div class="row small-up-1 medium-up-2 large-up-4 featured-photos">
   <% photos.each do |photo| %>
   <div class="column">
-    <h5 class="image-tag text-center"><%= link_to photo.title, photo_path(photo), class: "photo-tag" %></h5>
-    <div class="image-wrapper overlay-fade-in">
-      <%= image_tag photo.image.url, class: "thumbnail" %>
-      <div class="image-overlay-content">
-        <h2><%= link_to "Explore", photo_path(photo) %></h2>
-      </div>
-    </div>
+    <%= link_to image_tag(photo.image.url, alt: photo.image.url), photo_path(photo.id) %>
   </div>
   <% end %>
 </div>
