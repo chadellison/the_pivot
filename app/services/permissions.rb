@@ -30,6 +30,7 @@ class Permissions
 
     def vendor_admin_permissions
       customer_permissions
+      return true if controller == "photos" && action.in?(%w(create show))
     end
 
     def customer_permissions
