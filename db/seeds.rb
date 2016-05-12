@@ -9,6 +9,7 @@ class Seeds
 
   def create_categories
     puts "Creating Categories"
+    Category.create(name: "All")
     Category.create(name: "Nature")
     Category.create(name: "Animals")
     Category.create(name: "People")
