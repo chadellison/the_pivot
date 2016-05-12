@@ -2,19 +2,15 @@
   <br>
   <div class="column small-12 large-9">
     <div class="show-image-container small-centered">
-      <%= image_tag @package.image.url, class: "show-image" %>
-      <h4 class="show-package-title"><span class="title-span"><%= @package.title  %>Package</h4></span>
+      <%= image_tag @photo.image.url, class: "show-image" %>
+      <h4 class="show-package-title"><span class="title-span"><%= @photo.title  %></h4></span>
     </div>
   </div>
   <div class="column small-12 large-3 small-centered">
     <div class="show-info-container">
-      <% if @package.active? %>
-        <%= button_to "Add Package to Trip", trip_packages_path(package_id: @package.id), class: "expanded success button"%><br>
-      <% else %>
-        <%= button_to "Sold Out", package_path(@package), class: "expanded disabled button", method: "get" %><br>
-      <% end  %>
-      <p> <%= @package.description %> </p>
-      <h6><strong>Cost per passenger: <%= @package.price %>⋕</strong></h6>
+      <p> <%= @photo.description %> </p>
+      <p> By: <%= @photo.vendor.name %></p>
+      <h6><strong>Price: $<%= @photo.price %>.00</strong></h6>
     </div>
   </div>
 </div>

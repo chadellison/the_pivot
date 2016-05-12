@@ -29,19 +29,17 @@ class Permissions
     end
 
     def vendor_admin_permissions
-      customer_permissions
-      return true if controller == "photos" && action.in?(%w(create show))
+      true if customer_permissions || controller == "photos" && action.in?(%w(create))
     end
 
     def customer_permissions
-      guest_permissions
-      return true if controller == "users" && action.in?(%w(show))
+      true if guest_permissions || controller == "users" && action.in?(%w(show))
     end
 
     def guest_permissions
       return true if controller == "sessions"
       return true if controller == "vendors" && action.in?(%w(show))
-      return true if controller == "photos" && action.in?(%w(index))
+      return true if controller == "photos" && action.in?(%w(index show))
     end
 
     def controller

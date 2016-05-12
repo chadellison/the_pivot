@@ -4,7 +4,6 @@ RSpec.feature "Vendor can login" do
   scenario "vendor opens their dashboard" do
     visit login_path
     user = User.create(username: "test", password: "pass", password_confirmation: "pass", email: "who@gmail.com" )
-    # user = create(:user, name: "test")
     role = Role.create(name: "vendor_admin")
     vendor = Vendor.create(name: "Vendor1")
     vendor2 = Vendor.create(name: "Vendor2")
@@ -17,6 +16,7 @@ RSpec.feature "Vendor can login" do
     click_button "Sign In"
 
     expect(current_path).to eq dashboard_path(user.id)
+
     expect(page).to have_content("Vendor1")
     expect(page).to have_content("Vendor2")
   end
