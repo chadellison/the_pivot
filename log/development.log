@@ -24266,3 +24266,450 @@ Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c
 
 
 Started GET "/assets/foundation-icons-8c44c3feedae5331a281278ea3ba91d2255928a2f3010d316d6fbb9052e0c2ec.woff" for ::1 at 2016-05-11 22:38:26 -0600
+
+
+Started GET "/baumbach-prosacco-and-reichel" for ::1 at 2016-05-11 22:45:18 -0600
+Processing by VendorsController#show as HTML
+  Parameters: {"vendor"=>"baumbach-prosacco-and-reichel"}
+  [1m[35mRole Exists (0.2ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "platform_admin"]]
+  [1m[36mRole Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", nil], ["name", "vendor_admin"]]
+  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "customer"]]
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."slug" = $1 LIMIT 1[0m  [["slug", "baumbach-prosacco-and-reichel"]]
+  [1m[35mPhoto Load (0.3ms)[0m  SELECT  "photos".* FROM "photos" WHERE "photos"."vendor_id" = $1  ORDER BY "photos"."id" DESC LIMIT 1  [["vendor_id", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."vendor_id" = $1[0m  [["vendor_id", 1]]
+  Rendered vendors/show.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_nav.html.erb (0.1ms)
+Completed 200 OK in 194ms (Views: 188.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/_settings.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/vendor.self-31983b5e76e45193794dcb482cdd282d045a49e18fd489a074a66c776d2bd361.css?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/cart.self-a7e955337c3e7558d2d24864deb9c88a839341a86aaff826783506b94b4438ce.css?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/custom.self-05cd10dd141a91319c1eb0eab09fb13a2d43c8a94625f86c0f7a5d38f83233d6.css?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/flash.self-2b1a4aeb1df865f3d98d0e50e6be6345d3f8153d2beb12ab78aa5389c5240fe0.css?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/footer.self-c81e82bba3f525b2d11c47da8e0ac74f27cdf08bf56c2e2b88a8cf99f61a4e1f.css?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation_and_overrides.self-742ca1949bf9c45c84519e7d1bb4568057e2b45721245bbe4405c40ba7d6f001.css?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/hero_image.self-a22c72db23507968b505dc7937262812ccc115a2efddba329f3dcb9667df720f.css?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/image_overlay.self-71c9fda3cad718b270eca231e370d502d791458a8530c6604df756ac280373cd.css?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/log-in.self-0dda69a1c073c8d9fe266c39717b335eaba374ecfaf36b245cf51d615e1d6469.css?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/nav.self-b004d7178b34735978a2fccedc07f8816f44590924ef4c4abed4d9163c61fb9d.css?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/application.self-129932ab10f1d1e5a4621657c626d393bb0718716393ddba5dc5b25d244bd3d9.css?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/assets/foundation-icons-8c44c3feedae5331a281278ea3ba91d2255928a2f3010d316d6fbb9052e0c2ec.woff" for ::1 at 2016-05-11 22:45:19 -0600
+
+
+Started GET "/baumbach-prosacco-and-reichel" for ::1 at 2016-05-11 22:45:24 -0600
+Processing by VendorsController#show as HTML
+  Parameters: {"vendor"=>"baumbach-prosacco-and-reichel"}
+  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "platform_admin"]]
+  [1m[36mRole Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", nil], ["name", "vendor_admin"]]
+  [1m[35mRole Exists (0.4ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "customer"]]
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."slug" = $1 LIMIT 1[0m  [["slug", "baumbach-prosacco-and-reichel"]]
+  [1m[35mPhoto Load (0.3ms)[0m  SELECT  "photos".* FROM "photos" WHERE "photos"."vendor_id" = $1  ORDER BY "photos"."id" DESC LIMIT 1  [["vendor_id", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."vendor_id" = $1[0m  [["vendor_id", 1]]
+  Rendered vendors/show.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_nav.html.erb (0.1ms)
+Completed 200 OK in 150ms (Views: 142.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/_settings.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/cart.self-a7e955337c3e7558d2d24864deb9c88a839341a86aaff826783506b94b4438ce.css?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/custom.self-05cd10dd141a91319c1eb0eab09fb13a2d43c8a94625f86c0f7a5d38f83233d6.css?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/flash.self-2b1a4aeb1df865f3d98d0e50e6be6345d3f8153d2beb12ab78aa5389c5240fe0.css?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/vendor.self-9b561c9efeb208661efea8cea65d6b1712be2f12086c7f53b69d9a7788b3b34a.css?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/footer.self-c81e82bba3f525b2d11c47da8e0ac74f27cdf08bf56c2e2b88a8cf99f61a4e1f.css?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/image_overlay.self-71c9fda3cad718b270eca231e370d502d791458a8530c6604df756ac280373cd.css?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation_and_overrides.self-742ca1949bf9c45c84519e7d1bb4568057e2b45721245bbe4405c40ba7d6f001.css?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/hero_image.self-a22c72db23507968b505dc7937262812ccc115a2efddba329f3dcb9667df720f.css?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/log-in.self-0dda69a1c073c8d9fe266c39717b335eaba374ecfaf36b245cf51d615e1d6469.css?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/nav.self-b004d7178b34735978a2fccedc07f8816f44590924ef4c4abed4d9163c61fb9d.css?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/application.self-129932ab10f1d1e5a4621657c626d393bb0718716393ddba5dc5b25d244bd3d9.css?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/assets/foundation-icons-8c44c3feedae5331a281278ea3ba91d2255928a2f3010d316d6fbb9052e0c2ec.woff" for ::1 at 2016-05-11 22:45:24 -0600
+
+
+Started GET "/baumbach-prosacco-and-reichel" for ::1 at 2016-05-11 22:45:39 -0600
+Processing by VendorsController#show as HTML
+  Parameters: {"vendor"=>"baumbach-prosacco-and-reichel"}
+  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "platform_admin"]]
+  [1m[36mRole Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", nil], ["name", "vendor_admin"]]
+  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", nil], ["name", "customer"]]
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."slug" = $1 LIMIT 1[0m  [["slug", "baumbach-prosacco-and-reichel"]]
+  [1m[35mPhoto Load (0.3ms)[0m  SELECT  "photos".* FROM "photos" WHERE "photos"."vendor_id" = $1  ORDER BY "photos"."id" DESC LIMIT 1  [["vendor_id", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."vendor_id" = $1[0m  [["vendor_id", 1]]
+  Rendered vendors/show.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_nav.html.erb (0.1ms)
+Completed 200 OK in 169ms (Views: 163.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/_settings.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/custom.self-05cd10dd141a91319c1eb0eab09fb13a2d43c8a94625f86c0f7a5d38f83233d6.css?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/hero_image.self-a22c72db23507968b505dc7937262812ccc115a2efddba329f3dcb9667df720f.css?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/flash.self-2b1a4aeb1df865f3d98d0e50e6be6345d3f8153d2beb12ab78aa5389c5240fe0.css?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/footer.self-c81e82bba3f525b2d11c47da8e0ac74f27cdf08bf56c2e2b88a8cf99f61a4e1f.css?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation_and_overrides.self-742ca1949bf9c45c84519e7d1bb4568057e2b45721245bbe4405c40ba7d6f001.css?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/cart.self-a7e955337c3e7558d2d24864deb9c88a839341a86aaff826783506b94b4438ce.css?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/log-in.self-0dda69a1c073c8d9fe266c39717b335eaba374ecfaf36b245cf51d615e1d6469.css?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/image_overlay.self-71c9fda3cad718b270eca231e370d502d791458a8530c6604df756ac280373cd.css?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/vendor.self-137061407a4de5ba456022f37672816d3287158b19e873ef76ae0d27282b6775.css?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/nav.self-b004d7178b34735978a2fccedc07f8816f44590924ef4c4abed4d9163c61fb9d.css?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/application.self-129932ab10f1d1e5a4621657c626d393bb0718716393ddba5dc5b25d244bd3d9.css?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2016-05-11 22:45:40 -0600
+
+
+Started GET "/assets/foundation-icons-8c44c3feedae5331a281278ea3ba91d2255928a2f3010d316d6fbb9052e0c2ec.woff" for ::1 at 2016-05-11 22:45:40 -0600
