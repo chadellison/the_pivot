@@ -29,13 +29,14 @@ class Seeds
 
   def create_vendors_and_photos
     20.times do
-      vendor = Vendor.create(name: Faker::Company.name)
+      vendor = Vendor.create(name: Faker::Company.name,
+                             about: Faker::Hipster.paragraph)
       rand(1..10).times do
         category = %w(buildings food nature people technology objects).sample
-        vendor.photos.create(title: Faker::Hipster.sentence(3),
+        vendor.photos.create(title: Faker::Hipster.sentence,
                              description: Faker::Hipster.paragraph(2),
                              price: Faker::Commerce.price,
-                             image: Photo.image_from_url("https://source.unsplash.com/category/#{category}/800x600/"))
+                             image: Photo.image_from_url("https://source.unsplash.com/category/#{category}/1200x600"))
         puts "created vendor and photos"
       end
     end

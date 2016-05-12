@@ -1,5 +1,5 @@
-$background-color: #292c2f;
-$primary-color: #87D37C;
+$background-color: #FFFFFF;
+$primary-color: #000000;
 
 .row {
   max-width: 100%;
@@ -19,7 +19,7 @@ $primary-color: #87D37C;
     }
 
     a {
-      color: #fff;
+      color: $primary-color;
       padding-bottom: 0.5rem;
 
       &:hover {
@@ -66,11 +66,6 @@ $primary-color: #87D37C;
 
     a { padding: 0.75rem 1rem;}
 
-    a.signup {
-      font-weight: bold;
-      background-color: scale-color($background-color, $lightness: 10%);
-      border-radius: 3px;
-    }
   }
 }
 
