@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create]
 
-  def index
-   @users = User.all
-  end
+  # def index
+  #  @users = User.all
+  # end
 
   def new
     @user = User.new
@@ -13,9 +13,12 @@ class UsersController < ApplicationController
     @user = User.create(params_check)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to dashboard_path
-    else
+      # byebug
+      flash[:success] = "Success! Your account was created!."
       redirect_to login_path
+    else
+      flash[:error] = "Your account could not be created. Please check your input and try again."
+      redirect_to users_path
     end
   end
 
