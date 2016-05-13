@@ -4,7 +4,7 @@
   resources :photos, only: [:index, :show, :create]
 
   namespace :platform_admin do
-    resources :vendors, only: [:index, :show, :destroy]
+    resources :vendors, only: [:index, :show, :destroy, :edit, :update]
   end
 
   get '/login', to: "sessions#new"
@@ -13,6 +13,7 @@
   post '/signup', to: 'users#create'
 
   get '/dashboard/:id', to: "users#show", as: :dashboard
+  get "/vendors", to: "vendors#index"
   get "/:vendor", to: "vendors#show", as: :vendor
 
   get '/category/:name', to: "categories#show", as: :category
