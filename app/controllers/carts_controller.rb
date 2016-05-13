@@ -7,7 +7,7 @@ class CartsController < ApplicationController
     redirect_to vendor_path(photo.vendor.slug)
   end
 
-   def show
+  def show
     @photos = @cart.find_photos if @cart.cart_photos
   end
 

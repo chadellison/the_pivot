@@ -1,3 +1,4 @@
+
 <br>
 <div class="row column cart">
   <% if @cart.cart_photos == {} %>
@@ -10,7 +11,7 @@
         <tr>
           <th width "300"></th>
           <th width "200">Photo Name</th>
-          <th width "200" class="squish">Description</th>
+          <th width "200" class="squish">Vendor</th>
           <th width "200">Price</th>
           <th width "100">Passengers</th>
           <th width "100">Sub Total</th>
@@ -23,26 +24,26 @@
         <% @photos.each do |photo| %>
             <td><%= image_tag photo.image, class: "cart-image" %></td>
             <td><%= photo.title %></td>
-            <td><%= photo.description %></td>
-            <td><%= photo.price %></td>
-              <td><%= @cart.sub_quantity(photo.id) %>
-                <%= link_to "", trip_package_path(photo, photo.id, operation: "+"), method: 'patch', class: "fi-arrow-up" %>
+            <td><%= photo.vendor.name %></td>
+            <td>$<%= photo.price %></td>
+            <td><%= @cart.sub_quantity(photo.id) %>
+                <%= link_to "", cart_path(photo, photo.id, operation: "+"), method: 'patch', class: "fi-arrow-up" %>
                 <% unless @cart.sub_quantity(photo.id) == 1 %>
-                  <%= link_to "", trip_package_path(photo, photo.id, operation: "-"), method: 'patch', class: "fi-arrow-down" %>
+                  <%= link_to "", cart_path(photo, photo.id, operation: "-"), method: 'patch', class: "fi-arrow-down" %>
                 <% end  %>
               </td>
-            <td><%= @cart.subtotal(photo) %></td>
-            <td><%= link_to "", trip_package_path(photo), method: :delete, class: "fi-x"  %></td>
+            <td>$<%= @cart.subtotal(photo) %></td>
+            <td><%= link_to "", cart_path(photo), method: :delete, class: "fi-x"  %></td>
         </tr>
         <% end %>
       </tbody>
     </table>
-    <div class="text-right">Total Price: <%= @cart.total_price %></div>
+    <div class="text-right">Total: $<%= @cart.total_price %></div>
     <div class="text-center">
       <% unless current_user %>
         <%= link_to "Login or Create Account to Purchase", login_path, class: "button primary" %>
       <% else %>
-      <%= render partial: "stripe" %>
+        <%= button_to "Checkout", cart_path(@photo.id) %>
       <% end %>
     </div>
   <% end %>
