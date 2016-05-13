@@ -22,10 +22,6 @@
         <%= f.submit "Create Photo", class: "button expanded" %>
       <% end %>
     <% end %>
-    <% if current_user.platform_admin? %>
-      <h3>Status: Admin<h3>
-      <%= button_to "All Vendors", platform_admin_vendors_path, method: :get %>
-    <% end %>
   </div>
   <div class="small-3"></div>
 </div>

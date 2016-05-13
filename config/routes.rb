@@ -5,10 +5,12 @@
 
   namespace :platform_admin do
     resources :vendors, only: [:index, :show, :destroy, :edit, :update]
+    get "/dashboard", to: "users#show"
   end
 
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
+  delete '/logout', to: 'sessions#destroy'
   get '/signup', to: "users#new", as: :users
   post '/signup', to: 'users#create'
 
@@ -29,7 +31,6 @@
   # resources :orders, only: [:show, :create]
   # resources :destinations, only: [:create]
   #
-  # delete '/logout', to: 'sessions#destroy'
   # get '/dashboard', to: "users#show"
   get '/cart', to: "carts#show"
   post '/cart', to: "carts#create"

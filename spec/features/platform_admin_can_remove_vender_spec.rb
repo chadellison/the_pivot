@@ -20,8 +20,8 @@ RSpec.feature "platform admin can remove a vendor" do
     fill_in "Password", with: "password"
     click_on "Sign In"
 
-    expect(page).to have_content "Status: Admin"
-    click_button "All Vendors"
+    # expect(page).to have_content "Status: Admin"
+    click_link "Edit Vendors"
     expect(current_path).to eq platform_admin_vendors_path
     within(".vendor") do
       expect(page).to have_content "Jojo blu"
