@@ -5,6 +5,6 @@ class VendorsController < ApplicationController
   end
 
   def index
-    byebug
+    @vendors = Vendor.all
   end
 end

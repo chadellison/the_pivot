@@ -22,16 +22,18 @@ RSpec.feature "User can view index of vendors" do
 
     visit vendors_path
     # byebug
-    expect(page).to have_content("Store Name1")
-    # byebug
-    # save_and_open_page
-    expect(page).to have_xpath("//img[@src=\"#{photo1.image}\"]")
+    within(".vendor-index") do
+      expect(page).to have_content("Store Name1")
+      # byebug
+      # save_and_open_page
+      expect(page).to have_xpath("//img[@src=\"#{photo1.image}\"]")
 
-    expect(page).to have_content("Store Name2")
-    expect(page).to have_xpath("//img[@src=\"#{photo3.image}\"]")
+      expect(page).to have_content("Store Name2")
+      expect(page).to have_xpath("//img[@src=\"#{photo3.image}\"]")
 
-    expect(page).to have_content("Store Name3")
-    expect(page).to have_xpath("//img[@src=\"#{photo5.image}\"]")
+      expect(page).to have_content("Store Name3")
+      expect(page).to have_xpath("//img[@src=\"#{photo5.image}\"]")
+    end
 
 
 
