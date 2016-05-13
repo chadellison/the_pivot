@@ -42,6 +42,7 @@ class Permissions
       return true if controller == "categories" && action.in?(%w(show))
       return true if controller == "photos" && action.in?(%w(index show))
       return true if controller == "carts"
+      return true if controller == "users" && action.in?(%w(new create show))
     end
 
     def controller
