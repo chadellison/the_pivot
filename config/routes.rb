@@ -4,15 +4,18 @@
   resources :photos, only: [:index, :show, :create]
 
   namespace :platform_admin do
-    resources :vendors, only: [:index, :show, :destroy]
+    resources :vendors, only: [:index, :show, :destroy, :edit, :update]
+    get "/dashboard", to: "dashboard#show"
   end
 
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
+  delete '/logout', to: 'sessions#destroy'
   get '/signup', to: "users#new", as: :users
   post '/signup', to: 'users#create'
 
   get '/dashboard/:id', to: "users#show", as: :dashboard
+  get "/vendors", to: "vendors#index"
   get "/:vendor", to: "vendors#show", as: :vendor
 
   get '/category/:name', to: "categories#show", as: :category
@@ -28,7 +31,6 @@
   # resources :orders, only: [:show, :create]
   # resources :destinations, only: [:create]
   #
-  # delete '/logout', to: 'sessions#destroy'
   # get '/dashboard', to: "users#show"
   get '/cart', to: "carts#show"
   post '/cart', to: "carts#create"

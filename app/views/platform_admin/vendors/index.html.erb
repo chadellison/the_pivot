@@ -1,5 +1,9 @@
-<ul>
-  <% @vendors.each do |vendor| %>
-    <li><%= vendor.name %><%= button_to "Delete", platform_admin_vendor_path(vendor.id), method: :delete %></li>
-  <% end %>
-</ul>
+<div class="vendor">
+  <ul>
+    <% @vendors.each do |vendor| %>
+      <li><%= vendor.name %><%= button_to "Delete", platform_admin_vendor_path(vendor.id), method: :delete %></li>
+      <li><%= button_to "Edit", edit_platform_admin_vendor_path(vendor.id), method: :get %></li>
+      <li>Status: <%= vendor.status %></li>
+    <% end %>
+  </ul>
+</div>

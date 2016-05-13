@@ -12,4 +12,11 @@ RSpec.describe Vendor, type: :model do
 
     expect(vendor.slug).to eq("vendor-s-favorites")
   end
+
+  it "has a default status of 'inactive'" do
+    vendor = Vendor.create(name: "Hoss beast")
+    expect(vendor.status).to eq "Inactive"
+    vendor.update(status: "Active")
+    expect(Vendor.find(vendor.id).status).to eq "Active"
+  end
 end

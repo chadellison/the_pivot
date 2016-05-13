@@ -6,8 +6,8 @@ RSpec.feature "Guest visits category path" do
     category1 = Category.create(name: "Nature")
     category2 = Category.create(name: "Sports")
     vendor1 = Vendor.create(name: "vendor")
-    photo1 = Photo.create(title: "photo", image: Photo.image_from_url("https://source.unsplash.com/random"), price: 20, description: "description", vendor_id: vendor1.id)
-    photo2 = Photo.create(title: "this", image: Photo.image_from_url("https://source.unsplash.com/random"), price: 20, description: "description", vendor_id: vendor1.id)
+    photo1 = Photo.create(title: "photo", image: File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"), price: 20, description: "description", vendor_id: vendor1.id)
+    photo2 = Photo.create(title: "this", image: File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"), price: 20, description: "description", vendor_id: vendor1.id)
     category1.photos << photo1
     category1.photos << photo2
 
