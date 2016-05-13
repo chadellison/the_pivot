@@ -25,7 +25,7 @@ class Permissions
   private
 
     def platform_admin_permissions
-      vendor_admin_permissions
+      vendor_admin_permissions || controller == "platform_admin/vendors"
     end
 
     def vendor_admin_permissions

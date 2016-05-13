@@ -2,6 +2,11 @@
 
   root 'photos#index'
   resources :photos, only: [:index, :show, :create]
+
+  namespace :platform_admin do
+    resources :vendors, only: [:index, :show, :destroy]
+  end
+
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   get '/signup', to: "users#new", as: :users
@@ -11,6 +16,7 @@
   get "/:vendor", to: "vendors#show", as: :vendor
 
   get '/category/:name', to: "categories#show", as: :category
+
 
   # namespace :vendor, path: '/:vendor', as: :vendor do
   #   get '/dashboard', to: 'dashboards#show', as: :dashboard
