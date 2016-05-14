@@ -9,11 +9,6 @@ class OrdersController < ApplicationController
     @orders = current_user.orders
   end
 
-  def download
-    photo = Photo.find(params[:photo])
-    send_file photo.image.path, type: "image/jpeg"
-  end
-
   def create
     new_order = OrderGenerator.new(current_user, @cart)
     if new_order
