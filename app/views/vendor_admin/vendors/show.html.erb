@@ -14,7 +14,7 @@
 </div>
 
 <%= form_for(@vendor, url: vendor_admin_vendor_path(@vendor.id)) do |f| %>
-  <%= f.hidden_field :vendor_status, value: "Inactive" %>
+  <%= f.hidden_field :status, value: "Inactive" %>
   <%= f.submit "Take Store Offline", class: "button expanded" %>
 <% end %>
 
