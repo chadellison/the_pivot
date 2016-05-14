@@ -39,6 +39,17 @@ RSpec.configure do |config|
   config.after(:suite) do
     FileUtils.rm_rf(Dir["#{Rails.root}/spec/images"])
   end
+
+  config.before(:each) do
+    UserRole.all.each { |user_role| user_role.delete }
+    User.all.each { |user| user.delete }
+  end
+
+  config.after(:each) do
+    UserRole.all.each { |user_role| user_role.delete }
+    User.all.each { |user| user.delete }
+  end
+
 end
 
 

@@ -39,7 +39,7 @@ class Permissions
 
     def customer_permissions
       guest_permissions ||
-      controller == "users" && action.in?(%w(show))
+      controller == "users" && action.in?(%w(show edit update))
     end
 
     def guest_permissions

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "platform admin can remove a vendor" do
+RSpec.feature "Platform admin can remove a vendor" do
   scenario "vendor is no longer displayed on" do
     role = Role.create(name: "platform_admin")
     user = User.create(username: "Jones", password: "password", password_confirmation: "password", email: "jones@gmail.com")
