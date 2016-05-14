@@ -27,7 +27,8 @@ class Permissions
     def platform_admin_permissions
       vendor_admin_permissions ||
       controller == "platform_admin/vendors" ||
-      controller == "platform_admin/dashboard"
+      controller == "platform_admin/dashboard" ||
+      controller == "platform_admin/photos"
     end
 
     def vendor_admin_permissions

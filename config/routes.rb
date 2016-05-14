@@ -5,6 +5,7 @@
 
   namespace :platform_admin do
     resources :vendors, only: [:index, :show, :destroy, :edit, :update]
+    resources :photos, only: [:index, :destroy]
     get "/dashboard", to: "dashboard#show"
   end
 
