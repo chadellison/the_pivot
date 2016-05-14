@@ -9,7 +9,6 @@ class PlatformAdmin::PhotosController < ApplicationController
 
   def update
     photo = Photo.find(params[:id])
-    # photo.update(photo_params)
     vendor = Vendor.find(photo.vendor.id)
     vendor.photos.find(photo.id).update(photo_params)
     flash["success"] = "#{Photo.find(photo.id).title} has been updated."
