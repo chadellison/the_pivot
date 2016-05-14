@@ -7,7 +7,11 @@ class Vendor < ActiveRecord::Base
 
   validates_presence_of :name
 
+  def featured
+    photos.first
+  end
+
   def generate_slug
-    self.slug = self.name.parameterize
+    self.slug = name.parameterize
   end
 end

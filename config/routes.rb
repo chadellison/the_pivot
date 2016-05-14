@@ -15,7 +15,7 @@
   post '/signup', to: 'users#create'
 
   get '/dashboard/:id', to: "users#show", as: :dashboard
-  get "/vendors", to: "vendors#index"
+  get '/vendors', to: "vendors#index"
   get "/:vendor", to: "vendors#show", as: :vendor
 
   get '/category/:name', to: "categories#show", as: :category
