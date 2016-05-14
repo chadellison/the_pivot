@@ -3,10 +3,9 @@
   <div class="small-3 columns side-menu full-height">
     <br>
     <%= link_to "Edit Vendors", platform_admin_vendors_path %>
+    <%= link_to "Edit Photos", platform_admin_photos_path %>
   </div>
-  <div class="small-6 columns">
-    <br>
-    <h4 class="centered-text">Welcome to Your Dashboard, <%= current_user.username.capitalize %></h4>
-    <h4 class="centered-text"><%= current_user.email %></h4>
-  </div>
+<br>
+  <h4 class="centered-text">Welcome to Your Dashboard, <%= current_user.username.capitalize %></h4>
+  <h4 class="centered-text"><%= current_user.email %></h4>
 </div>

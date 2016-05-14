@@ -27,11 +27,14 @@ class Permissions
     def platform_admin_permissions
       vendor_admin_permissions ||
       controller == "platform_admin/vendors" ||
-      controller == "platform_admin/dashboard"
+      controller == "platform_admin/dashboard" ||
+      controller == "platform_admin/photos"
     end
 
     def vendor_admin_permissions
-      customer_permissions || controller == "photos" && action.in?(%w(create))
+      return true if controller == "vendor_admin/vendors"
+      customer_permissions ||
+      controller == "photos" && action.in?(%w(create))
     end
 
     def customer_permissions

@@ -1,0 +1,10 @@
+<div class="photo">
+  <ul>
+    <% @photos.each do |photo| %>
+      <li><%= link_to image_tag(photo.image.url, alt: photo.image.url), photo_path(photo.id) %><li>
+      <li><%= photo.title %><li>
+      <li><%= button_to "Delete", platform_admin_photo_path(photo.id), method: :delete %></li>
+      <li><%= button_to "Edit", edit_platform_admin_photo_path(photo.id), method: :get %></li>
+    <% end %>
+  </ul>
+</div>
