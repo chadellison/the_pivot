@@ -64,5 +64,4 @@ class Seeds
 
 end
 
-
 Seeds.new
