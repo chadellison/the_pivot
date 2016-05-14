@@ -2,29 +2,28 @@ class Order < ActiveRecord::Base
   include ApplicationHelper
 
   belongs_to :user
-  has_many :order_packages
-  has_many :packages, through: :order_packages
+  has_many :order_photos
+  has_many :photos, through: :order_photos
 
-  enum status: %w(Pending Paid Cancelled)
 
-  def package_total_price
-    packages.sum(:price)
-  end
-
-  def package_quantity(package_id)
-    order_packages.where(package_id: package_id).count
+  def photo_total_price
+    photos.sum(:price)
   end
 
   def total_quantity
-    order_packages.count
+    order_photos.count
   end
 
-  def subtotal(package)
-    package_quantity(package.id) * package.price
+  def subtotal(photo)
+    photo.price
   end
 
-  def package_names
-    packages.pluck(:title).join(", ")
+  def photo_names
+    photos.pluck(:title).join(", ")
+  end
+
+  def photo_vendors
+    photos.includes(:vendor).pluck(:name).join(",")
   end
 
 end

@@ -1,56 +1,40 @@
-@mixin flash {
-  border: 3px solid #D91E18;
-  border-radius: 5px;
-  background-color:rgba(#000000, 0.8);
-  font-size: 12px;
-  width: 15vw;
-  height: 10vw;
-  position: absolute;
-  z-index: 1000;
+$success: #086788;
+$error: #941B0C;
+$alert:   #BC3908;
+
+@mixin flash-base($animation-name) {
+  background-color: white;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  animation-duration: 2s;
+  animation-name: $animation-name;
+  animation-timing-function: ease-in;
 }
 
-.flash-close {
-  font-size: 26px
+.flash-success {
+  @include flash-base(fade-success);
 }
 
-
-.alert-box.alert {
-  @include flash;
-  top: 25%;
-  left: 35%;
+.flash-error {
+  @include flash-base(fade-error);
 }
 
-.alert-box.warning {
-  @include flash;
-  top: 25%;
-  left: 35%;
+.flash-alert {
+  @include flash-base(fade-alert);
 }
 
-.alert-box.success {
-  @include flash;
-  top: 0.05%;
-  right: 8%;
+@keyframes fade-success {
+  from {background-color: $success;}
+  to {background-color: white;}
 }
 
-.alert-box.info {
-  @include flash;
-  top: 50%;
-  left: 7%;
+@keyframes fade-error {
+  from {background-color: $error;}
+  to {background-color: white;}
 }
 
-.alert-box {
-  i {
-    color: #fff;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    padding: .2em .4em;
-    margin-right: 0.8rem;
-  }
-
-  .close {
-    background: transparent;
-    color: #fff;
-    font-size: 2rem;
-    top: 19px;
-    }
-  }
+@keyframes fade-alert {
+  from {background-color: $alert;}
+  to {background-color: white;}
+}

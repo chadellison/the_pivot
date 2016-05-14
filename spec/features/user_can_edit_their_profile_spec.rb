@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "User can edit their profile" do
   scenario "user selects 'edit profile' on their dashboard" do
     user = User.create(username: "Susan", password: "password", password_confirmation: "password", email: "susan@gmail.com")
-    user.roles << Role.first
+    user.roles.create(name: "customer")
 
     visit root_path
     click_on "Login"
@@ -12,6 +12,8 @@ RSpec.feature "User can edit their profile" do
     click_on "Sign In"
 
     click_on "Edit Profile"
+    # save_and_open_page
+    # byebug
 
     expect(current_path).to eq("/users/edit")
     fill_in "Username", with: "Fred"
