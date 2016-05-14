@@ -39,7 +39,7 @@ class Permissions
 
     def customer_permissions
       guest_permissions || controller == "users" && action.in?(%w(show)) ||
-      controller == "orders" && action.in?(%w(index create show))
+      controller == "orders" && action.in?(%w(index create show)) ||
       controller == "downloads" && action.in?(%w(show))
     end
 
