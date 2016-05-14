@@ -16,8 +16,6 @@ RSpec.feature "User can download their bought photos" do
     visit order_path(order)
 
 
-    save_and_open_page
-
     within ".orders" do
       expect(page).to have_link "Download", href: download_path(photo: photo)
     end
