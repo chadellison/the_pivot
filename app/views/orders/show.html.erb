@@ -10,13 +10,13 @@
       <th width "150">Sub-Total</th>
     </tr>
   </thead>
-  <tbody class= "orders">
+  <tbody class="orders">
     <tr>
-      <% @order.packages.each do |package| %>
-        <td><%= image_tag package.image, class: "cart-image" %></td>
-        <td><%= link_to package.title, package %></td>
-        <td> <%= @order.package_quantity(package.id) %>
-        <td><%= @order.subtotal(package)%></td>
+      <% @order.photos.each do |photo| %>
+        <td><%= image_tag photo.image, class: "cart-image" %></td>
+        <td><%= link_to photo.title, photo %></td>
+        <td> <%= @order.photo_quantity(photo.id) %>
+        <td><%= @order.subtotal(photo)%></td>
     </tr>
     <% end %>
   </tbody>

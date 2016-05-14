@@ -1,0 +1,241 @@
+
+
+Started GET "/" for ::1 at 2016-05-14 14:39:04 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PhotosController#index as HTML
+  [1m[35mUser Load (6.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRole Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "platform_admin"]]
+  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", 1], ["name", "vendor_admin"]]
+  [1m[36mRole Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "customer"]]
+  [1m[35mPhoto Load (1.1ms)[0m  SELECT "photos".* FROM "photos"
+  [1m[36mVendor Load (0.3ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mVendor Load (0.2ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mVendor Load (0.5ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mVendor Load (0.2ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mVendor Load (0.2ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mVendor Load (0.2ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mVendor Load (0.3ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mVendor Load (0.3ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 16]]
+  [1m[35mVendor Load (0.2ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 17]]
+  [1m[35mVendor Load (0.2ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 18]]
+  [1m[35mVendor Load (0.2ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 19]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 19]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 19]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 19]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 19]]
+  [1m[36mVendor Load (0.7ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 20]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 20]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 20]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 20]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 20]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 20]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1[0m  [["id", 20]]
+  Rendered shared/_photos.html.erb (175.3ms)
+  Rendered photos/index.html.erb within layouts/application (181.9ms)
+  [1m[35mCategory Load (6.7ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mVendor Load (0.3ms)[0m  [1mSELECT "vendors".* FROM "vendors"[0m
+  Rendered layouts/_nav.html.erb (14.3ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+Completed 200 OK in 953ms (Views: 825.8ms | ActiveRecord: 38.0ms)
+
+
+Started GET "/fadel-konopelski-and-toy" for ::1 at 2016-05-14 14:39:21 -0600
+Processing by VendorsController#show as HTML
+  Parameters: {"vendor"=>"fadel-konopelski-and-toy"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRole Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "platform_admin"]]
+  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", 1], ["name", "vendor_admin"]]
+  [1m[36mRole Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "customer"]]
+  [1m[35mVendor Load (0.3ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."slug" = $1 LIMIT 1  [["slug", "fadel-konopelski-and-toy"]]
+  [1m[36mPhoto Load (0.4ms)[0m  [1mSELECT  "photos".* FROM "photos" WHERE "photos"."vendor_id" = $1  ORDER BY "photos"."id" DESC LIMIT 1[0m  [["vendor_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "photos".* FROM "photos" WHERE "photos"."vendor_id" = $1  ORDER BY "photos"."id" DESC LIMIT 1  [["vendor_id", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."vendor_id" = $1[0m  [["vendor_id", 1]]
+  Rendered vendors/show.html.erb within layouts/application (14.9ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mVendor Load (0.5ms)[0m  [1mSELECT "vendors".* FROM "vendors"[0m
+  Rendered layouts/_nav.html.erb (4.7ms)
+  Rendered layouts/_flash.html.erb (0.1ms)
+Completed 200 OK in 153ms (Views: 143.6ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/cart?photo_id=2" for ::1 at 2016-05-14 14:39:29 -0600
+Processing by CartsController#create as HTML
+  Parameters: {"authenticity_token"=>"zBIQ1vMxjSfxVNLY7glUsBCQc6ORRkRlekdLCBbESPPFoicsPiZzli3LiP8bnUmNhv/FaMA5e77ZId1Rap+pGw==", "photo_id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRole Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "platform_admin"]]
+  [1m[35mRole Exists (0.2ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", 1], ["name", "vendor_admin"]]
+  [1m[36mRole Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "customer"]]
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mVendor Load (0.1ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/fadel-konopelski-and-toy
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/fadel-konopelski-and-toy" for ::1 at 2016-05-14 14:39:29 -0600
+Processing by VendorsController#show as HTML
+  Parameters: {"vendor"=>"fadel-konopelski-and-toy"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mRole Exists (0.2ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", 1], ["name", "platform_admin"]]
+  [1m[36mRole Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "vendor_admin"]]
+  [1m[35mRole Exists (0.1ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", 1], ["name", "customer"]]
+  [1m[36mVendor Load (0.3ms)[0m  [1mSELECT  "vendors".* FROM "vendors" WHERE "vendors"."slug" = $1 LIMIT 1[0m  [["slug", "fadel-konopelski-and-toy"]]
+  [1m[35mPhoto Load (0.5ms)[0m  SELECT  "photos".* FROM "photos" WHERE "photos"."vendor_id" = $1  ORDER BY "photos"."id" DESC LIMIT 1  [["vendor_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "photos".* FROM "photos" WHERE "photos"."vendor_id" = $1  ORDER BY "photos"."id" DESC LIMIT 1[0m  [["vendor_id", 1]]
+  [1m[35mPhoto Load (0.3ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."vendor_id" = $1  [["vendor_id", 1]]
+  Rendered vendors/show.html.erb within layouts/application (7.1ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mVendor Load (0.5ms)[0m  SELECT "vendors".* FROM "vendors"
+  Rendered layouts/_nav.html.erb (4.6ms)
+  Rendered layouts/_flash.html.erb (0.1ms)
+Completed 200 OK in 118ms (Views: 111.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/cart" for ::1 at 2016-05-14 14:39:37 -0600
+Processing by CartsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", 1], ["name", "platform_admin"]]
+  [1m[36mRole Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "vendor_admin"]]
+  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", 1], ["name", "customer"]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1mSELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mVendor Load (0.2ms)[0m  SELECT  "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  Rendered carts/show.html.erb within layouts/application (404.3ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mVendor Load (0.3ms)[0m  [1mSELECT "vendors".* FROM "vendors"[0m
+  Rendered layouts/_nav.html.erb (4.2ms)
+  Rendered layouts/_flash.html.erb (0.1ms)
+Completed 200 OK in 543ms (Views: 533.6ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/orders" for ::1 at 2016-05-14 14:39:45 -0600
+Processing by OrdersController#create as HTML
+  Parameters: {"authenticity_token"=>"8EBq7BRfoZWyIb1o4RCkZcxgnGZQ9DTYvCVadVUUxnX58F0W2UhfJG6+508UhLlYWg8qrQGLCwMfQ8wsKU8nnQ=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRole Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "platform_admin"]]
+  [1m[35mRole Exists (0.2ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", 1], ["name", "vendor_admin"]]
+  [1m[36mRole Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "customer"]]
+  [1m[35mPhoto Load (0.3ms)[0m  SELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "orders" ("user_id", "total_cost", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 1], ["total_cost", "67.0"], ["created_at", "2016-05-14 20:39:45.671255"], ["updated_at", "2016-05-14 20:39:45.671255"]]
+  [1m[36m (11.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (7.7ms)[0m  INSERT INTO "order_photos" ("vendor_id", "order_id", "photo_id", "cost", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["vendor_id", 1], ["order_id", 2], ["photo_id", 2], ["cost", 67.0], ["created_at", "2016-05-14 20:39:45.697212"], ["updated_at", "2016-05-14 20:39:45.697212"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/orders
+Completed 302 Found in 59ms (ActiveRecord: 29.9ms)
+
+
+Started GET "/orders" for ::1 at 2016-05-14 14:39:45 -0600
+Processing by OrdersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRole Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "platform_admin"]]
+  [1m[35mRole Exists (0.3ms)[0m  SELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1  [["user_id", 1], ["name", "vendor_admin"]]
+  [1m[36mRole Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "roles" INNER JOIN "user_roles" ON "roles"."id" = "user_roles"."role_id" WHERE "user_roles"."user_id" = $1 AND "roles"."name" = $2 LIMIT 1[0m  [["user_id", 1], ["name", "customer"]]
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1  [["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "order_photos" WHERE "order_photos"."order_id" = $1[0m  [["order_id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT "photos"."title" FROM "photos" INNER JOIN "order_photos" ON "photos"."id" = "order_photos"."photo_id" WHERE "order_photos"."order_id" = $1  [["order_id", 1]]
+  [1m[36m (6.4ms)[0m  [1mSELECT name FROM "photos" LEFT OUTER JOIN "vendors" ON "vendors"."id" = "photos"."vendor_id" INNER JOIN "order_photos" ON "photos"."id" = "order_photos"."photo_id" WHERE "order_photos"."order_id" = $1[0m  [["order_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "order_photos" WHERE "order_photos"."order_id" = $1  [["order_id", 2]]
+  [1m[36m (0.3ms)[0m  [1mSELECT "photos"."title" FROM "photos" INNER JOIN "order_photos" ON "photos"."id" = "order_photos"."photo_id" WHERE "order_photos"."order_id" = $1[0m  [["order_id", 2]]
+  [1m[35m (0.7ms)[0m  SELECT name FROM "photos" LEFT OUTER JOIN "vendors" ON "vendors"."id" = "photos"."vendor_id" INNER JOIN "order_photos" ON "photos"."id" = "order_photos"."photo_id" WHERE "order_photos"."order_id" = $1  [["order_id", 2]]
+  Rendered orders/index.html.erb within layouts/application (24.1ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mVendor Load (0.3ms)[0m  SELECT "vendors".* FROM "vendors"
+  Rendered layouts/_nav.html.erb (3.5ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 155ms (Views: 137.9ms | ActiveRecord: 9.9ms)

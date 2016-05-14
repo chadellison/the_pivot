@@ -38,8 +38,8 @@ class Permissions
     end
 
     def customer_permissions
-      guest_permissions ||
-      controller == "users" && action.in?(%w(show))
+      guest_permissions || controller == "users" && action.in?(%w(show)) ||
+      controller == "orders" && action.in?(%w(index show create))
     end
 
     def guest_permissions
@@ -47,8 +47,9 @@ class Permissions
       return true if controller == "vendors" && action.in?(%w(show index))
       return true if controller == "categories" && action.in?(%w(show))
       return true if controller == "photos" && action.in?(%w(index show))
-      return true if controller == "carts"
+      return true if controller == "carts" && action.in?(%w(show create destroy update))
       return true if controller == "users" && action.in?(%w(new create show))
+
     end
 
     def controller

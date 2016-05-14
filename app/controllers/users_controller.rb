@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     @user = User.create(params_check)
     if @user.save
       session[:user_id] = @user.id
-      # byebug
       flash[:success] = "Success! Your account was created!."
       redirect_to login_path
     else

@@ -10,19 +10,18 @@
         <th width "150">Order Id</th>
         <th width "200">Status
         <th width "150">Total Price</th>
-        <th width "150">Passengers</th>
-        <th width "300">Packages</th>
+        <th width "300">Photo</th>
         <th width "200"></th>
       </tr>
     </thead>
-    <tbody class= "orders">
+    <tbody class="orders">
       <tr>
         <% @orders.each do |order| %>
             <td><%= order.id %></td>
-            <td> <%= order.status %>
-            <td><%= order.total_cost%></td>
+            <td><%= number_to_currency order.total_cost%></td>
             <td><%= order.total_quantity%></td>
-            <td><%= order.package_names %></td>
+            <td><%= order.photo_names %></td>
+            <td><%= order.photo_vendors %></td>
             <td><%= link_to "View", order_path(order), class: "button primary" %> </td>
       </tr>
       <% end %>
