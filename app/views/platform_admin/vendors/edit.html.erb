@@ -1,0 +1,9 @@
+<%= form_for(@vendor, url: platform_admin_vendor_path(@vendor.id)) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :about %>
+  <%= f.text_field :about %>
+  <%= f.label :status %>
+  <%= f.text_field :status %>
+  <%= f.submit %>
+<% end %>

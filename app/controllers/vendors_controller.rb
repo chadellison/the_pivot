@@ -5,6 +5,6 @@ class VendorsController < ApplicationController
   end
 
   def index
-    @vendors = Vendor.all
+    @vendors = Vendor.where(status: "Active")
   end
 end

@@ -19,5 +19,11 @@ RSpec.describe Vendor, type: :model do
     photo2 = Photo.create(title: "photo2", image: Photo.image_from_url("https://source.unsplash.com/random"), price: 20, description: "description", vendor_id: vendor.id)
 
     expect(vendor.featured).to eq(photo1)
+
+  it "has a default status of 'inactive'" do
+    vendor = Vendor.create(name: "Hoss beast")
+    expect(vendor.status).to eq "Inactive"
+    vendor.update(status: "Active")
+    expect(Vendor.find(vendor.id).status).to eq "Active"
   end
 end
