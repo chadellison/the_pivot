@@ -6,6 +6,7 @@ RSpec.feature "Platform admin can edit vendors" do
     user.roles.create(name: "platform_admin")
 
     vendor = Vendor.create(name: "Jojo blu")
+    vendor.photos.create(title: "photo", image: File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"), price: 20, description: "description", vendor_id: vendor.id)
 
     visit root_path
     click_on "Login"
@@ -15,7 +16,7 @@ RSpec.feature "Platform admin can edit vendors" do
 
     visit vendors_path
 
-    within(".vendor") do
+    within(".vendor-index") do
       expect(page).not_to have_content "Jojo blu"
     end
 

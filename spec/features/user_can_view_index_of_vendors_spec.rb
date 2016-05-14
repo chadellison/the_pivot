@@ -3,15 +3,15 @@ require 'rails_helper'
 RSpec.feature "User can view index of vendors" do
   scenario "user goes to path '/vendors' and sees all vendors" do
 
-    vendor1 = Vendor.create(name: "Store Name1")
+    vendor1 = Vendor.create(name: "Store Name1", status: "Active")
     photo1 = Photo.create(title: "photo1", image: Photo.image_from_url("https://source.unsplash.com/random"), price: 20, description: "description", vendor_id: vendor1.id)
     photo2 = Photo.create(title: "photo2", image: Photo.image_from_url("https://source.unsplash.com/random"), price: 20, description: "description", vendor_id: vendor1.id)
 
-    vendor2 = Vendor.create(name: "Store Name2")
+    vendor2 = Vendor.create(name: "Store Name2", status: "Active")
     photo3 = Photo.create(title: "photo3", image: Photo.image_from_url("https://source.unsplash.com/random"), price: 20, description: "description", vendor_id: vendor2.id)
     photo4 = Photo.create(title: "photo4", image: Photo.image_from_url("https://source.unsplash.com/random"), price: 20, description: "description", vendor_id: vendor2.id)
 
-    vendor3 = Vendor.create(name: "Store Name3")
+    vendor3 = Vendor.create(name: "Store Name3", status: "Active")
     photo5 = Photo.create(title: "photo5", image: Photo.image_from_url("https://source.unsplash.com/random"), price: 20, description: "description", vendor_id: vendor3.id)
     photo6 = Photo.create(title: "photo6", image: Photo.image_from_url("https://source.unsplash.com/random"), price: 20, description: "description", vendor_id: vendor3.id)
 
