@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create]
 
-  # def index
-  #  @users = User.all
-  # end
-
   def new
     @user = User.new
   end
@@ -12,6 +8,8 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params_check)
     if @user.save
+      role =  Role.new_customer
+      @user.roles << role
       session[:user_id] = @user.id
       flash[:success] = "Success! Your account was created!."
       redirect_to login_path

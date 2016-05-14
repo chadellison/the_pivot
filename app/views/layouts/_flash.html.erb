@@ -1,11 +1,3 @@
 <% flash.each do |type, message| %>
-<div class="small-6 columns small-centered">
-  <div class="alert-box <%= type %> callout" data-alert data-closable >
-    <i class="fi-info"></i>
-    <%= message %>
-    <button class"close-button" aria-label="Dismiss alert" type="button" data-close >
-      <span class= "flash-close text-right", aria-hidden="true" >&times;</span>
-    </button>
-  </div>
-</div>
+  <div class="flash-<%= type %>"><%= message %></div>
 <% end %>

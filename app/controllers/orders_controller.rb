@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
     if new_order
       flash[:success] = "Order was Successfully Placed"
       session[:cart].clear
-      redirect_to
+      redirect_to orders_path
     else
       redirect_to "/cart"
     end
