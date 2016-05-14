@@ -7,6 +7,10 @@
     resources :vendors, only: [:index, :show, :destroy]
   end
 
+  namespace :vendor_admin do
+    resources :vendors, only: [:show, :update]
+  end
+
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   get '/signup', to: "users#new", as: :users

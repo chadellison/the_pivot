@@ -8,19 +8,7 @@
     <h4 class="centered-text">Welcome to Your Dashboard, <%= current_user.username.capitalize %></h4>
     <h4 class="centered-text"><%= current_user.email %></h4>
     <% current_user.vendors.each do |vendor| %>
-      <%= link_to vendor.name, vendor_path(vendor.id), class: "vendor-links small-3 columns" %>
-    <% end %>
-    <% if current_user.vendor_admin? %>
-      <%= form_for(@photo) do |f| %>
-        <%= f.text_field :title, placeholder: "Photo Title" %>
-        <%= f.text_area :description, placeholder: "Photo Description" %>
-        <%= f.label :price, "Choose a Price for the New Photo" %>
-        <%= f.number_field :price, in: 1000..10000, step: "any" %>
-        <%= f.collection_select :category_ids, Category.all, :id, :name, include_blank: false %>
-        <%= f.label :image, "Choose an Image" %>
-        <%= f.file_field :image %>
-        <%= f.submit "Create Photo", class: "button expanded" %>
-      <% end %>
+      <%= link_to vendor.name, vendor_admin_vendor_path(vendor.id), class: "button expanded" %>
     <% end %>
     <% if current_user.platform_admin? %>
       <h3>Status: Admin<h3>
