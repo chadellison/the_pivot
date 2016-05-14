@@ -25,14 +25,8 @@
             <td><%= image_tag photo.image, class: "cart-image" %></td>
             <td><%= photo.title %></td>
             <td><%= photo.vendor.name %></td>
-            <td>$<%= photo.price %></td>
-            <td><%= @cart.sub_quantity(photo.id) %>
-                <%= link_to "", cart_path(photo, photo.id, operation: "+"), method: 'patch', class: "fi-arrow-up" %>
-                <% unless @cart.sub_quantity(photo.id) == 1 %>
-                  <%= link_to "", cart_path(photo, photo.id, operation: "-"), method: 'patch', class: "fi-arrow-down" %>
-                <% end  %>
-              </td>
-            <td>$<%= @cart.subtotal(photo) %></td>
+            <td><%= number_to_currency photo.price %></td>
+            <td><%= @cart.quantity %></td>
             <td><%= link_to "", cart_path(photo), method: :delete, class: "fi-x"  %></td>
         </tr>
         <% end %>
@@ -43,7 +37,7 @@
       <% unless current_user %>
         <%= link_to "Login or Create Account to Purchase", login_path, class: "button primary" %>
       <% else %>
-        <%= button_to "Checkout", cart_path(@photo.id) %>
+        <%= button_to "Checkout", orders_path %>
       <% end %>
     </div>
   <% end %>

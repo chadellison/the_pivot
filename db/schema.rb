@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512141544) do
+ActiveRecord::Schema.define(version: 20160514161335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,23 +29,23 @@ ActiveRecord::Schema.define(version: 20160512141544) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "order_packages", force: :cascade do |t|
-    t.integer  "user_id"
+  create_table "order_photos", force: :cascade do |t|
     t.integer  "order_id"
-    t.integer  "package_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "photo_id"
+    t.integer  "vendor_id"
+    t.float    "cost"
   end
 
-  add_index "order_packages", ["order_id"], name: "index_order_packages_on_order_id", using: :btree
-  add_index "order_packages", ["package_id"], name: "index_order_packages_on_package_id", using: :btree
-  add_index "order_packages", ["user_id"], name: "index_order_packages_on_user_id", using: :btree
+  add_index "order_photos", ["order_id"], name: "index_order_photos_on_order_id", using: :btree
+  add_index "order_photos", ["photo_id"], name: "index_order_photos_on_photo_id", using: :btree
+  add_index "order_photos", ["vendor_id"], name: "index_order_photos_on_vendor_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.integer  "status",                              default: 0
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.decimal  "total_cost", precision: 20, scale: 2
   end
 
@@ -103,15 +103,16 @@ ActiveRecord::Schema.define(version: 20160512141544) do
 
   create_table "vendors", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "slug"
     t.string   "about"
+    t.string   "status",     default: "Inactive"
   end
 
-  add_foreign_key "order_packages", "orders"
-  add_foreign_key "order_packages", "photos", column: "package_id"
-  add_foreign_key "order_packages", "users"
+  add_foreign_key "order_photos", "orders"
+  add_foreign_key "order_photos", "photos"
+  add_foreign_key "order_photos", "vendors"
   add_foreign_key "orders", "users"
   add_foreign_key "photo_categories", "categories"
   add_foreign_key "photo_categories", "photos"

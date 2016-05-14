@@ -25,23 +25,29 @@ class Permissions
   private
 
     def platform_admin_permissions
-      vendor_admin_permissions
+      vendor_admin_permissions ||
+      controller == "platform_admin/vendors" ||
+      controller == "platform_admin/dashboard"
     end
 
     def vendor_admin_permissions
-      return true if customer_permissions || controller == "photos" && action.in?(%w(create))
+      customer_permissions || controller == "photos" && action.in?(%w(create))
     end
 
     def customer_permissions
-      return true if guest_permissions || controller == "users" && action.in?(%w(show))
+      guest_permissions || controller == "users" && action.in?(%w(show)) ||
+      controller == "photos" && action.in?(%w(create)) ||
+      controller == "orders" && action.in?(%w(index show create))
     end
 
     def guest_permissions
       return true if controller == "sessions"
-      return true if controller == "vendors" && action.in?(%w(show))
+      return true if controller == "vendors" && action.in?(%w(show index))
       return true if controller == "categories" && action.in?(%w(show))
       return true if controller == "photos" && action.in?(%w(index show))
       return true if controller == "carts" && action.in?(%w(show create destroy update))
+      return true if controller == "users" && action.in?(%w(new create show))
+
     end
 
     def controller

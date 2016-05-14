@@ -7,13 +7,17 @@ class Cart
 
   def add_photo(photo_id)
     cart_photos[photo_id.to_s] ||= 0
-    cart_photos[photo_id.to_s] += 1
+    cart_photos[photo_id.to_s] = (find_vendor_id(photo_id)).to_s
   end
 
   def total_price
-    cart_photos.map do |id, quantity|
-      Photo.find(id).price * quantity
-    end.sum
+    find_photos.reduce(0) do |sum, photo|
+      sum += photo.price
+    end
+  end
+
+  def find_vendor_id(photo_id)
+    photo = Photo.find(photo_id).vendor_id
   end
 
   def find_photos
@@ -22,25 +26,14 @@ class Cart
     end
   end
 
-  def subtotal(photo)
-    photo.price * sub_quantity(photo.id)
+  def find_cost(photo_id)
+    Photo.find(photo_id).price
   end
 
   def quantity
-    cart_photos.values.sum
+    cart_photos.keys.count
   end
 
-  def sub_quantity(id)
-    cart_photos.values_at(id.to_s).sum
-  end
-
-  def adjust_quantity(operation, id)
-    if operation == "+"
-      cart_photos[id] += 1
-    else
-      cart_photos[id] -= 1
-    end
-  end
 
   def stripe_price
     total_price.to_i * 100

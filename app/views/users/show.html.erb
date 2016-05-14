@@ -16,12 +16,12 @@
         <%= f.text_area :description, placeholder: "Photo Description" %>
         <%= f.label :price, "Choose a Price for the New Photo" %>
         <%= f.number_field :price, in: 1000..10000, step: "any" %>
+        <%= f.collection_select :category_ids, Category.all, :id, :name, include_blank: false %>
         <%= f.label :image, "Choose an Image" %>
         <%= f.file_field :image %>
         <%= f.submit "Create Photo", class: "button expanded" %>
       <% end %>
     <% end %>
-
   </div>
   <div class="small-3"></div>
 </div>
