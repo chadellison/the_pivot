@@ -5,6 +5,7 @@ class Seeds
     create_roles
     create_vendors_and_photos
     create_users
+    platform_admin
   end
 
   def create_categories
@@ -13,6 +14,15 @@ class Seeds
       Category.create(name: category)
     end
     puts "Created Categories"
+  end
+
+  def platform_admin
+    user = User.create(username: "jorge@turing.io",
+                password: "password",
+                password_confirmation: "password",
+                email: "jorge@gmail.com")
+    user.roles << Role.first
+    puts "created platform admin"
   end
 
   def create_users
@@ -53,6 +63,5 @@ class Seeds
   end
 
 end
-
 
 Seeds.new
