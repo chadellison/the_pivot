@@ -8,6 +8,10 @@
     get "/dashboard", to: "dashboard#show"
   end
 
+  namespace :vendor_admin do
+    resources :vendors, only: [:show, :update]
+  end
+
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   delete '/logout', to: 'sessions#destroy'

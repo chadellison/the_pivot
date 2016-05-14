@@ -31,6 +31,7 @@ class Permissions
     end
 
     def vendor_admin_permissions
+      return true if controller == "vendor_admin/vendors"
       customer_permissions ||
       controller == "photos" && action.in?(%w(create))
     end
