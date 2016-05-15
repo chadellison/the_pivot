@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create]
 
+  # def index
+  #  @users = User.all
+  # end
+
+  def edit
+    @user = current_user
+  end
+
   def new
     @user = User.new
   end
@@ -22,10 +30,11 @@ class UsersController < ApplicationController
   def update
     if current_user.update_attributes(params_check)
       flash[:success] = "Success! Your account updated."
+      redirect_to dashboard_path(current_user)
     else
       flash[:error] = "Your account could not be updated. Please check your input and try again."
+      redirect_to edit_profile_path
     end
-      redirect_to  dashboard_path
   end
 
   def show

@@ -10,6 +10,9 @@
   get '/signup', to: "users#new", as: :users
   post '/signup', to: 'users#create'
   get '/dashboard/:id', to: "users#show", as: :dashboard
+  get '/users/edit', to: "users#edit", as: :edit_profile
+  patch '/users/update/:id', to: "users#update", as: :user
+
   get '/vendors', to: "vendors#index"
   get '/category/:name', to: "categories#show", as: :category
   resources :orders, only: [:show, :create, :index]
