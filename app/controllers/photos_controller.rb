@@ -3,6 +3,7 @@ class PhotosController < ApplicationController
   def index
     @photos = Photo.all
     @categories = Category.all
+    @slide_photos = Photo.limit(5)
   end
 
   def create
