@@ -22,7 +22,6 @@
   get '/signup',             to: "users#new", as: :users
   post '/signup',            to: 'users#create'
 
-  get '/pending',            to: "pending#index"
   get '/dashboard/:id',      to: "users#show", as: :dashboard
   get '/vendors/new',        to: 'vendors#new', as: :new_vendor
   post '/vendors',           to: 'vendors#create'

@@ -1,6 +1,27 @@
-<div class="vendor">
+<div class="pending-vendors small-2 large-4 columns">
+  <h4>Pending Vendors</h4>
+  <ul>
+    <% pending_vendors(@vendors).each do |vendor| %>
+      <li><%= vendor.name %></li>
+      <li><%= button_to "Approve", platform_admin_vendor_path(vendor.id, pending: "active"), method: :patch, class: "button expanded" %></li>
+      <li><%= button_to "Deny", platform_admin_vendor_path(vendor.id, pending: "inactive"), class: "button expanded" %></li>
+    <% end %>
+  </ul>
+</div>
+<div class="all-vendors samll-2 large-4 columns">
+  <h4>All Vendors</h4>
   <ul>
     <% @vendors.each do |vendor| %>
+      <li><%= vendor.name %><%= button_to "Delete", platform_admin_vendor_path(vendor.id), method: :delete %></li>
+      <li><%= button_to "Edit", edit_platform_admin_vendor_path(vendor.id), method: :get %></li>
+      <li>Status: <%= vendor.status %></li>
+    <% end %>
+  </ul>
+</div>
+<div class="inactive-vendors small-2 large-4 columns">
+  <h4>Inactive Vendors</h4>
+  <ul>
+    <% inactive_vendors(@vendors).each do |vendor| %>
       <li><%= vendor.name %><%= button_to "Delete", platform_admin_vendor_path(vendor.id), method: :delete %></li>
       <li><%= button_to "Edit", edit_platform_admin_vendor_path(vendor.id), method: :get %></li>
       <li>Status: <%= vendor.status %></li>

@@ -13,13 +13,12 @@ class PlatformAdmin::VendorsController < ApplicationController
       vendor.update(status: params[:pending])
       vendor.users.last.roles.create(name: "vendor_admin")
       flash[:success] = "#{vendor.name} has been approved" if params[:pending] == "active"
-      redirect_to pending_path
     else
       vendor = Vendor.find(params[:id])
       vendor.update(vendor_params)
       flash[:success] = "#{Vendor.find(vendor.id).name} has been updated."
-      redirect_to platform_admin_vendors_path
     end
+    redirect_to platform_admin_vendors_path
   end
 
   def destroy

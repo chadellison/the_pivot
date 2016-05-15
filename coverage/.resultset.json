@@ -26,6 +26,17 @@
         null,
         null
       ],
+      "/Users/charlesellison/turing/3module/projects/the_pivot/app/helpers/platform_admin_vendors_helper.rb": [
+        1,
+        1,
+        6,
+        null,
+        null,
+        1,
+        6,
+        null,
+        null
+      ],
       "/Users/charlesellison/turing/3module/projects/the_pivot/app/models/cart.rb": [
         1,
         1,
@@ -331,7 +342,6 @@
         null,
         null,
         null,
-        null,
         30,
         null,
         null,
@@ -359,7 +369,7 @@
         null,
         null,
         1,
-        1384,
+        1354,
         null,
         null,
         1,
@@ -489,17 +499,10 @@
         null,
         null
       ],
-      "/Users/charlesellison/turing/3module/projects/the_pivot/app/controllers/pending_controller.rb": [
-        1,
-        1,
-        2,
-        null,
-        null
-      ],
       "/Users/charlesellison/turing/3module/projects/the_pivot/app/controllers/platform_admin/vendors_controller.rb": [
         1,
         1,
-        4,
+        6,
         null,
         null,
         1,
@@ -512,13 +515,12 @@
         1,
         1,
         1,
-        1,
         null,
         1,
         1,
         1,
-        1,
         null,
+        2,
         null,
         null,
         1,
@@ -706,8 +708,15 @@
         0,
         0,
         0
+      ],
+      "/Users/charlesellison/turing/3module/projects/the_pivot/app/controllers/pending_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
-    "timestamp": 1463294786
+    "timestamp": 1463334771
   }
 }

@@ -45,7 +45,7 @@ RSpec.feature "platform admin can approve a vendor" do
     fill_in "Password", with: "123"
     click_on "Sign In"
 
-    click_on "Pending Vendors"
+    click_on "Edit Vendors"
     expect(page).to have_content "Beautiful Photos"
     expect(page).to have_button "Deny"
     click_on "Approve"
