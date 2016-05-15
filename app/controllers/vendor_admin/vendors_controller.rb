@@ -1,6 +1,7 @@
 class VendorAdmin::VendorsController < ApplicationController
   def show
     @vendor = current_user.vendors.find(params[:id])
+    @categories = Category.all
   end
 
   def update

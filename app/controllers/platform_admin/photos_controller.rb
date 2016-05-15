@@ -5,6 +5,7 @@ class PlatformAdmin::PhotosController < ApplicationController
 
   def edit
     @photo = Photo.find(params[:id])
+    @categories = Category.all
   end
 
   def update
