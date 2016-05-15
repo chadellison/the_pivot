@@ -1,22 +1,22 @@
 <br>
 <div class="row">
-<h1 class="text-center">Your Trip Id: <%= @order.id  %></h1>
+<h1 class="text-center">Your Order Id: <%= @order.id  %></h1>
 <table>
   <thead>
     <tr>
       <th width "300"></th>
-      <th width "150">Package Title</th>
-      <th width "150">Passengers</th>
-      <th width "150">Sub-Total</th>
+      <th width "150">Photo Title</th>
+      <th width "150">Photo Price</th>
     </tr>
   </thead>
-  <tbody class= "orders">
+  <tbody class="orders">
     <tr>
-      <% @order.packages.each do |package| %>
-        <td><%= image_tag package.image, class: "cart-image" %></td>
-        <td><%= link_to package.title, package %></td>
-        <td> <%= @order.package_quantity(package.id) %>
-        <td><%= @order.subtotal(package)%></td>
+      <% @order.photos.each do |photo| %>
+        <td><%= image_tag photo.image, class: "cart-image" %></td>
+        <td><%= link_to photo.title, photo_path(photo) %></td>
+        <td><%= link_to photo.vendor.name, vendor_path(photo.vendor.slug) %></td>
+        <td><%= number_to_currency photo.price%></td>
+        <td><%= link_to "Download", download_path(photo: photo)%></td>
     </tr>
     <% end %>
   </tbody>
@@ -26,7 +26,6 @@
     <h5>Total price for this order: <%= @order.total_cost %></h5>
       <li><%= @order.format_time(@order.created_at) %></li>
       <li><%= @order.format_time(@order.updated_at) %></li>
-      <li>This Order Is: <%= @order.status %></li>
   </ul>
 </div>
 </div>

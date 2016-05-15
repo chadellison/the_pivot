@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   #  @users = User.all
   # end
 
+  def edit
+    @user = current_user
+  end
+
   def new
     @user = User.new
   end
@@ -12,6 +16,8 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params_check)
     if @user.save
+      role =  Role.new_customer
+      @user.roles << role
       session[:user_id] = @user.id
       flash[:success] = "Success! Your account was created!."
       redirect_to login_path
@@ -24,10 +30,15 @@ class UsersController < ApplicationController
   def update
     if current_user.update_attributes(params_check)
       flash[:success] = "Success! Your account updated."
+      redirect_to dashboard_path(current_user)
     else
       flash[:error] = "Your account could not be updated. Please check your input and try again."
+      redirect_to edit_profile_path
     end
+<<<<<<< HEAD
     redirect_to  dashboard_path
+=======
+>>>>>>> master
   end
 
   def show

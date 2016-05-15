@@ -29,23 +29,23 @@ ActiveRecord::Schema.define(version: 20160515030359) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "order_packages", force: :cascade do |t|
-    t.integer  "user_id"
+  create_table "order_photos", force: :cascade do |t|
     t.integer  "order_id"
-    t.integer  "package_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "photo_id"
+    t.integer  "vendor_id"
+    t.float    "cost"
   end
 
-  add_index "order_packages", ["order_id"], name: "index_order_packages_on_order_id", using: :btree
-  add_index "order_packages", ["package_id"], name: "index_order_packages_on_package_id", using: :btree
-  add_index "order_packages", ["user_id"], name: "index_order_packages_on_user_id", using: :btree
+  add_index "order_photos", ["order_id"], name: "index_order_photos_on_order_id", using: :btree
+  add_index "order_photos", ["photo_id"], name: "index_order_photos_on_photo_id", using: :btree
+  add_index "order_photos", ["vendor_id"], name: "index_order_photos_on_vendor_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.integer  "status",                              default: 0
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.decimal  "total_cost", precision: 20, scale: 2
   end
 
@@ -110,9 +110,9 @@ ActiveRecord::Schema.define(version: 20160515030359) do
     t.integer  "status",     default: 0
   end
 
-  add_foreign_key "order_packages", "orders"
-  add_foreign_key "order_packages", "photos", column: "package_id"
-  add_foreign_key "order_packages", "users"
+  add_foreign_key "order_photos", "orders"
+  add_foreign_key "order_photos", "photos"
+  add_foreign_key "order_photos", "vendors"
   add_foreign_key "orders", "users"
   add_foreign_key "photo_categories", "categories"
   add_foreign_key "photo_categories", "photos"
