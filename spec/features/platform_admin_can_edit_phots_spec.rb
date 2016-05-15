@@ -33,6 +33,6 @@ RSpec.feature "Platform admin can edit photos" do
     expect(current_path).to eq platform_admin_photos_path
 
     visit root_path
-    expect(page).to have_link "Super kung fu"
+    expect(page).to have_content "Super kung fu"
   end
 end
