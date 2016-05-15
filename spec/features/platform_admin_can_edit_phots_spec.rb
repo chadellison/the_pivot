@@ -6,7 +6,7 @@ RSpec.feature "Platform admin can edit photos" do
     user.roles.create(name: "platform_admin")
     category = Category.create(name: "new category")
 
-    vendor = Vendor.create(name: "the ninja", status: "Active")
+    vendor = Vendor.create(name: "the ninja", status: 1)
     vendor.photos.create(title: "kung fu", image: File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"), price: 20, description: "description", vendor_id: vendor.id)
 
     visit root_path

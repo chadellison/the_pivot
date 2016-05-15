@@ -44,13 +44,15 @@ RSpec.feature "platform admin can approve a vendor" do
     fill_in "Password", with: "123"
     click_on "Sign In"
 
-    click_button "Pending Vendors"
+    click_on "Pending Vendors"
+    expect(page).to have_content "Beautiful Photos"
     expect(page).to have_button "Deny"
     click_on "Approve"
+
     expect(page).to have_content "Beautiful Photos has been approved"
     visit vendors_path
     expect(page).to have_content "Beautiful Photos"
     expect(Vendor.last.status).to eq "active"
-    expect(User.find(user.id).roles).to eq ["customer", "vendor_admin"]
+    assert User.find(user.id).roles.pluck(:name).include?("vendor_admin")
   end
 end

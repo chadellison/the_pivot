@@ -1,0 +1,5 @@
+<% @vendors.each do |vendor| %>
+  <%= vendor.name %>
+  <%= button_to "Approve", platform_admin_vendor_path(vendor.id, pending: "active"), method: :patch, class: "button expanded" %>
+  <%= button_to "Deny", platform_admin_vendor_path(vendor.id, pending: "inactive"), class: "button expanded" %>
+<% end %>
