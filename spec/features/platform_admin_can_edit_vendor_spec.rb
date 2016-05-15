@@ -25,15 +25,17 @@ RSpec.feature "Platform admin can edit vendors" do
     expect(current_path).to eq platform_admin_vendors_path
     expect(page).to have_content "Jojo blu"
 
-    expect(page).to have_content "Status: Inactive"
-    click_on "Edit"
+    expect(page).to have_content "Status: pending"
+    within(".all-vendors") do
+      click_on "Edit"
+    end
 
-    fill_in "Status", with: "Active"
+    fill_in "Status", with: "active"
     click_on "Update Vendor"
 
     expect(page).to have_content "Jojo blu has been updated."
     expect(current_path).to eq platform_admin_vendors_path
-    expect(page).to have_content "Status: Active"
+    expect(page).to have_content "Status: active"
 
     visit vendors_path
     expect(page).to have_content "Jojo blu"

@@ -7,6 +7,7 @@
     <br>
     <h4 class="centered-text">Welcome to Your Dashboard, <%= current_user.username.capitalize %></h4>
     <h4 class="centered-text"><%= current_user.email %></h4>
+    <%= button_to "Create Business", new_vendor_path, method: :get %>
     <% current_user.vendors.each do |vendor| %>
       <%= link_to vendor.name, vendor_admin_vendor_path(vendor.id), class: "button expanded" %>
     <% end %>

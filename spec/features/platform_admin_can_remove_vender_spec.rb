@@ -13,8 +13,6 @@ RSpec.feature "Platform admin can remove a vendor" do
 
     visit root_path
 
-    # expect(page).to have_content "photo"
-
     click_on "Login"
     fill_in "Username", with: "Jones"
     fill_in "Password", with: "password"
@@ -23,15 +21,17 @@ RSpec.feature "Platform admin can remove a vendor" do
     expect(current_path).to eq platform_admin_dashboard_path(user.id)
     click_link "Edit Vendors"
     expect(current_path).to eq platform_admin_vendors_path
-    within(".vendor") do
+    within(".all-vendors") do
       expect(page).to have_content "Jojo blu"
     end
-    click_button "Delete"
+
+    within(".all-vendors") do
+      click_button "Delete"
+    end
     expect(page).to have_content "Jojo blu was successfully removed!"
     expect(Vendor.all).to eq []
 
     visit root_path
-    # expect(page).not_to have_content "Photo"
   end
 
   scenario "non-admins cannot remove vendors" do
