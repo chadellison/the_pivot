@@ -27,7 +27,7 @@
             <td><%= photo.vendor.name %></td>
             <td><%= number_to_currency photo.price %></td>
             <td><%= @cart.quantity %></td>
-            <td><%= link_to "", cart_path(photo), method: :delete, class: "fi-x"  %></td>
+            <td><%= link_to "", cart_path(photo: photo.id), method: :delete, class: "fi-x"%></td>
         </tr>
         <% end %>
       </tbody>

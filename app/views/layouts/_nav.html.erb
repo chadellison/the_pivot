@@ -22,7 +22,12 @@
       <% end %>
     </div>
   </div>
-  <%= link_to "Login", login_path, class: "login" %>
+  <%= link_to "", '/cart', class: "fi-shopping-bag nav-cart" %>
+  <% if current_user %>
+    <%= link_to "Log Out", logout_path, method: :delete,  class: "login" %>
+  <% else %>
+    <%= link_to "Login", login_path, class: "login" %>
+  <% end %>
   <hr>
 </nav>
 

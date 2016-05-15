@@ -11,15 +11,10 @@ class CartsController < ApplicationController
     @photos = @cart.find_photos if @cart.cart_photos
   end
 
-  def update
-    @cart.adjust_quantity(params[:operation], params[:id])
-    redirect_to '/cart'
-  end
-
-
   def destroy
-    photo = Photo.find(params[:id])
-    @cart.cart_photos.delete(params[:id])
+
+    photo = Photo.find(params[:photo])
+    @cart.cart_photos.delete(params[:photo])
     redirect_to "/cart"
   end
 
