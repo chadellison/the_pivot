@@ -5,11 +5,6 @@ class Order < ActiveRecord::Base
   has_many :order_photos
   has_many :photos, through: :order_photos
 
-
-  def photo_total_price
-    photos.sum(:price)
-  end
-
   def total_quantity
     order_photos.count
   end

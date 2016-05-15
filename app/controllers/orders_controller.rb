@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
   before_action :logged_in_user, only: [:show]
 
+  def show
+    @order = current_user.orders.find(params[:id])
+  end
+
   def index
     @orders = current_user.orders
   end
