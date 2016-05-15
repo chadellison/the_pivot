@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create]
 
-  # def index
-  #  @users = User.all
-  # end
-
   def edit
     @user = current_user
   end
@@ -35,10 +31,6 @@ class UsersController < ApplicationController
       flash[:error] = "Your account could not be updated. Please check your input and try again."
       redirect_to edit_profile_path
     end
-<<<<<<< HEAD
-    redirect_to  dashboard_path
-=======
->>>>>>> master
   end
 
   def show

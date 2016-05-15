@@ -6,7 +6,7 @@ RSpec.feature "User can view individual order" do
     user = User.new(id: 1)
     user.save(validate: false)
     UserRole.create(user_id: user.id, role_id: role.id)
-    vendor = Vendor.create(name: "vendor1", status: "Active")
+    vendor = Vendor.create(name: "vendor1", status: "active")
     photo = vendor.photos.create(title: "photo", image: File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"),
                                  price: 20, description: "description")
     order = Order.create(user_id: 1, total_cost: 20)

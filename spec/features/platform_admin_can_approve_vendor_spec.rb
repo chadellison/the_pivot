@@ -37,7 +37,8 @@ RSpec.feature "platform admin can approve a vendor" do
     visit vendors_path
     expect(page).not_to have_content "Beautiful Photos"
     expect(User.find(user.id).roles.last.name).to eq "customer"
-    visit logout_path
+
+    click_on "Log Out"
 
     click_on "Login"
     fill_in "Username", with: "Anna"

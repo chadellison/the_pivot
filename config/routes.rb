@@ -28,12 +28,6 @@
   post '/vendors',           to: 'vendors#create'
   get '/vendors',            to: "vendors#index"
 
-  get '/login',              to: "sessions#new"
-  post '/login',             to: "sessions#create"
-  delete '/logout',          to: 'sessions#destroy'
-  get '/signup',             to: "users#new", as: :users
-  post '/signup',            to: 'users#create'
-  get '/dashboard/:id',      to: "users#show", as: :dashboard
   get '/users/edit',         to: "users#edit", as: :edit_profile
   patch '/users/update/:id', to: "users#update", as: :user
 
