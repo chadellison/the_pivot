@@ -1,0 +1,48 @@
+$background-color: #FFF;
+$primary-color: #000;
+
+
+.intro {
+  text-align: center;
+  margin-top: 1%;
+  font-size: 18px;
+  font-family: monospace;
+
+  .fi-camera {
+    font-size: 50px;
+  }
+}
+
+.index-photo {
+  display: inline-block;
+
+  .choose {
+  background-color: $background-color;
+  color: $primary-color;
+  border: solid 1px;
+  margin-top: 1%;
+  float: right;
+  }
+
+  .vendor {
+  color: $primary-color;
+  background-color: $background-color;
+  border: solid 1px;
+  margin-top: 1%;
+  float: left;
+  }
+
+  a:hover {
+    color: #aa2200;
+    transition: all .3s ease-in-out;
+  }
+
+  .name {
+  color: $primary-color;
+  font-family: monospace;
+  font-size: 18px;
+  margin-left: 28%;
+  margin-top: 1%;
+  }
+
+}

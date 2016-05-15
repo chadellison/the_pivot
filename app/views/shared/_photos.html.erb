@@ -1,12 +1,16 @@
 
-<div class="row small up-1 medium-up-1 large-up-2">
+<div class="row">
   <% photos.each do |photo| %>
-  <div class="column">
-    <div class="flush vendor-photo">
+  <div class="small-10 small-centered columns">
+    <div class="index-photo">
       <%= link_to image_tag(photo.image.url, alt: photo.image.url), photo_path(photo.id) %>
-      <%= link_to photo.title, photo_path(photo.id) %>
-      <%= link_to photo.vendor.name, vendor_path(photo.vendor.slug) %>
+      <div class=" small-12 columns photo-info">
+        <%= link_to (truncate photo.vendor.name, length: 20), vendor_path(photo.vendor.slug), class: "vendor button" %>
+        <p class="name"><%= truncate photo.title, length: 15 %></p>
+        <%= link_to "Choose", photo_path(photo), class: "choose button" %>
+      </div>
+      <hr>
     </div>
   </div>
-  <% end %>
+ <% end %>
 </div>
