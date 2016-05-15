@@ -39,7 +39,8 @@ class Permissions
 
     def customer_permissions
       guest_permissions ||
-      controller == "users" && action.in?(%w(show))
+      controller == "users" && action.in?(%w(show)) ||
+      controller == "vendors" && action.in?(%w(new create))
     end
 
     def guest_permissions

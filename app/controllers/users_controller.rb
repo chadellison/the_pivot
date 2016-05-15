@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     @user = User.create(params_check)
     if @user.save
       session[:user_id] = @user.id
-      # byebug
       flash[:success] = "Success! Your account was created!."
       redirect_to login_path
     else
@@ -28,7 +27,7 @@ class UsersController < ApplicationController
     else
       flash[:error] = "Your account could not be updated. Please check your input and try again."
     end
-      redirect_to  dashboard_path
+    redirect_to  dashboard_path
   end
 
   def show

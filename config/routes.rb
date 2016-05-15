@@ -13,18 +13,22 @@
     resources :vendors, only: [:show, :update]
   end
 
-  get '/login', to: "sessions#new"
-  post '/login', to: "sessions#create"
-  delete '/logout', to: 'sessions#destroy'
-  get '/signup', to: "users#new", as: :users
-  post '/signup', to: 'users#create'
+  get '/login',          to: "sessions#new"
+  post '/login',         to: "sessions#create"
+  delete '/logout',      to: 'sessions#destroy'
+  get '/signup',         to: "users#new", as: :users
+  post '/signup',        to: 'users#create'
 
-  get '/dashboard/:id', to: "users#show", as: :dashboard
-  get '/vendors', to: "vendors#index"
-  get "/:vendor", to: "vendors#show", as: :vendor
+  get '/dashboard/:id',  to: "users#show", as: :dashboard
+  get '/vendors/new',    to: 'vendors#new', as: :new_vendor
+  post '/vendors',       to: 'vendors#create'
+  get '/vendors',        to: "vendors#index"
+  get "/:vendor",        to: "vendors#show", as: :vendor
 
   get '/category/:name', to: "categories#show", as: :category
 
+  get '/cart',           to: "carts#show"
+  post '/cart',          to: "carts#create"
 
   # namespace :vendor, path: '/:vendor', as: :vendor do
   #   get '/dashboard', to: 'dashboards#show', as: :dashboard
@@ -37,8 +41,6 @@
   # resources :destinations, only: [:create]
   #
   # get '/dashboard', to: "users#show"
-  get '/cart', to: "carts#show"
-  post '/cart', to: "carts#create"
   # get '/orders' , to: "orders#index"
   #
   #
