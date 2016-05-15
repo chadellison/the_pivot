@@ -13,6 +13,7 @@
   get '/vendors', to: "vendors#index"
   get '/category/:name', to: "categories#show", as: :category
   resources :orders, only: [:show, :create, :index]
+  get '/download', to: "downloads#show", as: :download
 
   namespace :vendor_admin do
     resources :vendors, only: [:show, :update]
