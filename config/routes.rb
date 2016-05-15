@@ -3,6 +3,7 @@
   root 'photos#index'
   get '/cart', to: "carts#show"
   post '/cart', to: "carts#create"
+  delete '/cart', to: "carts#destroy"
   resources :photos, only: [:index, :show, :create]
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
