@@ -56,4 +56,9 @@ RSpec.feature "platform admin can approve a vendor" do
     expect(Vendor.last.status).to eq "active"
     assert User.find(user.id).roles.pluck(:name).include?("vendor_admin")
   end
+
+  scenario "non-registered users cannot create businesses" do
+    visit new_vendor_path
+    expect(page).to have_content "404"
+  end
 end
