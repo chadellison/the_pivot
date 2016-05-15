@@ -21152,3 +21152,4 @@ Processing by PhotosController#index as HTML
   Rendered layouts/_nav.html.erb (3.3ms)
   Rendered layouts/_flash.html.erb (0.1ms)
 Completed 200 OK in 265ms (Views: 252.3ms | ActiveRecord: 8.4ms)
+  [1m[36mUser Load (7.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
