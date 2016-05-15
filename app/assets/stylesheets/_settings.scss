@@ -51,7 +51,7 @@ $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #000000,
   secondary: #777,
-  success: rgba(138, 43, 226, .8),
+  success: #086788,
   warning: #ffae00,
   alert: #ec5840,
 );
@@ -237,7 +237,7 @@ $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
-$button-background-hover: scale-color(#cc6633, $lightness: -15%);
+$button-background-hover: scale-color(#086788, $lightness: -15%);
 $button-color: $white;
 $button-color-alt: $black;
 $button-radius: $global-radius;
@@ -309,7 +309,7 @@ $dropdown-sizes: (
 $dropdownmenu-arrows: true;
 $dropdownmenu-arrow-color: $anchor-color;
 $dropdownmenu-min-width: 200px;
-$dropdownmenu-background: $white;
+$dropdownmenu-background: $primary-color;
 $dropdownmenu-border: 1px solid $medium-gray;
 
 // 18. Flex Video
