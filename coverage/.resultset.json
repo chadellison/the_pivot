@@ -8,24 +8,6 @@
         null,
         null
       ],
-      "/Users/charlesellison/turing/3module/projects/the_pivot/app/helpers/charges_helper.rb": [
-        1,
-        1,
-        0,
-        null,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null
-      ],
       "/Users/charlesellison/turing/3module/projects/the_pivot/app/helpers/platform_admin_vendors_helper.rb": [
         1,
         1,
@@ -670,37 +652,6 @@
         null,
         null
       ],
-      "/Users/charlesellison/turing/3module/projects/the_pivot/app/controllers/charges_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
       "/Users/charlesellison/turing/3module/projects/the_pivot/app/controllers/downloads_controller.rb": [
         0,
         0,
@@ -717,6 +668,6 @@
         0
       ]
     },
-    "timestamp": 1463334771
+    "timestamp": 1463335332
   }
 }
