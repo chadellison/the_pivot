@@ -16,6 +16,10 @@ $primary-color: #000;
 .index-photo {
   display: inline-block;
 
+  .photo:hover {
+    opacity: 0.8;
+  }
+
   .choose {
   background-color: $background-color;
   color: $primary-color;
