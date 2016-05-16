@@ -1,8 +1,8 @@
-<div class="login-page">
+<div class="form full-create-account login-page">
     <%=form_for(:session, url:login_path) do |f| %>
-      <div class="log-in-form">
         <div class="row">
-          <div class="small-8 small-centered columns login_form">
+          <div class="small-6 small-centered columns login_form">
+            <div class="log-in-form">
             <h4 class="text-center lead">Please Log In <i class="fi-camera"></i></h4>
             <%= f.text_field :username, placeholder: "Username"  %>
             <%= f.password_field :password, placeholder: "Password" %>

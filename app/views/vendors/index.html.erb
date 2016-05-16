@@ -6,11 +6,12 @@
       <div class="card">
         <div class="content">
           <span class="title"><%= vendor.name %></span>
+          <p><%= vendor.about %></p>
         </div>
       </div>
     </div>
     <div class="medium-8 columns">
-      <%= link_to image_tag(vendor.featured.image.url), photo_path(vendor.featured) unless vendor.photos.empty?%>
+      <%= link_to image_tag(vendor.featured.image.url), photo_path(vendor.featured), class: "vendor-photo" unless vendor.photos.empty?%>
     </div>
   </div>
 <% end %>

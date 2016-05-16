@@ -1,17 +1,16 @@
-<div class="form full-create-account">
-<div class="row login-page">
-  <div class="medium-6 medium-centered large-6 large-centered columns">
-    <%=form_for @user do |f| %>
-      <div class="row column log-in-form">
-        <h4 class="text-center pad-header">Please Create an Account</h4>
-        <div class="login_form">
-          <%= f.text_field :username, placeholder: "Username" %>
-          <%= f.text_field :email, placeholder: "Email" %>
-          <%= f.password_field :password, placeholder: "Password" %>
-          <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
-          <%= f.submit "Create Account", class: "button success expanded"%>
+<div class="form full-create-account login-page">
+  <%=form_for @user do |f| %>
+  <div class="row">
+    <div class="small-6 small-centered columns login_form">
+      <div class="log-in-form">
+      <h4 class="text-center pad-header">Please Create an Account</h4>
+        <%= f.text_field :username, placeholder: "Username" %>
+        <%= f.text_field :email, placeholder: "Email" %>
+        <%= f.password_field :password, placeholder: "Password" %>
+        <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
+        <%= f.submit "Create Account", class: "button success expanded"%>
       </div>
-      </div>
-      <% end %>
+    </div>
+  <% end %>
   </div>
 </div>
