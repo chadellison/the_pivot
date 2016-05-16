@@ -1,0 +1,18 @@
+<div class="small-9 columns">
+  <h5 class="text-center">Welcome to Your Dashboard, <%= current_user.username.capitalize %></h5>
+  <h6 class="text-center"><%= current_user.email %></h5>
+  <div class="user-form hidden">
+    <h3 class="text-center">|Edit Your Account|</h3>
+    <br>
+    <div class="small-12 columns">
+      <h4 class="text-center"><br></h4>
+      <%= form_for current_user do |f| %>
+        <%= f.text_field :username, placeholder: "Username" %>
+        <%= f.text_field :email, placeholder: "Email" %>
+        <%= f.password_field :password, placeholder: "Password" %>
+        <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
+        <%= f.submit "Edit Account", class: "button expanded"%>
+      <% end %>
+    </div>
+  </div>
+</div>

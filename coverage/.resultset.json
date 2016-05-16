@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/helpers/application_helper.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/helpers/application_helper.rb": [
         1,
         1,
         4,
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/helpers/platform_admin_vendors_helper.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/helpers/platform_admin_vendors_helper.rb": [
         1,
         1,
         6,
@@ -16,10 +16,14 @@
         null,
         1,
         6,
+        null,
+        null,
+        1,
+        84,
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/models/cart.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/models/cart.rb": [
         1,
         1,
         null,
@@ -63,7 +67,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/models/category.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/models/category.rb": [
         1,
         1,
         null,
@@ -75,7 +79,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/models/order_photo.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/models/order_photo.rb": [
         1,
         1,
         1,
@@ -84,7 +88,7 @@
         1,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/models/order.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/models/order.rb": [
         1,
         1,
         null,
@@ -110,13 +114,13 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/models/photo_category.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/models/photo_category.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/models/photo.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/models/photo.rb": [
         1,
         1,
         1,
@@ -132,7 +136,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/models/role.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/models/role.rb": [
         1,
         1,
         1,
@@ -143,7 +147,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/models/user_role.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/models/user_role.rb": [
         1,
         1,
         1,
@@ -153,7 +157,7 @@
         1,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/models/user.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/models/user.rb": [
         1,
         1,
         1,
@@ -165,20 +169,20 @@
         null,
         null,
         1,
-        110,
+        140,
         null,
         null,
         1,
-        79,
+        109,
         null,
         null,
         1,
-        66,
+        80,
         null,
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/models/vendor.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/models/vendor.rb": [
         1,
         1,
         null,
@@ -200,7 +204,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/users_controller.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/controllers/users_controller.rb": [
         1,
         1,
         null,
@@ -247,7 +251,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/application_controller.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/controllers/application_controller.rb": [
         1,
         1,
         1,
@@ -275,7 +279,7 @@
         null,
         null,
         1,
-        111,
+        131,
         null,
         null,
         1,
@@ -292,7 +296,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/services/permissions.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/services/permissions.rb": [
         1,
         1,
         null,
@@ -362,7 +366,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/vendors_controller.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/controllers/vendors_controller.rb": [
         1,
         1,
         10,
@@ -397,7 +401,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/categories_controller.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/controllers/categories_controller.rb": [
         1,
         null,
         1,
@@ -416,7 +420,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/photos_controller.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/controllers/photos_controller.rb": [
         1,
         null,
         1,
@@ -449,13 +453,13 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/platform_admin/dashboard_controller.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/controllers/platform_admin/dashboard_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/platform_admin/vendors_controller.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/controllers/platform_admin/vendors_controller.rb": [
         1,
         1,
         6,
@@ -494,7 +498,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/platform_admin/photos_controller.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/controllers/platform_admin/photos_controller.rb": [
         1,
         1,
         4,
@@ -530,7 +534,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/carts_controller.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/controllers/carts_controller.rb": [
         1,
         null,
         1,
@@ -553,7 +557,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/orders_controller.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/controllers/orders_controller.rb": [
         1,
         1,
         null,
@@ -578,7 +582,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/models/order_generator.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/models/order_generator.rb": [
         1,
         null,
         1,
@@ -598,7 +602,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/sessions_controller.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/controllers/sessions_controller.rb": [
         1,
         1,
         null,
@@ -624,7 +628,7 @@
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/vendor_admin/vendors_controller.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/controllers/vendor_admin/vendors_controller.rb": [
         1,
         1,
         0,
@@ -649,11 +653,10 @@
         1,
         1,
         2,
-        null,
         null,
         null
       ],
-      "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/downloads_controller.rb": [
+      "/Users/sespinos/Documents/web/school/turing/3module/projects/the_pivot/app/controllers/downloads_controller.rb": [
         0,
         0,
         0,
@@ -662,6 +665,6 @@
         0
       ]
     },
-    "timestamp": 1463411559
+    "timestamp": 1463428446
   }
 }

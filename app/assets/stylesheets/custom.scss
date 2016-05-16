@@ -48,13 +48,13 @@ nav {
   .login {
     float: right;
     margin-top: .4%;
-    padding-right: 50px
+    margin-right: 50px
 
   }
 
   .nav-cart {
     margin-top: -.8%;
-    padding-right: 10px;
+    margin-right: 10px;
     float: right;
   }
 
@@ -99,6 +99,7 @@ hr {
     height: 4px;
     color: #333;
     background-color: #333; /* Modern Browsers */
+    max-width: 100%;
 }
 
 .image-tag {

@@ -18,27 +18,21 @@ RSpec.feature "platform admin can approve a vendor" do
     visit root_path
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
-
     visit dashboard_path(user.id)
-
-    click_button "Create Business"
+    click_on "Create Business"
     expect(current_path).to eq new_vendor_path
     fill_in "Name", with: "Beautiful Photos"
     fill_in "About", with: "This business is about beautiful photos"
-
     click_on "Create Business"
     expect(page).to have_content "Request for business sent"
     expect(current_path).to eq dashboard_path(user.id)
-
     visit vendors_path
     expect(page).not_to have_content "Beautiful Photos"
     expect(User.find(user.id).roles.last.name).to eq "customer"
 
 
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
-
     visit platform_admin_dashboard_path(admin.id)
-
     click_on "Edit Vendors"
     expect(page).to have_content "Beautiful Photos"
     expect(page).to have_button "Deny"
