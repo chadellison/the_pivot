@@ -14,14 +14,36 @@ $form-padding: $global-padding;
 @import "custom";
 
 .log-in-form {
+  background-color: inherit;
   border-radius: 5px;
   padding: $form-padding;
   color: #fff;
+  font-family: monospace;
 
   .lead {
     padding-bottom: 2%;
-    
+    font-family: monospace;
+    font-size: 24px;
   }
+
+  input, select, textarea {
+    color: inherit;
+    background-color: inherit;
+    border: none;
+    border-bottom: 2px solid white;
+    box-shadow: none;
+  }
+
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+  }
+
+  textarea:focus, input:focus {
+    color: inherit;
+    background-color: inherit;
+    border-bottom: solid 3px #aa2200;
+  }
+
 
 
 }
