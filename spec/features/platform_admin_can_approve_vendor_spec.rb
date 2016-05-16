@@ -17,13 +17,9 @@ RSpec.feature "platform admin can approve a vendor" do
     user.roles.create(name: "customer")
     visit root_path
 
-    visit vendors_path
-    click_on "Login"
-    fill_in "Username", with: "Travis"
-    fill_in "Password", with: "123"
-    click_on "Sign In"
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
 
-    expect(current_path).to eq dashboard_path(user.id)
+    visit dashboard_path(user.id)
 
     click_button "Create Business"
     expect(current_path).to eq new_vendor_path
@@ -38,12 +34,10 @@ RSpec.feature "platform admin can approve a vendor" do
     expect(page).not_to have_content "Beautiful Photos"
     expect(User.find(user.id).roles.last.name).to eq "customer"
 
-    click_on "Log Out"
 
-    click_on "Login"
-    fill_in "Username", with: "Anna"
-    fill_in "Password", with: "123"
-    click_on "Sign In"
+    ApplicationController.any_instance.stubs(:current_user).returns(admin)
+
+    visit platform_admin_dashboard_path(admin.id)
 
     click_on "Edit Vendors"
     expect(page).to have_content "Beautiful Photos"

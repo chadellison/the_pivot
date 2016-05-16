@@ -5,6 +5,7 @@ class VendorAdmin::VendorsController < ApplicationController
 
   def update
     @vendor = current_user.vendors.find(params[:id])
+    
     if @vendor.update(vendor_params)
       if params[:commit] == "Take Store Offline"
         flash[:success] = "Store Successfully Taken Offline"

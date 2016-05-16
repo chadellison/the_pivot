@@ -12,12 +12,9 @@ RSpec.feature "Admin can remove photos" do
     visit root_path
     expect(page).to have_content "photo"
 
-    click_on "Login"
-    fill_in "Username", with: "Jones"
-    fill_in "Password", with: "password"
-    click_on "Sign In"
+    ApplicationController.any_instance.stubs(:current_user).returns(admin)
 
-    expect(current_path).to eq platform_admin_dashboard_path(admin.id)
+    visit platform_admin_dashboard_path(admin.id)
     click_on "Edit Photos"
 
     click_button "Delete"

@@ -10,13 +10,13 @@ RSpec.feature "Vendor can login" do
     UserRole.create(user_id: user.id, vendor_id: vendor.id, role_id: role.id)
     UserRole.create(user_id: user.id, vendor_id: vendor2.id, role_id: role.id)
 
-
-    fill_in "Username", with: "test"
-    fill_in "Password", with: "pass"
-    click_button "Sign In"
+    visit("/")
+    click_on("Login")
+    fill_in("session[username]", with: "test")
+    fill_in("session[password]", with: "pass")
+    click_on("Sign In")
 
     expect(current_path).to eq dashboard_path(user.id)
-
     expect(page).to have_content("Vendor1")
     expect(page).to have_content("Vendor2")
   end
@@ -27,11 +27,11 @@ RSpec.feature "Vendor can login" do
     vendor = Vendor.create(name: "Vendor1")
     vendor2 = Vendor.create(name: "Vendor2")
 
-    visit login_path
-
-    fill_in "Username", with: user.username
-    fill_in "Password", with: user.password
-    click_button "Sign In"
+    visit("/")
+    click_on("Login")
+    fill_in("session[username]", with: "test")
+    fill_in("session[password]", with: "pass")
+    click_on("Sign In")
 
     within(".dashboard") do
       expect(current_path).to eq dashboard_path(user.id)
@@ -39,5 +39,4 @@ RSpec.feature "Vendor can login" do
       expect(page).not_to have_content(vendor2.name)
     end
   end
-
 end

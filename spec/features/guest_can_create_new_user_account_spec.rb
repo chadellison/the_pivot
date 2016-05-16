@@ -12,14 +12,18 @@ RSpec.feature "guest can create a new user account" do
     expect(page).to have_field("Email")
     expect(page).to have_field("Password")
 
-    fill_in "Username", with: "JoeSmith"
-    fill_in "Email", with: "j1@gmail.com"
-    fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
 
-    click_on "Create Account"
+    within(".login_form") do
+      fill_in "Username", with: "JoeSmith"
+      fill_in "Email", with: "j1@gmail.com"
+      fill_in "Password", with: "password"
+      fill_in "Password confirmation", with: "password"
+      click_on "Create Account"
+    end
 
-    expect(current_path).to eq(login_path)
+    user = User.find_by(username: "JoeSmith")
+
+    expect(current_path).to eq("/dashboard/#{user.id}")
     expect(page).to have_content("Success! Your account was created!.")
     expect(User.count).to eq(original_user_count + 1)
   end
@@ -31,11 +35,13 @@ RSpec.feature "guest can create a new user account" do
 
     expect(current_path).to eq(users_path)
 
-    fill_in "Email", with: "j1@gmail.com"
-    fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
+    within(".login_form") do
+      fill_in "Email", with: "j1@gmail.com"
+      fill_in "Password", with: "password"
+      fill_in "Password confirmation", with: "password"
+      click_on "Create Account"
+    end
 
-    click_on "Create Account"
 
     expect(current_path).to eq(users_path)
     expect(page).to have_content("Your account could not be created. Please check your input and try again.")
@@ -49,11 +55,13 @@ RSpec.feature "guest can create a new user account" do
 
     expect(current_path).to eq(users_path)
 
-    fill_in "username", with: "JoeSmith"
-    fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
+    within(".login_form") do
+      fill_in "Username", with: "JoeSmith"
+      fill_in "Password", with: "password"
+      fill_in "Password confirmation", with: "password"
+      click_on "Create Account"
+    end
 
-    click_on "Create Account"
 
     expect(current_path).to eq(users_path)
     expect(page).to have_content("Your account could not be created. Please check your input and try again.")
@@ -67,11 +75,13 @@ RSpec.feature "guest can create a new user account" do
 
     expect(current_path).to eq(users_path)
 
-    fill_in "username", with: "JoeSmith"
-    fill_in "Email", with: "j1@gmail.com"
-    fill_in "Password confirmation", with: "password"
+    within(".login_form") do
+      fill_in "Username", with: "JoeSmith"
+      fill_in "Email", with: "j1@gmail.com"
+      fill_in "Password confirmation", with: "password"
+      click_on "Create Account"
+    end
 
-    click_on "Create Account"
 
     expect(current_path).to eq(users_path)
     expect(page).to have_content("Your account could not be created. Please check your input and try again.")

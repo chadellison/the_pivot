@@ -3,10 +3,13 @@ $error: #941B0C;
 $alert:   #BC3908;
 
 @mixin flash-base($animation-name) {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  top: 12%;
   background-color: white;
   color: white;
   text-align: center;
-  padding: 10px;
   animation-duration: 2s;
   animation-name: $animation-name;
   animation-timing-function: ease-in;

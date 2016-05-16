@@ -51,6 +51,7 @@ class Seeds
       vendor = Vendor.create(name: Faker::Company.name,
                              about: Faker::Hipster.paragraph,
                              status: "active")
+
       category = %w(buildings food nature people technology objects).sample
       rand(1..10).times do
         photo = vendor.photos.create(title: Faker::Hipster.sentence,
