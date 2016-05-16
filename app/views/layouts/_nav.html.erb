@@ -12,7 +12,7 @@
   </div>
 
   <div class="dropdown">
-    <a href="#">Vendors</a>
+    <a href="<%= vendors_path %>">Vendors</a>
     <div class="dropdown-content">
       <% @vendors.each do |vendor| %>
         <p>
@@ -31,7 +31,7 @@
     <p class="login"><a data-open="login" href="#" class="login">Login</a></p>
   <% end %>
   <hr>
-</nav
+</nav>
 
 <!-- modal -->
 <div class="reveal" id="login" data-reveal data-animation-in="scale-in-up" data-animation-out="scale-out-down">

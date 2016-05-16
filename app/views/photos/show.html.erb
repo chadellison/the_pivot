@@ -1,17 +1,11 @@
-<div class="row column">
-  <br>
-  <div class="column small-12 large-9">
-    <div class="show-image-container small-centered">
-      <%= image_tag @photo.image.url, class: "show-image" %>
-      <h4 class="show-package-title"><span class="title-span"><%= @photo.title  %></h4></span>
-    </div>
-  </div>
-  <div class="column small-12 large-3 small-centered">
-    <div class="show-info-container">
-      <p> <%= @photo.description %> </p>
-      <p> By: <%= @photo.vendor.name %></p>
-      <h6><strong>Price: $<%= @photo.price %>.00</strong></h6>
+<div class="expanded row">
+  <div class="image-wrapper overlay-fade-in">
+    <%= image_tag @photo.image.url, class: "show-image" %>
+    <div class="image-overlay-content">
+      <h3><i class="fi-torso"></i><%= link_to @photo.vendor.name, vendor_path(@photo.vendor.slug), class: "company"%></h3>
+      <p><%= @photo.description %></p>
+      <h5><%= number_to_currency @photo.price %></h5>
+      <%= button_to "Purchase", cart_path(photo_id: @photo.id), class: "purchase-button button" %>
     </div>
   </div>
 </div>
-<hr>
