@@ -4,17 +4,11 @@ RSpec.feature "User can edit their profile" do
   scenario "user selects 'edit profile' on their dashboard" do
     user = User.create(username: "Susan", password: "password", password_confirmation: "password", email: "susan@gmail.com")
     user.roles.create(name: "customer")
-
-
     ApplicationController.any_instance.stubs(:current_user).returns(user)
 
-    visit dashboard_path(user)
-
+    visit(dashboard_path(user))
     click_on "Edit Profile"
-
-
-    expect(current_path).to eq("/users/edit")
-    within (".edit-user") do
+    within(".edit_user") do
       fill_in "Username", with: "Fred"
       fill_in "Email", with: "fred@gmail.com"
       fill_in "Password", with: "pass2"

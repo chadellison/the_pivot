@@ -5,6 +5,7 @@ RSpec.feature "Vendor can edit their store" do
     user = User.create(username: "test", password: "pass", password_confirmation: "pass", email: "who@gmail.com" )
     role = Role.create(name: "vendor_admin")
     vendor = Vendor.create(name: "Vendor1")
+    vendor.update(status: 1)
     UserRole.create(user_id: user.id, vendor_id: vendor.id, role_id: role.id)
     ApplicationController.any_instance.stubs(:current_user).returns(user)
 

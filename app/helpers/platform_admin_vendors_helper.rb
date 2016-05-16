@@ -6,4 +6,8 @@ module PlatformAdminVendorsHelper
   def inactive_vendors(vendors)
     vendors.where(status: "inactive")
   end
+
+  def active_vendors(vendors)
+    vendors.where(status: 1)
+  end
 end
