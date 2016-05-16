@@ -12,15 +12,10 @@ RSpec.feature "A user can add photos to their cart" do
     photo2 = vendor2.photos.create(title: "photo2", image:  File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"), price: 2, description: "description2")
 
     visit '/vendor1'
-
     click_on "Purchase"
-
     expect(current_path).to eq '/vendor1'
-
     visit '/vendor2'
-
     click_on "Purchase"
-
     visit '/cart'
 
     within '.photo' do
@@ -35,17 +30,16 @@ RSpec.feature "A user can add photos to their cart" do
     end
     expect(page).to have_content "Total: $22"
   end
+
   scenario "guest cannot checkout and sees a button that asks them to login before continueing" do
     vendor1 = Vendor.create(name: "vendor1")
     photo1 = vendor1.photos.create(title: "photo", image: File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"), price: 20, description: "description")
 
     visit '/vendor1'
-
     click_on "Purchase"
-
     visit '/cart'
 
-    within(".text-center") do
+    within(".cart") do
       expect(page).to have_link "Login or Create Account to Purchase", href: login_path
     end
   end

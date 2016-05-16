@@ -6,17 +6,12 @@ RSpec.feature "Vendor can edit their store" do
     role = Role.create(name: "vendor_admin")
     vendor = Vendor.create(name: "Vendor1")
     UserRole.create(user_id: user.id, vendor_id: vendor.id, role_id: role.id)
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
 
-    visit login_path
-    fill_in "Username", with: "test"
-    fill_in "Password", with: "pass"
-    click_button "Sign In"
-    expect(current_path).to eq("/dashboard/#{user.id}")
-    within(".dashboard") do
+    visit("/dashboard/#{user.id}")
+    within(".side-menu") do
       click_on "Vendor1"
     end
-    expect(current_path).to eq("/vendor_admin/vendors/#{vendor.id}")
-
     fill_in "vendor[name]", with: "New Vendor Name"
     fill_in "vendor[about]", with: "New Vendor Description"
     click_on "Update Vendor"
@@ -32,13 +27,11 @@ RSpec.feature "Vendor can edit their store" do
     vendor1  = Vendor.create(name: "Vendor1")
     vendor2  = Vendor.create(name: "Vendor2")
     UserRole.create(user_id: user.id, vendor_id: vendor1.id, role_id: role.id)
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
 
-    visit login_path
-    fill_in "Username", with: "test"
-    fill_in "Password", with: "pass"
-    click_button "Sign In"
+    visit("/dashboard/#{user.id}")
 
-    within(".dashboard") do
+    within(".side-menu") do
       expect(page).not_to have_content("Vendor2")
     end
   end

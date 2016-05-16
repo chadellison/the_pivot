@@ -8,9 +8,16 @@ class PlatformAdmin::VendorsController < ApplicationController
   end
 
   def update
-    vendor = Vendor.find(params[:id])
-    vendor.update(vendor_params)
-    flash[:success] = "#{Vendor.find(vendor.id).name} has been updated."
+    if params[:pending]
+      vendor = Vendor.find(params[:id])
+      vendor.update(status: params[:pending])
+      vendor.users.last.roles.create(name: "vendor_admin")
+      flash[:success] = "#{vendor.name} has been approved" if params[:pending] == "active"
+    else
+      vendor = Vendor.find(params[:id])
+      vendor.update(vendor_params)
+      flash[:success] = "#{Vendor.find(vendor.id).name} has been updated."
+    end
     redirect_to platform_admin_vendors_path
   end
 

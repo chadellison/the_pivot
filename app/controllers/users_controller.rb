@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create]
 
-  # def index
-  #  @users = User.all
-  # end
-
   def edit
     @user = current_user
   end
@@ -20,7 +16,7 @@ class UsersController < ApplicationController
       @user.roles << role
       session[:user_id] = @user.id
       flash[:success] = "Success! Your account was created!."
-      redirect_to login_path
+      redirect_to dashboard_path(current_user)
     else
       flash[:error] = "Your account could not be created. Please check your input and try again."
       redirect_to users_path

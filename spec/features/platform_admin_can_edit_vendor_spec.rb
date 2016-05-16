@@ -8,11 +8,7 @@ RSpec.feature "Platform admin can edit vendors" do
     vendor = Vendor.create(name: "Jojo blu")
     vendor.photos.create(title: "photo", image: File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"), price: 20, description: "description", vendor_id: vendor.id)
 
-    visit root_path
-    click_on "Login"
-    fill_in "Username", with: "Jones"
-    fill_in "Password", with: "password"
-    click_on "Sign In"
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
 
     visit vendors_path
 
@@ -22,18 +18,19 @@ RSpec.feature "Platform admin can edit vendors" do
 
     visit platform_admin_dashboard_path(user.id)
     click_on "Edit Vendors"
-    expect(current_path).to eq platform_admin_vendors_path
     expect(page).to have_content "Jojo blu"
 
-    expect(page).to have_content "Status: Inactive"
-    click_on "Edit"
+    expect(page).to have_content "Status: pending"
+    within(".all-vendors") do
+      click_on "Edit"
+    end
 
-    fill_in "Status", with: "Active"
+    fill_in "Status", with: "active"
     click_on "Update Vendor"
 
     expect(page).to have_content "Jojo blu has been updated."
     expect(current_path).to eq platform_admin_vendors_path
-    expect(page).to have_content "Status: Active"
+    expect(page).to have_content "Status: active"
 
     visit vendors_path
     expect(page).to have_content "Jojo blu"
@@ -43,11 +40,7 @@ RSpec.feature "Platform admin can edit vendors" do
     user = User.create(username: "Rosco", password: "password", password_confirmation: "password", email: "rosco@gmail.com")
     user.roles.create(name: "vendor_admin")
 
-    visit root_path
-    click_on "Login"
-    fill_in "Username", with: "Rosco"
-    fill_in "Password", with: "password"
-    click_on "Sign In"
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
 
     visit platform_admin_vendors_path
     expect(page).to have_content "404"
