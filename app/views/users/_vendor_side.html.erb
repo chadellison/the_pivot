@@ -1,0 +1,5 @@
+<a href="#" id="">Business Analytics</a>
+<% current_user.vendors.each do |vendor| %>
+  <a href="#" class="vendor-button" id="<%= vendor.slug %>"><%= vendor.name %></a>
+<% end %>
+<a href="#" id="edit-profile">Edit Profile</a>

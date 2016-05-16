@@ -1,45 +1,20 @@
 <div class="row dashboard">
   <div class="small-2 columns side-menu full-height">
-    <a href="#" id="">Business Analytics</a>
-    <% current_user.vendors.each do |vendor| %>
-      <a href="#" id="<%= vendor.slug %>"><%= vendor.name %></a>
-  <% end %>
-  <%= link_to "Edit Profile", edit_profile_path, class: "button primary" %>
+    <% if current_user.platform_admin? %>
+      <p>Platform Admin</p>
+    <% elsif current_user.vendor_admin? %>
+      <%= render "vendor_side" %>
+    <% elsif current_user.customer? %>
+      <%= render "customer_side" %>
+    <% end %>
   </div>
   <div class="row">
-    <div class="small-9 columns">
-      <h5 class="text-center">Welcome to Your Dashboard, <%= current_user.username.capitalize %></h5>
-      <h6 class="text-center"><%= current_user.email %></h5>
-      <% current_user.vendors.each do |vendor| %>
-      <div class="vendor-form hidden" id="<%= vendor.slug %>-form">
-        <h3 class="text-center">|<%= vendor.name %>|</h3>
-        <br>
-        <div class="small-6 columns">
-          <h4 class="text-center">Edit Your Store</h4>
-          <%= form_for vendor, url: vendor_admin_vendor_path(vendor.id) do |f| %>
-            <%= f.text_field :name, placeholder: "Name"%>
-            <%= f.text_area :about, rows: 4, placeholder: "About" %>
-            <%= f.submit class: "button expanded" %>
-          <% end %>
-          <%= form_for(vendor, url: vendor_admin_vendor_path(vendor.id)) do |f| %>
-            <%= f.hidden_field :status, value: "Inactive" %>
-            <%= f.submit "Take Store Offline", class: "button expanded alert" %>
-          <% end %>
-        </div>
-        <div class="small-6 columns">
-          <h4 class="text-center">Upload a New Photo</h4>
-          <%= form_for(vendor.photos.new) do |f| %>
-            <%= f.text_field :title, placeholder: "Photo Title" %>
-            <%= f.text_area :description, rows: 4, placeholder: "Photo Description" %>
-            <%= f.number_field :price, in: 1000..10000, step: "any", placeholder: "Price" %>
-            <%= f.collection_select :category_ids, @categories, :id, :name, include_blank: false %>
-            <%= f.file_field :image %>
-            <%= f.hidden_field :vendor_id, value: vendor.id %>
-            <%= f.submit "Create Photo", class: "button expanded" %>
-          <% end %>
-        </div>
-      </div>
-      <% end %>
-    </div>
+    <% if current_user.platform_admin? %>
+      <p>Platform Admin</p>
+    <% elsif current_user.vendor_admin? %>
+      <%= render "vendor_main" %>
+    <% elsif current_user.customer? %>
+      <%= render "customer_main" %>
+    <% end %>
   </div>
 </div>
