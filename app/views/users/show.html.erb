@@ -23,7 +23,7 @@
             <%= f.submit class: "button expanded" %>
           <% end %>
           <%= form_for(vendor, url: vendor_admin_vendor_path(vendor.id)) do |f| %>
-            <%= f.hidden_field :status, value: "Inactive" %>
+            <%= f.hidden_field :status, value: "inactive" %>
             <%= f.submit "Take Store Offline", class: "button expanded alert" %>
           <% end %>
         </div>
