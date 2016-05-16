@@ -8,11 +8,13 @@ RSpec.feature "User can edit their profile" do
 
     visit(dashboard_path(user))
     click_on "Edit Profile"
-    fill_in "Username", with: "Fred"
-    fill_in "Email", with: "fred@gmail.com"
-    fill_in "Password", with: "pass2"
-    fill_in "Password confirmation", with: "pass2"
-    click_on "Edit Account"
+    within(".edit_user") do
+      fill_in "Username", with: "Fred"
+      fill_in "Email", with: "fred@gmail.com"
+      fill_in "Password", with: "pass2"
+      fill_in "Password confirmation", with: "pass2"
+      click_on "Edit Account"
+    end
 
     expect(current_path).to eq(dashboard_path(user.id))
     expect(page).to have_content("Success! Your account updated.")
