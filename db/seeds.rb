@@ -50,7 +50,7 @@ class Seeds
     20.times do
       vendor = Vendor.create(name: Faker::Company.name,
                              about: Faker::Hipster.paragraph,
-                             status: "active")
+                             status: 1)
 
       category = %w(buildings food nature people technology objects).sample
       rand(1..10).times do
