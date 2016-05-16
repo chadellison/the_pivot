@@ -5,11 +5,10 @@ RSpec.feature "User can logout" do
     user = User.create(username: "Susan", password: "password", password_confirmation: "password", email: "susan@gmail.com")
     user.roles.create(name: "customer")
 
+
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
+
     visit root_path
-    click_on "Login"
-    fill_in "Username", with: "Susan"
-    fill_in "Password", with: "password"
-    click_on "Sign In"
 
     expect(page).to have_content("Log Out")
     expect(page).not_to have_content("Login")
