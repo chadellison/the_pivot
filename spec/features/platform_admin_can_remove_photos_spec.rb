@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Admin can remove photos" do
   scenario "Admin sees that the photo is removed" do
-    vendor = Vendor.create(name: "Jojo blu", status: "Active")
+    vendor = Vendor.create(name: "Jojo blu", status: 1)
     photo = Photo.create(title: "photo", image: File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"), price: 20, description: "description", vendor_id: vendor.id)
     vendor.photos << photo
 

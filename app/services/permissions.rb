@@ -25,31 +25,33 @@ class Permissions
   private
 
     def platform_admin_permissions
-      vendor_admin_permissions ||
-      controller == "platform_admin/vendors" ||
-      controller == "platform_admin/dashboard" ||
-      controller == "platform_admin/photos"
+      [vendor_admin_permissions,
+        controller == "platform_admin/vendors",
+        controller == "platform_admin/dashboard",
+        controller == "platform_admin/photos"].any?
     end
 
     def vendor_admin_permissions
-      return true if controller == "vendor_admin/vendors"
-      customer_permissions ||
-      controller == "photos" && action.in?(%w(create))
+      [customer_permissions,
+        controller == "vendor_admin/vendors",
+        controller == "photos" && action.in?(%w(create))].any?
     end
 
     def customer_permissions
-      guest_permissions || controller == "users" && action.in?(%w(show edit update)) ||
-      controller == "orders" && action.in?(%w(index create show)) ||
-      controller == "downloads" && action.in?(%w(show))
+      [guest_permissions,
+        controller == "users" && action.in?(%w(show edit update)),
+        controller == "orders" && action.in?(%w(index create show)),
+        controller == "downloads" && action.in?(%w(show)),
+        controller == "vendors" && action.in?(%w(new create))].any?
     end
 
     def guest_permissions
-      return true if controller == "sessions"
-      return true if controller == "vendors" && action.in?(%w(show index))
-      return true if controller == "categories" && action.in?(%w(show))
-      return true if controller == "photos" && action.in?(%w(index show))
-      return true if controller == "carts" && action.in?(%w(show create destroy update))
-      return true if controller == "users" && action.in?(%w(new create show))
+      [controller == "sessions",
+        controller == "vendors" && action.in?(%w(show index)),
+        controller == "categories" && action.in?(%w(show)),
+        controller == "photos" && action.in?(%w(index show)),
+        controller == "carts" && action.in?(%w(show create destroy update)),
+        controller == "users" && action.in?(%w(new create show))].any?
     end
 
     def controller

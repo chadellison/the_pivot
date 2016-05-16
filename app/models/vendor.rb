@@ -8,6 +8,8 @@ class Vendor < ActiveRecord::Base
 
   validates_presence_of :name
 
+  enum status: %w(pending active inactive)
+
   def featured
     photos.first
   end

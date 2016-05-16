@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create]
 
-  # def index
-  #  @users = User.all
-  # end
-
   def edit
     @user = current_user
   end

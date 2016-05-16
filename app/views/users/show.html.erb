@@ -1,8 +1,9 @@
 <div class="row dashboard">
   <div class="small-2 columns side-menu full-height">
+    <%= button_to "Create Business", new_vendor_path, method: :get %>
     <a href="#" id="">Business Analytics</a>
     <% current_user.vendors.each do |vendor| %>
-      <a href="#" id="<%= vendor.slug %>"><%= vendor.name %></a>
+    <a href="#" id="<%= vendor.slug %>"><%= vendor.name %></a>
   <% end %>
   <%= link_to "Edit Profile", edit_profile_path, class: "button primary" %>
   </div>

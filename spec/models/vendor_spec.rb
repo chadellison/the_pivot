@@ -21,10 +21,10 @@ RSpec.describe Vendor, type: :model do
     expect(vendor.featured).to eq(photo1)
   end
 
-  it "has a default status of 'inactive'" do
+  it "has a default status of 'pending'" do
     vendor = Vendor.create(name: "Hoss beast")
-    expect(vendor.status).to eq "Inactive"
-    vendor.update(status: "Active")
-    expect(Vendor.find(vendor.id).status).to eq "Active"
+    expect(vendor.status).to eq "pending"
+    vendor.update(status: "active")
+    expect(Vendor.find(vendor.id).status).to eq "active"
   end
 end
