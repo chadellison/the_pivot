@@ -14,40 +14,14 @@ $form-padding: $global-padding;
 @import "custom";
 
 .log-in-form {
-  background-color: rgba(0, 0, 0, .5);
   border-radius: 5px;
   padding: $form-padding;
-}
+  color: #fff;
 
-.full-log-in {
-  @include background-image-spec;
-  background-image: url("https://images.unsplash.com/photo-1447433909565-04bfc496fe73?crop=entropy&dpr=2&fit=crop&fm=jpg&h=650&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1300");
-  min-height: 100vh;
-}
+  .lead {
+    padding-bottom: 2%;
+    
+  }
 
-.full-create-account {
-  @include background-image-spec;
-  background-image: url("https://images.unsplash.com/photo-1457364559154-aa2644600ebb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=dccf57fc99b9a448575f0f7b5cb507f4");
-  min-height: 100vh;
-}
 
-.full-log-in h4 {
-  color: white;
-}
-
-.full-create-account h4 {
-  color: white;
-}
-
-.login_form {
-  padding: 25px;
-}
-
-.login-page {
-
-  padding-top: 100px
-}
-
-.pad-header {
-  padding-bottom: 25px;
 }
