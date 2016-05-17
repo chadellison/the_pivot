@@ -40,7 +40,6 @@ RSpec.feature "Platform admin can remove a vendor" do
 
     user.roles << reg_user
 
-
     visit platform_admin_dashboard_path
     expect(page).to have_content "404"
 
