@@ -1,8 +1,4 @@
 class PlatformAdmin::VendorsController < ApplicationController
-  def index
-    @vendors = Vendor.all
-  end
-
   def edit
     @vendor = Vendor.find(params[:id])
   end
@@ -18,7 +14,7 @@ class PlatformAdmin::VendorsController < ApplicationController
       vendor.update(vendor_params)
       flash[:success] = "#{Vendor.find(vendor.id).name} has been updated."
     end
-    redirect_to platform_admin_vendors_path
+    redirect_to platform_admin_dashboard_path
   end
 
   def destroy
@@ -26,7 +22,7 @@ class PlatformAdmin::VendorsController < ApplicationController
     vendor.photos.destroy_all
     vendor.destroy
     flash[:success] = "#{vendor.name} was successfully removed!"
-    redirect_to platform_admin_vendors_path
+    redirect_to platform_admin_dashboard_path
   end
 
   private

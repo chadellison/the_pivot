@@ -11,11 +11,11 @@
       "/Users/jonathanbernesser/Turing/3module/the_pivot/app/helpers/platform_admin_vendors_helper.rb": [
         1,
         1,
-        6,
+        8,
         null,
         null,
         1,
-        6,
+        8,
         null,
         null,
         1,
@@ -28,7 +28,11 @@
         1,
         null,
         1,
+<<<<<<< HEAD
+        109,
+=======
         111,
+>>>>>>> master
         null,
         null,
         1,
@@ -57,7 +61,11 @@
         null,
         null,
         1,
+<<<<<<< HEAD
+        87,
+=======
         89,
+>>>>>>> master
         null,
         null,
         null,
@@ -169,6 +177,17 @@
         null,
         null,
         1,
+<<<<<<< HEAD
+        185,
+        null,
+        null,
+        1,
+        140,
+        null,
+        null,
+        1,
+        128,
+=======
         189,
         null,
         null,
@@ -178,6 +197,7 @@
         null,
         1,
         129,
+>>>>>>> master
         null,
         null,
         null
@@ -191,6 +211,11 @@
         1,
         1,
         1,
+<<<<<<< HEAD
+        1,
+        1,
+=======
+>>>>>>> master
         1,
         null,
         1,
@@ -270,16 +295,35 @@
         1,
         null,
         null,
+<<<<<<< HEAD
+        105,
+        null,
+        null,
+        1,
+        105,
+=======
         107,
         null,
         null,
         1,
         107,
+>>>>>>> master
         6,
         null,
         null,
         null,
         1,
+<<<<<<< HEAD
+        137,
+        null,
+        null,
+        1,
+        105,
+        null,
+        null,
+        1,
+        105,
+=======
         141,
         null,
         null,
@@ -293,6 +337,7 @@
         null,
         1,
         107,
+>>>>>>> master
         null,
         null,
         1,
@@ -300,7 +345,11 @@
         null,
         null,
         1,
+<<<<<<< HEAD
+        105,
+=======
         107,
+>>>>>>> master
         null,
         null
       ],
@@ -314,19 +363,29 @@
         null,
         null,
         1,
+<<<<<<< HEAD
+        105,
+        105,
+        105,
+=======
         107,
         107,
         107,
+>>>>>>> master
         null,
         null,
         null,
         1,
         null,
-        28,
+        25,
         13,
         23,
         43,
+<<<<<<< HEAD
+        105,
+=======
         107,
+>>>>>>> master
         null,
         null,
         1,
@@ -335,13 +394,13 @@
         null,
         null,
         null,
-        28,
+        25,
         null,
         null,
         1,
         null,
         null,
-        41,
+        38,
         null,
         null,
         1,
@@ -349,7 +408,11 @@
         null,
         null,
         null,
+<<<<<<< HEAD
+        62,
+=======
         64,
+>>>>>>> master
         null,
         null,
         1,
@@ -358,11 +421,19 @@
         null,
         null,
         null,
+<<<<<<< HEAD
+        105,
+        null,
+        null,
+        1,
+        1029,
+=======
         107,
         null,
         null,
         1,
         1064,
+>>>>>>> master
         null,
         null,
         1,
@@ -465,15 +536,12 @@
       "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/platform_admin/dashboard_controller.rb": [
         1,
         1,
+        8,
         null,
         null
       ],
       "/Users/jonathanbernesser/Turing/3module/the_pivot/app/controllers/platform_admin/vendors_controller.rb": [
         1,
-        1,
-        6,
-        null,
-        null,
         1,
         1,
         null,
@@ -686,6 +754,10 @@
         0
       ]
     },
+<<<<<<< HEAD
+    "timestamp": 1463461590
+=======
     "timestamp": 1463457619
+>>>>>>> master
   }
 }

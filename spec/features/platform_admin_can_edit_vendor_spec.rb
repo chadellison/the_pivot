@@ -13,17 +13,16 @@ RSpec.feature "Platform admin can edit vendors" do
     visit vendors_path
 
     visit platform_admin_dashboard_path(user.id)
-    click_on "Edit Vendors"
+    click_on "Active Vendors"
     expect(page).to have_content "Jojo blu"
 
-    click_on "All Vendors"
     click_on "Edit"
 
     fill_in "Name", with: "bobo brown"
     click_on "Update Vendor"
 
     expect(page).to have_content "bobo brown has been updated."
-    expect(current_path).to eq platform_admin_vendors_path
+    expect(current_path).to eq platform_admin_dashboard_path
 
     visit vendors_path
     expect(page).to have_content "bobo brown"
@@ -35,7 +34,7 @@ RSpec.feature "Platform admin can edit vendors" do
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
 
-    visit platform_admin_vendors_path
+    visit platform_admin_dashboard_path
     expect(page).to have_content "404"
   end
 end
