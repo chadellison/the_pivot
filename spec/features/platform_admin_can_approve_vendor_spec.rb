@@ -33,7 +33,7 @@ RSpec.feature "platform admin can approve a vendor" do
 
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
     visit platform_admin_dashboard_path(admin.id)
-    click_on "Edit Vendors"
+    click_on "Pending Vendors"
     expect(page).to have_content "Beautiful Photos"
     expect(page).to have_button "Deny"
     click_on "Approve"

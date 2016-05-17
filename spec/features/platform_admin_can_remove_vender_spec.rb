@@ -12,11 +12,10 @@ RSpec.feature "Platform admin can remove a vendor" do
     vendor.photos << photo
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
-    visit platform_admin_dashboard_path(user.id)
+    visit platform_admin_dashboard_path
 
-
-    click_link "Edit Vendors"
-    expect(current_path).to eq platform_admin_vendors_path
+    click_link "Active Vendors"
+    expect(current_path).to eq platform_admin_dashboard_path
     expect(page).to have_content "Jojo blu"
 
     click_on "All Vendors"
@@ -34,7 +33,7 @@ RSpec.feature "Platform admin can remove a vendor" do
 
     vendor = Role.create(name: "vendor_admin")
 
-    visit platform_admin_vendors_path
+    visit platform_admin_dashboard_path
     expect(page).to have_content "404"
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
@@ -42,12 +41,12 @@ RSpec.feature "Platform admin can remove a vendor" do
     user.roles << reg_user
 
 
-    visit platform_admin_vendors_path
+    visit platform_admin_dashboard_path
     expect(page).to have_content "404"
 
     user.roles << vendor
 
-    visit platform_admin_vendors_path
+    visit platform_admin_dashboard_path
     expect(page).to have_content "404"
   end
 end
