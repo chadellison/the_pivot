@@ -5,7 +5,8 @@ class Seeds
     create_roles
     create_vendors_and_photos
     create_users
-    platform_admin
+    create_platform_admin
+    create_pending_vendors
   end
 
   def create_categories
@@ -16,7 +17,7 @@ class Seeds
     puts "Created Categories"
   end
 
-  def platform_admin
+  def create_platform_admin
     user = User.create(username: "jorge@turing.io",
                 password: "password",
                 password_confirmation: "password",
@@ -53,6 +54,10 @@ class Seeds
                              status: "active")
 
       category = %w(buildings food nature people technology objects).sample
+      user = User.create(username: Faker::Internet.user_name, password: "password", password_confirmation: "password", email: Faker::Internet.email)
+      role = Role.create(name: "vendor_admin")
+      UserRole.create(user_id: user.id, role_id: role.id, vendor_id: vendor.id)
+
       rand(1..10).times do
         photo = vendor.photos.create(title: Faker::Hipster.sentence,
                              description: Faker::Hipster.paragraph(2),
@@ -62,6 +67,19 @@ class Seeds
         puts "created vendor and photos"
       end
     end
+  end
+
+  def create_pending_vendors
+    5.times do
+      vendor = Vendor.create(name: Faker::Company.name,
+                             about: Faker::Hipster.paragraph,
+                             status: "pending")
+
+      user = User.create(username: Faker::Internet.user_name, password: "password", password_confirmation: "password", email: Faker::Internet.email)
+      role = Role.create(name: "customer")
+      UserRole.create(user_id: user.id, role_id: role.id, vendor_id: vendor.id)
+    end
+    puts "created pending vendors"
   end
 
 end
