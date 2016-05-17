@@ -31,7 +31,7 @@ RSpec.feature "A user can add photos to their cart" do
     expect(page).to have_content "Total: $22"
   end
 
-  scenario "registered user can add photos from different vendors to one cart" do
+  scenario "registered user can remove photos from their cart" do
     Role.create(name: "customer")
     user = User.new(id: 1 )
     user.save(validates: false)
