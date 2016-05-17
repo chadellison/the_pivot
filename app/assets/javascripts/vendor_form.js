@@ -10,6 +10,8 @@ $(document).ready(function() {
 
   $(".side-menu").on("click", "#edit-profile", function() {
     $(".vendor-form").addClass("hidden")
+    $(".recent-orders").addClass("hidden")
+    $(".new-business").addClass("hidden")
     $(".user-form").toggleClass("hidden")
     $("h5").addClass("hidden")
     $("h6").addClass("hidden")
