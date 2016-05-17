@@ -6,7 +6,7 @@ RSpec.feature "Platform admin can remove a vendor" do
     user = User.create(username: "Jones", password: "password", password_confirmation: "password", email: "jones@gmail.com")
     user.roles << role
 
-    vendor = Vendor.create(name: "Jojo blu")
+    vendor = Vendor.create(name: "Jojo blu", status: "active")
     photo = Photo.create(title: "photo", image: Photo.image_from_url("https://source.unsplash.com/random"), price: 20, description: "description")
 
     vendor.photos << photo
@@ -17,13 +17,11 @@ RSpec.feature "Platform admin can remove a vendor" do
 
     click_link "Edit Vendors"
     expect(current_path).to eq platform_admin_vendors_path
-    within(".all-vendors") do
-      expect(page).to have_content "Jojo blu"
-    end
+    expect(page).to have_content "Jojo blu"
 
-    within(".all-vendors") do
-      click_button "Delete"
-    end
+    click_on "All Vendors"
+
+    click_button "Delete"
     expect(page).to have_content "Jojo blu was successfully removed!"
     expect(Vendor.all).to eq []
 
