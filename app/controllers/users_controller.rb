@@ -34,7 +34,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @vendor = Vendor.new
     @photo = Photo.new
   end
 
