@@ -9,6 +9,7 @@ class VendorsController < ApplicationController
   end
 
   def new
+    binding.pry
     @vendor = Vendor.new
   end
 

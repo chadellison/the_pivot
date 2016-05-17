@@ -1,0 +1,14 @@
+<h4 class="text-center">Create Your Store</h4>
+<div class="row small-up-1 medium-up-1 large-up-1">
+  <div class="column">
+    <%= form_for(@vendor) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :about %>
+      <%= f.text_field :about %>
+      <%= f.label :logo %>
+      <%= f.file_field :logo %>
+      <%= f.submit "Create Business", class: "button expanded" %>
+    <% end %>
+  </div>
+</div
