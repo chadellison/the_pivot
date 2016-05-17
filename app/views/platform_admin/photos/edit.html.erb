@@ -1,9 +1,10 @@
 <h4 class="text-center">Edit Photo</h4>
-<div class="row small-up-1 medium-up-1 large-up-1">
-  <div class="column">
+<div class="row">
+  <div class="small-8 small-centered columns">
+    <%= image_tag @photo.image.url %>
     <%= form_for(@photo, url: platform_admin_photo_path(@photo.id)) do |f| %>
       <%= f.text_field :title, placeholder: "Photo Title" %>
-      <%= f.text_area :description, placeholder: "Photo Description" %>
+      <%= f.text_area :description, placeholder: "Photo Description", rows: 8 %>
       <%= f.label :price, "Choose a Price for the New Photo" %>
       <%= f.number_field :price, in: 1000..10000, step: "any" %>
       <%= f.label :category %>
@@ -11,7 +12,7 @@
       <%= f.label :image, "Choose an Image" %>
       <%= f.file_field :image %>
       <%= f.hidden_field :vendor_id, value: @photo.vendor.id %>
-      <%= f.submit class: "button expanded" %>
+      <%= f.submit class: "button success expanded" %>
     <% end %>
   </div>
 </div>

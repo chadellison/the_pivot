@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('.side-menu h4').on('click', function(){
+  $('.side-menu a').on('click', function(){
     var status = this.id
     $(this).addClass("highlight").siblings().removeClass("highlight")
     if(status === "all") {
