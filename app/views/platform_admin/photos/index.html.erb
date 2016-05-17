@@ -1,8 +1,12 @@
-<div class="index-photo photo">
+<div class="row small-up-3 medium-up-3 large-up-4">
   <% @photos.each do |photo| %>
-    <p><%= link_to image_tag(photo.image.url, alt: photo.image.url), photo_path(photo.id) %></p>
-    <p><%= photo.title %></p>
-    <p><%= button_to "Edit", edit_platform_admin_photo_path(photo.id), method: :get, class: "button expanded" %></p>
-    <p><%= button_to "Delete", platform_admin_photo_path(photo.id), method: :delete, class: "button expanded" %></p>
+  <div class="column">
+    <div class="index-photo photo">
+      <p><%= link_to image_tag(photo.image.url, alt: photo.image.url), photo_path(photo.id) %></p>
+      <p><%= truncate photo.title, length: 10 %></p>
+      <p><%= button_to "Edit", edit_platform_admin_photo_path(photo.id), method: :get, class: "button choose expanded" %></p>
+      <p><%= button_to "Delete", platform_admin_photo_path(photo.id), method: :delete, class: "button alert expanded" %></p>
+    </div>
+  </div>
   <% end %>
 </div>

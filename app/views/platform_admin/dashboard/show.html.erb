@@ -1,12 +1,12 @@
 <br>
 <div class="row dashboard">
-  <div class="small-3 columns side-menu full-height">
+  <div class="small-2 columns side-menu full-height">
     <br>
-    <h4><%= link_to "Edit Photos", platform_admin_photos_path %></h4>
-    <h4 id="pending" class="highlight"><a href="#">Pending Vendors</a></h4>
-    <h4 id="active"><a href="#">Active Vendors</a></h4>
-    <h4 id="inactive"><a href="#">Inactive Vendors</a></h4>
-    <h4 id="all"><a href="#">All Vendors</a></h4>
+    <a><%= link_to "Edit Photos", platform_admin_photos_path %></a>
+    <a id="pending" class="highlight" href="#">Pending Vendors</a>
+    <a id="active" href="#">Active Vendors</a>
+    <a id="inactive" href="#">Inactive Vendors</a>
+    <a id="all" href="#">All Vendors</a>
   </div>
   <br>
   <h4 class="centered-text">Welcome to Your Dashboard, <%= current_user.username.capitalize %></h4>
@@ -15,7 +15,7 @@
   <div class="small-9 columns">
     <div class="pending clearfix vendor-status">
       <h4 class="text-center">Pending Vendors</h4>
-      <% pending_vendors(@vendors).each do |vendor| %>
+      <% @vendors.pending.each do |vendor| %>
         <div class="third">
           <h5><%= link_to vendor.name, vendor_path(vendor.slug) %></h5>
           <p>Status: <%= vendor.status %></p>
@@ -28,7 +28,7 @@
     </div>
     <div class="active clearfix hidden vendor-status">
       <h4 class="text-center">Active Vendors</h4>
-      <% active_vendors(@vendors).each do |vendor| %>
+      <% @vendors.active.each do |vendor| %>
         <div class="third">
           <h5><%= link_to vendor.name, vendor_path(vendor.slug) %></h5>
           <p>Status: <%= vendor.status %></p>
@@ -41,7 +41,7 @@
     </div>
     <div class="inactive clearfix hidden vendor-status">
       <h4 class="text-center">Inactive Vendors</h4>
-      <% inactive_vendors(@vendors).each do |vendor| %>
+      <% @vendors.inactive.each do |vendor| %>
         <div class="third">
           <h5><%= link_to vendor.name, vendor_path(vendor.slug) %></h5>
           <p>Status: <%= vendor.status %></p>
