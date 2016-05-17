@@ -48,10 +48,14 @@ class Seeds
   end
 
   def create_vendors_and_photos
+    headshots = Dir.entries("#{Rails.root}/app/assets/staff_headshots")
+    headshots.shift(2)
     20.times do
+      headshot = headshots.sample
       vendor = Vendor.create(name: Faker::Company.name,
                              about: Faker::Hipster.paragraph,
-                             status: "active")
+                             status: "active",
+                             logo: File.new("#{Rails.root}/app/assets/staff_headshots/#{headshot}"))
 
       category = %w(buildings food nature people technology objects).sample
       user = User.create(username: Faker::Internet.user_name, password: "password", password_confirmation: "password", email: Faker::Internet.email)

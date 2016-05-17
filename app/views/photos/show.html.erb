@@ -2,7 +2,7 @@
   <div class="image-wrapper overlay-fade-in">
     <%= image_tag @photo.image.url, class: "show-image" %>
     <div class="image-overlay-content">
-      <h3><i class="fi-torso"></i><%= link_to @photo.vendor.name, vendor_path(@photo.vendor.slug), class: "company"%></h3>
+      <h3 class="text-center"><%= image_tag @photo.vendor.logo.url, class: "vendor-thumbnail"%><%= link_to @photo.vendor.name, vendor_path(@photo.vendor.slug), class: "company"%></h3>
       <p><%= @photo.description %></p>
       <h5><%= number_to_currency @photo.price %></h5>
       <%= button_to "Purchase", cart_path(photo_id: @photo.id), class: "purchase-button button" %>

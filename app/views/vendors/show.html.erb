@@ -5,11 +5,12 @@
       <div class="content">
         <span class="title"><%= @vendor.name %></span>
         <p><%= @vendor.about %></p>
+        <%= image_tag @vendor.logo, class: 'vendor-logo' %>
       </div>
     </div>
 </div>
   <div class="medium-8 columns">
-    <%= link_to image_tag(@vendor.photos.last.image.url), photo_path(@vendor.featured.image.url) %>
+    <%= link_to image_tag(@vendor.featured.image.url), photo_path(@vendor.featured.id) %>
   </div>
 </div>
 <br>

@@ -1,5 +1,4 @@
 .card {
-  font-family: 'Roboto', sans-serif;
   overflow: hidden;
   height: 412px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -15,10 +14,20 @@
     font-weight: 300;
     border-radius: 0 0 2px 2px;
   }
+
+  .vendor-logo {
+    margin-top: 10%;
+    margin-left: 34%;
+    border-radius: 100%;
+    width: 30%;
+    height: auto;
+
+  }
   p {
   margin: 0;
   }
 }
+
 
 .purchase-button {
   margin-top: 1%;
