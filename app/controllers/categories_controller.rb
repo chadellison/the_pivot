@@ -5,13 +5,4 @@ class CategoriesController < ApplicationController
     @photos = @category.photos
   end
 
-
-
-
-
-  # def show
-  #   @category = Category.find_by(name: params[:name])
-  #   render file: "/public/404" unless @category
-  # end
-
 end

@@ -1,49 +1,56 @@
+<br>
 <div class="row dashboard">
   <div class="small-2 columns side-menu full-height">
-    <%= link_to "Edit Photos", platform_admin_photos_path %>
+    <br>
+    <a><%= link_to "Edit Photos", platform_admin_photos_path %></a>
     <a id="pending" class="highlight" href="#">Pending Vendors</a>
     <a id="active" href="#">Active Vendors</a>
     <a id="inactive" href="#">Inactive Vendors</a>
     <a id="all" href="#">All Vendors</a>
   </div>
+  <br>
   <h4 class="centered-text">Welcome to Your Dashboard, <%= current_user.username.capitalize %></h4>
   <h4 class="centered-text"><%= current_user.email %></h4>
-  <div class="row small-up-1 medium-up-3 large-up-4 hidden vendor-status pending">
-    <h4 class="text-center">Pending Vendors</h4>
-    <% @vendors.pending.each do |vendor| %>
-    <div class="column">
-      <h5><%= link_to vendor.name, vendor_path(vendor.slug) %></h5>
-      <p>Status: <%= vendor.status %></p>
-      <%= button_to "Approve", platform_admin_vendor_path(vendor.id, pending: "active"), method: :patch, class: "button in-row" %>
-      <%= button_to "Deny", platform_admin_vendor_path(vendor.id, pending: "inactive"), method: :patch, class: "button in-row" %>
-    <% end %>
-    </div>
-    <hr>
-    <br>
-  </div>
-  <div class="row hiddden vendor-status active">
-    <h4 class="text-center">Active Vendors</h4>
-    <% @vendors.active.each do |vendor| %>
-    <div class="column">
-      <h5><%= link_to vendor.name, vendor_path(vendor.slug) %></h5>
-      <p>Status: <%= vendor.status %></p>
-      <%= button_to "Delete", platform_admin_vendor_path(vendor.id), method: :delete, class: "button in-row" %>
-      <%= button_to "Edit", edit_platform_admin_vendor_path(vendor.id), method: :get, class: "button in-row" %>
-    <% end %>
-    </div>
-  </div>
-  <hr>
   <br>
-  <div class="row small-up-1 medium-up-3 large-up-4 hidden vendor-status inactive">
-    <h4 class="text-center">Inactive Vendors</h4>
-    <% @vendors.inactive.each do |vendor| %>
-    <div class="column">
-      <h5><%= link_to vendor.name, vendor_path(vendor.slug) %></h5>
-      <p>Status: <%= vendor.status %></p>
-      <%= button_to "Delete", platform_admin_vendor_path(vendor.id), method: :delete, class: "button in-row" %>
-      <%= button_to "Edit", edit_platform_admin_vendor_path(vendor.id), method: :get, class: "button in-row" %>
-    <% end %>
+  <div class="small-9 columns">
+    <div class="pending clearfix vendor-status">
+      <h4 class="text-center">Pending Vendors</h4>
+      <% @vendors.pending.each do |vendor| %>
+        <div class="third">
+          <h5><%= link_to vendor.name, vendor_path(vendor.slug) %></h5>
+          <p>Status: <%= vendor.status %></p>
+          <%= button_to "Approve", platform_admin_vendor_path(vendor.id, pending: "active"), method: :patch, class: "button in-row" %>
+          <%= button_to "Deny", platform_admin_vendor_path(vendor.id, pending: "inactive"), method: :patch, class: "button in-row" %>
+        </div>
+      <% end %>
+      <hr>
+      <br>
+    </div>
+    <div class="active clearfix hidden vendor-status">
+      <h4 class="text-center">Active Vendors</h4>
+      <% @vendors.active.each do |vendor| %>
+        <div class="third">
+          <h5><%= link_to vendor.name, vendor_path(vendor.slug) %></h5>
+          <p>Status: <%= vendor.status %></p>
+          <%= button_to "Delete", platform_admin_vendor_path(vendor.id), method: :delete, class: "button in-row" %>
+          <%= button_to "Edit", edit_platform_admin_vendor_path(vendor.id), method: :get, class: "button in-row" %>
+        </div>
+      <% end %>
+      <hr>
+      <br>
+    </div>
+    <div class="inactive clearfix hidden vendor-status">
+      <h4 class="text-center">Inactive Vendors</h4>
+      <% @vendors.inactive.each do |vendor| %>
+        <div class="third">
+          <h5><%= link_to vendor.name, vendor_path(vendor.slug) %></h5>
+          <p>Status: <%= vendor.status %></p>
+          <%= button_to "Delete", platform_admin_vendor_path(vendor.id), method: :delete, class: "button in-row" %>
+          <%= button_to "Edit", edit_platform_admin_vendor_path(vendor.id), method: :get, class: "button in-row" %>
+        </div>
+      <% end %>
+      <hr>
+    </div>
   </div>
-  <hr>
-  </div>
+  <br>
 </div>

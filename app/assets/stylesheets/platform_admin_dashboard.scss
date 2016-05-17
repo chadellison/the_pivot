@@ -1,3 +1,17 @@
+.in-row {
+  float: left;
+  margin-right: 5px;
+}
+
+.third {
+  float: left;
+  width: 30%;
+  padding: 5px;
+}
+
+.clearfix {
+  overflow: auto;
+}
 
 .highlight {
   background-color: black;

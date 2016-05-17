@@ -17,7 +17,8 @@ class PlatformAdmin::PhotosController < ApplicationController
 
   def destroy
     photo = Photo.find(params[:id])
-    photo.destroy
+    PhotoCategory.where(photo: photo).delete_all
+    photo.delete
     flash["success"] = "#{photo.title} was successfully removed"
     redirect_to platform_admin_photos_path
   end

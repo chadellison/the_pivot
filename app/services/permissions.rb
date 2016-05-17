@@ -1,4 +1,5 @@
 class Permissions
+
   extend Forwardable
 
   def_delegators :user, :platform_admin?,
@@ -21,6 +22,7 @@ class Permissions
     else guest_permissions
     end
   end
+
 
   private
 
