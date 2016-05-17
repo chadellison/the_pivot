@@ -11,6 +11,5 @@ $(document).ready(function(){
       $("." + status).removeClass("hidden")
       $(".rules").addClass("hidden")
     }
-    console.log(status)
   })
 })
