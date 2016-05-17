@@ -10,9 +10,9 @@ RSpec.feature "visitor can view a single photo" do
 
 
     visit photo_path(photo.id)
-    
-    expect(page).to have_content "Price: $10.00"
-    expect(page).to have_content "By: Jones and photos"
+
+    expect(page).to have_content "$10.00"
+    expect(page).to have_content "Jones and photos"
     expect(page).to have_content "This is a description"
   end
 end

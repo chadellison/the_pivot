@@ -13,8 +13,10 @@ $form-padding: $global-padding;
 
 @import "custom";
 
+
+
 .log-in-form {
-  background-color: inherit;
+  background-color: rgba(#000, .2);
   border-radius: 5px;
   padding: $form-padding;
   color: #fff;
@@ -27,7 +29,7 @@ $form-padding: $global-padding;
   }
 
   input, select, textarea {
-    color: inherit;
+    color: #fff;
     background-color: inherit;
     border: none;
     border-bottom: 2px solid white;

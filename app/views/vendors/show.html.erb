@@ -9,7 +9,7 @@
     </div>
 </div>
   <div class="medium-8 columns">
-    <%= link_to image_tag(@vendor.photos.last.image.url), photo_path(@vendor.photos.last) %>
+    <%= link_to image_tag(@vendor.photos.last.image.url), photo_path(@vendor.featured.image.url) %>
   </div>
 </div>
 <br>
@@ -17,7 +17,7 @@
   <% @vendor.photos.each do |photo| %>
   <div class="column">
     <div class="flush vendor-photo">
-      <%= link_to image_tag(photo.image.url, alt: photo.image.url), photo_path(photo.id) %>
+      <%= link_to image_tag(photo.image.url, alt: photo.image.url), photo_path(photo.id), class: "vendor-photo" %>
       <%= button_to "Purchase", cart_path(photo_id: photo.id), class: "purchase-button button" %>
     </div>
   </div>

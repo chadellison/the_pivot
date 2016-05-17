@@ -36,6 +36,9 @@ class ApplicationController < ActionController::Base
     @vendors = Vendor.all
   end
 
+  def find_referrer
+    session[:return_to] ||= request.referer
+  end
 
   def set_cart
     @cart = Cart.new(session[:cart])
