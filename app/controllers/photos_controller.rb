@@ -14,7 +14,7 @@ class PhotosController < ApplicationController
       redirect_to dashboard_path(current_user.id)
     else
       flash[:alert] = @photo.errors.full_messages.join(", ")
-      redirect_to admin_dashboard_path
+      redirect_to dashboard_path(current_user.id)
     end
   end
 

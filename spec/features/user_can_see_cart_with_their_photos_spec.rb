@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "A user can add photos to their cart" do
-    scenario "registered user can add photos from different vendors to one cart" do
+  scenario "registered user can add photos from different vendors to one cart" do
     Role.create(name: "customer")
     user = User.new(id: 1 )
     user.save(validates: false)
@@ -29,6 +29,22 @@ RSpec.feature "A user can add photos to their cart" do
       expect(page).to have_xpath("//img[@src=\"#{photo2.image}\"]")
     end
     expect(page).to have_content "Total: $22"
+  end
+
+  scenario "registered user can add photos from different vendors to one cart" do
+    Role.create(name: "customer")
+    user = User.new(id: 1 )
+    user.save(validates: false)
+    user.roles << Role.find_by(name: "customer")
+    vendor1 = Vendor.create(name: "vendor1")
+    photo1 = vendor1.photos.create(title: "photo", image:  File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"), price: 20, description: "description")
+
+    visit '/vendor1'
+    click_on "Purchase"
+    visit '/cart'
+    find(".fi-x").click
+
+    expect(page).to have_content "Your Cart is Empty"
   end
 
   scenario "guest cannot checkout and sees a button that asks them to login before continueing" do
