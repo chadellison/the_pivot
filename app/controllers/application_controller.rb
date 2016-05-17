@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :all_categories
   before_action :all_vendors
+  before_action :new_vendor
   before_action :set_cart
   before_action :authorize!
   helper_method :current_user
@@ -34,6 +35,10 @@ class ApplicationController < ActionController::Base
 
   def all_vendors
     @vendors = Vendor.all
+  end
+
+  def new_vendor
+    @vendor = Vendor.new
   end
 
   def find_referrer

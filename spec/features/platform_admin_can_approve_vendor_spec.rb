@@ -20,7 +20,6 @@ RSpec.feature "platform admin can approve a vendor" do
     ApplicationController.any_instance.stubs(:current_user).returns(user)
     visit dashboard_path(user.id)
     click_on "Create Business"
-    expect(current_path).to eq new_vendor_path
     fill_in "Name", with: "Beautiful Photos"
     fill_in "About", with: "This business is about beautiful photos"
     click_on "Create Business"

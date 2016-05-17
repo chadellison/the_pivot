@@ -49,7 +49,9 @@ class Seeds
 
   def create_vendors_and_photos
     headshots = Dir.entries("#{Rails.root}/app/assets/staff_headshots")
-    headshots.shift(2)
+    headshots.delete_if do |photo|
+      photo[-3..-1] != "png"
+    end
     20.times do
       headshot = headshots.sample
       vendor = Vendor.create(name: Faker::Company.name,

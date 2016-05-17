@@ -5,6 +5,7 @@ class CartsController < ApplicationController
     photo = Photo.find(params[:photo_id])
     @cart.add_photo(photo.id)
     session[:cart] = @cart.cart_photos
+    flash[:success] = "Successfully added photo to cart."
     redirect_to session.delete(:return_to)
   end
 
