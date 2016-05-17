@@ -20,6 +20,12 @@ $global-radius: 4px;
   a {
     color: #fff;
   }
+
+  .vendor-thumbnail {
+    border-radius: 100%;
+    width: 3%;
+    height: auto;
+  }
 }
 
 .overlay-fade-in {
