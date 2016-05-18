@@ -3,16 +3,23 @@ $(document).ready(function(){
     var status = this.id
     $(this).addClass("highlight").siblings().removeClass("highlight")
     if(status === "all") {
+      $(".vendor-admin-form").addClass("hidden")
+      $(".analytics").addClass("hidden")
       $(".pending").removeClass("hidden")
       $(".active").removeClass("hidden")
       $(".inactive").removeClass("hidden")
-      $(".vendor-admin-form").addClass("hidden")
     } else if(status === "add-admin"){
-      $(".vendor-status").addClass("hidden")
       $(".vendor-admin-form").removeClass("hidden")
-    } else {
-      $('.vendor-status').addClass("hidden")
+      $(".analytics").addClass("hidden")
+      $(".vendor-status").addClass("hidden")
+    } else if(status === "analytics") {
       $(".vendor-admin-form").addClass("hidden")
+      $(".analytics").removeClass("hidden")
+      $(".vendor-status").addClass("hidden")
+    } else {
+      $(".vendor-admin-form").addClass("hidden")
+      $(".analytics").addClass("hidden")
+      $('.vendor-status').addClass("hidden")
       $("." + status).removeClass("hidden")
     }
   })
