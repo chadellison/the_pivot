@@ -64,7 +64,6 @@ class Seeds
   def create_roles
     Role.create(name: "platform_admin")
     Role.create(name: "vendor_admin")
-    Role.create(name: "customer")
     puts "created roles"
   end
 
@@ -86,7 +85,7 @@ class Seeds
                          password_confirmation: "password",
                          email: Faker::Internet.email,
                          country: Faker::Address.country)
-      role = Role.create(name: "vendor_admin")
+      role = Role.find_by(name: "vendor_admin")
       UserRole.create(user_id: user.id, role_id: role.id, vendor_id: vendor.id)
 
       rand(1..10).times do
@@ -107,8 +106,7 @@ class Seeds
                              status: "pending")
 
       user = User.create(username: Faker::Internet.user_name, password: "password", password_confirmation: "password", email: Faker::Internet.email)
-      role = Role.create(name: "customer")
-      UserRole.create(user_id: user.id, role_id: role.id, vendor_id: vendor.id)
+      UserRole.create(user: user, role: Role.find_by(name: "vendor_admin"), vendor: vendor)
     end
     puts "created pending vendors"
   end

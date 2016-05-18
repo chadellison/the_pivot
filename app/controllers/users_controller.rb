@@ -12,8 +12,6 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params_check)
     if @user.save
-      role =  Role.new_customer
-      @user.roles << role
       session[:user_id] = @user.id
       flash[:success] = "Success! Your account was created!."
       redirect_to dashboard_path(current_user)
