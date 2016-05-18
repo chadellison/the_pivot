@@ -37,6 +37,7 @@ group :development, :test do
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem "factory_girl_rails"
   gem "database_cleaner"
+  gem 'rails_12factor'
   gem 'mocha'
   gem 'simplecov', :require => false
 
