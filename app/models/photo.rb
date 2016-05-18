@@ -5,7 +5,6 @@ class Photo < ActiveRecord::Base
   has_many :categories, through: :photo_categories
   has_many :orders, through: :order_photos
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png"]
-
   validates_presence_of :title, :description, :price
 
   def self.image_from_url(url)

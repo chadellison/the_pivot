@@ -14,7 +14,7 @@
   <div class="dropdown">
     <a href="<%= vendors_path %>">Vendors</a>
     <div class="dropdown-content">
-      <% active_vendors(@vendors).each do |vendor| %>
+      <% @vendors.active.each do |vendor| %>
         <p>
           <%= link_to vendor.name, vendor_path(vendor.slug) %>
         </p>
