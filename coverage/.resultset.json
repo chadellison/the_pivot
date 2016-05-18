@@ -11,6 +11,7 @@
       "/Users/charlesellison/turing/3module/projects/the_pivot/app/models/cart.rb": [
         1,
         1,
+<<<<<<< HEAD
         null,
         1,
         129,
@@ -20,6 +21,8 @@
         6,
         6,
         null,
+=======
+>>>>>>> master
         null,
         1,
         7,
@@ -625,7 +628,10 @@
         null
       ],
       "/Users/charlesellison/turing/3module/projects/the_pivot/app/controllers/vendor_admin/vendors_controller.rb": [
+<<<<<<< HEAD
         1,
+=======
+>>>>>>> master
         1,
         1,
         null,
@@ -661,6 +667,10 @@
         0
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1463591936
+=======
+    "timestamp": 1463553393
+>>>>>>> master
   }
 }
