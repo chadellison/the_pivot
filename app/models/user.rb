@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   end
 
   def customer?
-    roles.exists?(name: "customer")
+    self.id
   end
 
 end

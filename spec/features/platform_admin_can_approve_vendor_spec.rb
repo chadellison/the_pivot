@@ -14,7 +14,8 @@ RSpec.feature "platform admin can approve a vendor" do
                        password_confirmation: "123",
                        email: "travis@gmail.com")
 
-    user.roles.create(name: "customer")
+    expect(user.roles).to eq []
+
     visit root_path
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
@@ -27,7 +28,8 @@ RSpec.feature "platform admin can approve a vendor" do
     expect(current_path).to eq dashboard_path(user.id)
     visit vendors_path
     expect(page).not_to have_content "Beautiful Photos"
-    expect(User.find(user.id).roles.last.name).to eq "customer"
+    expect(User.find(user.id).roles.last.name).to eq "vendor_admin"
+    expect(User.find(user.id).vendors.last.status).to eq "pending"
 
 
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
@@ -41,7 +43,40 @@ RSpec.feature "platform admin can approve a vendor" do
     visit vendors_path
     expect(page).to have_content "Beautiful Photos"
     expect(Vendor.last.status).to eq "active"
-    assert User.find(user.id).roles.pluck(:name).include?("vendor_admin")
+    expect(User.find(user.id).roles.last.name).to eq "vendor_admin"
+
+    expect(User.find(user.id).roles.count).to eq 1
+  end
+
+  scenario "User does not have more than one role of the same type" do
+    Role.create(name: "vendor_admin")
+
+    user = User.create(username: "Travis",
+                       password: "123",
+                       password_confirmation: "123",
+                       email: "travis@gmail.com")
+
+    expect(user.roles).to eq []
+
+    visit root_path
+
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
+    visit dashboard_path(user.id)
+    click_on "Create Business"
+    fill_in "Name", with: "Beautiful Photos"
+    fill_in "About", with: "This business is about beautiful photos"
+    click_on "Create Business"
+
+    expect(User.find(user.id).roles.last).to eq Role.find_by(name: "vendor_admin")
+    expect(Role.count).to eq 1
+
+    click_on "Create Business"
+    fill_in "Name", with: "hipster Photos"
+    fill_in "About", with: "This business is about hipsters photos"
+    click_on "Create Business"
+
+    expect(User.find(user.id).roles.last).to eq Role.find_by(name: "vendor_admin")
+    expect(Role.count).to eq 1
   end
 
   scenario "non-registered users cannot create businesses" do

@@ -10,16 +10,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(params_check)
-    if @user.save
-      role =  Role.new_customer
-      @user.roles << role
-      session[:user_id] = @user.id
-      flash[:success] = "Success! Your account was created!."
-      redirect_to dashboard_path(current_user)
+    if params[:commit] == "Create Admin"
+      user = User.create(params_check)
+      admin_creator(user, user.save)
+    elsif params[:commit] == "Add Admin"
+      user = User.find_by(username: params[:user][:username])
+      admin_creator(user, user)
     else
-      flash[:error] = "Your account could not be created. Please check your input and try again."
-      redirect_to users_path
+      user_creator
     end
   end
 
@@ -38,8 +36,32 @@ class UsersController < ApplicationController
   end
 
   private
+    def params_check
+      params.require(:user).permit(:username, :email, :password, :password_confirmation, :location)
+    end
 
-  def params_check
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :location)
-  end
+    def admin_creator(user, condition)
+      vendor = current_user.vendors.find(params[:user][:vendor_ids])
+      role = Role.find_by(name: "vendor_admin")
+      if condition
+        vendor.user_roles.create(role: role, user: user)
+        flash[:success] = "Admin successfully created."
+        redirect_to dashboard_path(current_user)
+      else
+        flash[:error] = "Your admin could not be created. Please check your input and try again."
+        redirect_to dashboard_path(current_user)
+      end
+    end
+
+    def user_creator
+      @user = User.create(params_check)
+      if @user.save
+        session[:user_id] = @user.id
+        flash[:success] = "Success! Your account was created!."
+        redirect_to dashboard_path(current_user)
+      else
+        flash[:error] = "Your account could not be created. Please check your input and try again."
+        redirect_to users_path
+      end
+    end
 end

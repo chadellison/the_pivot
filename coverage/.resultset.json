@@ -13,7 +13,11 @@
         1,
         null,
         1,
+<<<<<<< HEAD
         129,
+=======
+        141,
+>>>>>>> master
         null,
         null,
         1,
@@ -42,7 +46,11 @@
         null,
         null,
         1,
+<<<<<<< HEAD
         101,
+=======
+        109,
+>>>>>>> master
         null,
         null,
         null,
@@ -113,11 +121,15 @@
         1,
         1,
         1,
-        1,
-        1,
-        1,
-        1,
         null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
         1,
         null,
         1,
@@ -130,10 +142,6 @@
         1,
         1,
         1,
-        null,
-        1,
-        1,
-        null,
         null
       ],
       "/Users/charlesellison/turing/3module/projects/the_pivot/app/models/user_role.rb": [
@@ -158,6 +166,7 @@
         null,
         null,
         1,
+<<<<<<< HEAD
         220,
         null,
         null,
@@ -167,6 +176,17 @@
         null,
         1,
         150,
+=======
+        249,
+        null,
+        null,
+        1,
+        162,
+        null,
+        null,
+        1,
+        159,
+>>>>>>> master
         null,
         null,
         null
@@ -190,7 +210,11 @@
         null,
         null,
         1,
+<<<<<<< HEAD
         42,
+=======
+        46,
+>>>>>>> master
         null,
         null
       ],
@@ -207,37 +231,75 @@
         null,
         null,
         1,
-        4,
-        4,
+        6,
         1,
         1,
-        1,
+        5,
         1,
         1,
         null,
-        3,
-        3,
+        4,
         null,
         null,
         null,
         1,
         2,
+<<<<<<< HEAD
+=======
         1,
+>>>>>>> master
         1,
         null,
         1,
         1,
         null,
+<<<<<<< HEAD
+        1,
+        1,
+=======
+>>>>>>> master
         null,
         null,
         1,
+        23,
+        null,
+        null,
+        1,
+<<<<<<< HEAD
         18,
+=======
+        1,
+        7,
+>>>>>>> master
         null,
         null,
         1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        null,
+        0,
+        0,
+        null,
+        null,
         null,
         1,
+<<<<<<< HEAD
         6,
+=======
+        4,
+        4,
+        1,
+        1,
+        1,
+        null,
+        3,
+        3,
+        null,
+>>>>>>> master
         null,
         null
       ],
@@ -252,7 +314,11 @@
         1,
         null,
         1,
+<<<<<<< HEAD
         23,
+=======
+        28,
+>>>>>>> master
         0,
         null,
         null,
@@ -260,16 +326,25 @@
         1,
         null,
         null,
+<<<<<<< HEAD
         125,
         null,
         null,
         1,
         125,
+=======
+        137,
+        null,
+        null,
+        1,
+        137,
+>>>>>>> master
         6,
         null,
         null,
         null,
         1,
+<<<<<<< HEAD
         165,
         null,
         null,
@@ -283,6 +358,21 @@
         null,
         1,
         125,
+=======
+        168,
+        null,
+        null,
+        1,
+        137,
+        null,
+        null,
+        1,
+        137,
+        null,
+        null,
+        1,
+        137,
+>>>>>>> master
         null,
         null,
         1,
@@ -290,7 +380,11 @@
         null,
         null,
         1,
+<<<<<<< HEAD
         125,
+=======
+        137,
+>>>>>>> master
         null,
         null
       ],
@@ -305,19 +399,32 @@
         null,
         null,
         1,
+<<<<<<< HEAD
         125,
         125,
         125,
+=======
+        137,
+        137,
+        137,
+>>>>>>> master
         null,
         null,
         null,
         1,
         null,
         25,
+<<<<<<< HEAD
         19,
         27,
         54,
         125,
+=======
+        29,
+        28,
+        55,
+        137,
+>>>>>>> master
         null,
         null,
         null,
@@ -333,7 +440,11 @@
         1,
         null,
         null,
+<<<<<<< HEAD
         44,
+=======
+        54,
+>>>>>>> master
         null,
         null,
         1,
@@ -341,7 +452,11 @@
         null,
         null,
         null,
+<<<<<<< HEAD
         71,
+=======
+        82,
+>>>>>>> master
         null,
         null,
         1,
@@ -350,6 +465,7 @@
         null,
         null,
         null,
+<<<<<<< HEAD
         125,
         null,
         null,
@@ -363,6 +479,21 @@
         null,
         1,
         306,
+=======
+        137,
+        null,
+        null,
+        1,
+        1333,
+        null,
+        null,
+        1,
+        147,
+        null,
+        null,
+        1,
+        332,
+>>>>>>> master
         null,
         null
       ],
@@ -378,27 +509,26 @@
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
+        null,
+        5,
+        5,
+        3,
+        3,
+        3,
         null,
         2,
         2,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
         null,
         null,
         null,
         1,
         null,
         1,
-        2,
+        5,
         null,
         null
       ],
@@ -416,31 +546,48 @@
         1,
         null,
         1,
+<<<<<<< HEAD
         18,
         18,
         18,
+=======
+        19,
+        19,
+        19,
+>>>>>>> master
         null,
         null,
         1,
         2,
+<<<<<<< HEAD
+=======
+        2,
+>>>>>>> master
         null,
         2,
         1,
         1,
         null,
         1,
+<<<<<<< HEAD
+        1,
+=======
+>>>>>>> master
+        null,
+        null,
+        null,
+        1,
         1,
         null,
         null,
-        null,
-        1,
-        1,
-        null,
-        null,
         1,
         null,
         1,
+<<<<<<< HEAD
         2,
+=======
+        0,
+>>>>>>> master
         null,
         null,
         null
@@ -460,7 +607,6 @@
         null,
         1,
         2,
-        1,
         1,
         1,
         1,
@@ -650,12 +796,31 @@
         null,
         1,
         1,
+<<<<<<< HEAD
+=======
         null,
+>>>>>>> master
         null,
         null,
         1,
         1,
         3,
+        null,
+        null
+      ],
+      "/Users/charlesellison/turing/3module/projects/the_pivot/app/services/upload_photo_parser.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        3,
+        null,
+        null,
+        null,
+        2,
+        2,
+        null,
         null,
         null
       ],
@@ -665,9 +830,14 @@
         0,
         0,
         0,
+        0,
         0
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1463600165
+=======
+    "timestamp": 1463613662
+>>>>>>> master
   }
 }

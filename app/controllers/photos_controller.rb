@@ -7,14 +7,14 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new(photo_params)
+    params_parser = UploadPhotoParser.new(params)
+    @photo = params_parser.vendor.photos.new(params_parser.photo_info)
 
     if @photo.save
-      flash[:success] = "Photo: #{@photo.title} Created"
-      redirect_to dashboard_path(current_user.id)
+      @photo.categories << params_parser.category
+      render json: { message: "success" }, :status => 200
     else
-      flash[:alert] = @photo.errors.full_messages.join(", ")
-      redirect_to dashboard_path(current_user.id)
+      render json: { error: "Failed - Please Enter Valid Info" }, :status => 400
     end
   end
 
