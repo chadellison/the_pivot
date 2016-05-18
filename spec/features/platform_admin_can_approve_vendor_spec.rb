@@ -29,6 +29,7 @@ RSpec.feature "platform admin can approve a vendor" do
     visit vendors_path
     expect(page).not_to have_content "Beautiful Photos"
     expect(User.find(user.id).roles.last.name).to eq "vendor_admin"
+    expect(User.find(user.id).vendors.last.status).to eq "pending"
 
 
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
@@ -43,6 +44,7 @@ RSpec.feature "platform admin can approve a vendor" do
     expect(page).to have_content "Beautiful Photos"
     expect(Vendor.last.status).to eq "active"
     expect(User.find(user.id).roles.last.name).to eq "vendor_admin"
+
     expect(User.find(user.id).roles.count).to eq 1
   end
 
