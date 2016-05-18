@@ -30,16 +30,23 @@
       <% end %>
     </div>
     <div class="small-6 columns">
-      <h4 class="text-center">Upload a New Photo</h4>
-      <%= form_for(vendor.photos.new) do |f| %>
-        <%= f.text_field :title, placeholder: "Photo Title" %>
-        <%= f.text_area :description, rows: 4, placeholder: "Photo Description" %>
-        <%= f.number_field :price, in: 1000..10000, step: "any", placeholder: "Price" %>
-        <%= f.collection_select :category_ids, @categories, :id, :name, include_blank: false %>
-        <%= f.file_field :image %>
-        <%= f.hidden_field :vendor_id, value: vendor.id %>
-        <%= f.submit "Create Photo", class: "button expanded" %>
-      <% end %>
+      <h4 class="text-center upload">Upload a New Photo</h4>
+        <%= form_for(vendor.photos.new, html: { multipart: true, class: "dropzone"}) do |f|  %>
+          <div class="fallback">
+            <%= f.file_field :image %>
+            <%= f.submit "Upload Photo" %>
+          </div>
+        <% end %>
+      <div class="reveal centered-text" id="photoForm" data-reveal>
+        <h4>Enter Photo Info</h4>
+        <%= form_for(vendor.photos.new) do |f| %>
+          <%= f.text_field :title, placeholder: "Photo Title", id: "title"%>
+          <%= f.text_area :description, rows: 4, placeholder: "Photo Description", id: "description" %>
+          <%= f.number_field :price, in: 1000..10000, step: "any", placeholder: "Price", id: "price" %>
+          <%= f.collection_select :category_ids, @categories, :id, :name, {:id=>"category"}, include_blank: false %>
+          <a href="#" class="photo-button button success" data-close aria-label="Close modal", id="photoInfo">Upload Photo</a>
+        <% end %>
+      </div>
     </div>
   </div>
   <% end %>
