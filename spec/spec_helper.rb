@@ -8,8 +8,13 @@ SimpleCov.start 'rails'
 # this file to always be loaded, without a need to explicitly require it in any
 # files.
 Capybara::Webkit.configure do |config|
-    config.allow_url("https://fonts.googleapis.com/css?family=Inconsolata")
-  end
+  config.allow_url("https://fonts.googleapis.com/css?family=Inconsolata")
+  config.allow_url("csi.gstatic.com")
+  config.allow_url("www.gstatic.com")
+  config.allow_url("maps.googleapis.com")
+  config.allow_url("ajax.googleapis.com")
+  config.allow_url("www.google.com")
+end
 # Given that it is always loaded, you are encouraged to keep this file as
 # light-weight as possible. Requiring heavyweight dependencies from this file
 # will add to the boot time of your test suite on EVERY test run, even for an
