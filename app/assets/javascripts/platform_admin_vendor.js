@@ -6,9 +6,14 @@ $(document).ready(function(){
       $(".pending").removeClass("hidden")
       $(".active").removeClass("hidden")
       $(".inactive").removeClass("hidden")
+      $(".analytics").addClass("hidden")
+    } else if(status === "analytics") {
+      $(".vendor-status").addClass("hidden")
+      $(".analytics").removeClass("hidden")
     } else {
       $('.vendor-status').addClass("hidden")
       $("." + status).removeClass("hidden")
+      $(".analytics").addClass("hidden")
     }
   })
 })
