@@ -11,6 +11,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(params_check)
+    if params[:commit] == "Create Admin"
+      byebug
+      vendor = current_user.vendors.find(params[:vendor_ids])
+      
     if @user.save
       role =  Role.new_customer
       @user.roles << role
