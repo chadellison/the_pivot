@@ -15,5 +15,7 @@
 //= require dropzone
 //= require foundation
 //= require_tree .
+//= require chartkick
+//= require highcharts
 
 $(function(){ $(document).foundation(); });

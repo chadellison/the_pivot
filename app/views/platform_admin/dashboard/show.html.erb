@@ -2,11 +2,12 @@
 <div class="row dashboard">
   <div class="small-2 columns side-menu full-height">
     <br>
-    <a><%= link_to "Edit Photos", platform_admin_photos_path %></a>
     <a id="pending" class="highlight" href="#">Pending Vendors</a>
     <a id="active" href="#">Active Vendors</a>
     <a id="inactive" href="#">Inactive Vendors</a>
     <a id="all" href="#">All Vendors</a>
+    <a id="analytics" href="#">Analytics</a>
+    <%= link_to "Edit Photos", platform_admin_photos_path %>
   </div>
   <br>
   <h4 class="centered-text">Welcome to Your Dashboard, <%= current_user.username.capitalize %></h4>
@@ -50,6 +51,14 @@
         </div>
       <% end %>
       <hr>
+    </div>
+    <div class="analytics">
+      <h3 class="text-center title">Analytics</h3>
+      <h4 class="text-center">User Demographic</h4>
+      <div class="geo-chart analytics"><%= geo_chart User.group(:country).count %></div>
+      <div class="geo-chart analytics"><%= pie_chart User.group(:country).count %></div>
+      <h4 class="text-center">Photo prices</h4>
+      <div class="bar-chart analytics"><%= column_chart Photo.group(:price).count %></div>
     </div>
   </div>
   <br>

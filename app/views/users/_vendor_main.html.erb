@@ -2,9 +2,21 @@
   <h5 class="text-center">Welcome to Your Dashboard, <%= current_user.username.capitalize %></h5>
   <h6 class="text-center"><%= current_user.email %></h5>
   <% current_user.vendors.each do |vendor| %>
-  <div class="vendor-form hidden" id="<%= vendor.slug %>-form">
+
+  <div class="analytics">
+    <h3 class="text-center title analytics">Analytics</h3>
+    <h4 class="text-center analytics">User Demographic</h4>
+    <div class="geo-chart analytics"><%= geo_chart User.group(:country).count %></div>
+    <div class="pie-chart analytics"><%= pie_chart User.group(:country).count %></div>
+    <h4 class="text-center">Photo prices</h4>
+    <div class="bar-chart analytics"><%= column_chart Photo.group(:price).count %></div>
+  </div>
+
+  <div class="vendor-form" id="<%= vendor.slug %>-form">
     <h3 class="text-center">|<%= vendor.name %>|</h3>
     <br>
+
+
     <div class="small-6 columns">
       <h4 class="text-center">Edit Your Store</h4>
       <%= form_for vendor, url: vendor_admin_vendor_path(vendor.id) do |f| %>
@@ -32,7 +44,7 @@
           <%= f.text_area :description, rows: 4, placeholder: "Photo Description", id: "description" %>
           <%= f.number_field :price, in: 1000..10000, step: "any", placeholder: "Price", id: "price" %>
           <%= f.collection_select :category_ids, @categories, :id, :name, {:id=>"category"}, include_blank: false %>
-          <a href="#" class="photo-button button success" data-close aria-label="Close modal", id="photoInfo">Upload</a>
+          <a href="#" class="photo-button button success" data-close aria-label="Close modal", id="photoInfo">Upload Photo</a>
         <% end %>
       </div>
     </div>
@@ -50,6 +62,33 @@
         <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
         <%= f.submit "Edit Account", class: "button expanded"%>
       <% end %>
+    </div>
+  </div>
+  <div class="vendor-admin-form hidden">
+    <h3 class="text-center">|Add an Admin to Your Account|</h3>
+    <br>
+    <div class="small-6 columns">
+      <h4 class="text-center">Create New Admin</h4>
+      <div class="create-admin-form">
+        <%= form_for User.new do |f| %>
+          <%= f.text_field :username, placeholder: "Username" %>
+          <%= f.text_field :email, placeholder: "Email" %>
+          <%= f.password_field :password, placeholder: "Password" %>
+          <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
+          <%= f.collection_select :vendor_ids, current_user.vendors, :id, :name, include_blank: false %>
+          <%= f.submit "Create Admin", class: "button expanded"%>
+        <% end %>
+      </div>
+    </div>
+    <div class="small-6 columns">
+      <h4 class="text-center">Add Existing User As Admin</h4>
+      <div class="add-admin-form">
+        <%= form_for User.new do |f| %>
+          <%= f.text_field :username, placeholder: "Username" %>
+          <%= f.collection_select :vendor_ids, current_user.vendors, :id, :name, include_blank: false %>
+          <%= f.submit "Add Admin", class: "button expanded"%>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

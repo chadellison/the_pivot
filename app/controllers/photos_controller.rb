@@ -7,7 +7,6 @@ class PhotosController < ApplicationController
   end
 
   def create
-    binding.pry
     params_parser = UploadPhotoParser.new(params)
     @photo = params_parser.vendor.photos.new(params_parser.photo_info)
 

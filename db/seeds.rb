@@ -7,6 +7,7 @@ class Seeds
     create_users
     create_platform_admin
     create_pending_vendors
+    create_customers
   end
 
   def create_categories
@@ -40,6 +41,26 @@ class Seeds
     puts "created users"
   end
 
+  def create_customers
+    100.times do
+      user = User.create(username: Faker::Internet.user_name,
+                  password: "password",
+                  password_confirmation: "password",
+                  email: Faker::Internet.email,
+                  country: Faker::Address.country)
+      10.times do
+        rand(1..10).times do
+          vendor = Vendor.order("RANDOM()").first
+          photo = vendor.photos.last
+          Vendor.order("RANDOM()")
+          order_photo = OrderPhoto.create(order: Order.create, photo: photo, vendor: vendor)
+          user.orders << order_photo.order
+        end
+      end
+    end
+    puts "created customer with order"
+  end
+
   def create_roles
     Role.create(name: "platform_admin")
     Role.create(name: "vendor_admin")
@@ -60,7 +81,11 @@ class Seeds
                              logo: File.new("#{Rails.root}/app/assets/staff_headshots/#{headshot}"))
 
       category = %w(buildings food nature people technology objects).sample
-      user = User.create(username: Faker::Internet.user_name, password: "password", password_confirmation: "password", email: Faker::Internet.email)
+      user = User.create(username: Faker::Internet.user_name,
+                         password: "password",
+                         password_confirmation: "password",
+                         email: Faker::Internet.email,
+                         country: Faker::Address.country)
       role = Role.create(name: "vendor_admin")
       UserRole.create(user_id: user.id, role_id: role.id, vendor_id: vendor.id)
 
