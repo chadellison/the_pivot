@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     @user = User.create(params_check)
     if @user.save
       role =  Role.new_customer

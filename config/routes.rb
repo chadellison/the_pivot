@@ -14,8 +14,11 @@
 
   namespace :vendor_admin do
     resources :vendors, only: [:show, :update]
-    resources :users, only: [:new]
+    resources :users, only: [:new, :create]
   end
+  # namespace :vendor_admin do
+  #   resources :vendors, only: [:show, :update]
+  # end
 
   get '/login',              to: "sessions#new"
   post '/login',             to: "sessions#create"
@@ -42,9 +45,6 @@
   get '/cart',               to: "carts#show"
   post '/cart',              to: "carts#create"
 
-  namespace :vendor_admin do
-    resources :vendors, only: [:show, :update]
-  end
 
   namespace :platform_admin do
     resources :vendors, only: [:index, :show, :destroy, :edit, :update]
