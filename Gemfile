@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 gem 'rails', '4.2.6'
 gem 'pg'
+gem 'dropzonejs-rails'
+# Use SCSS for stylesheets
+
 gem 'sass-rails', '~> 5.0'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
@@ -27,12 +30,14 @@ group :development, :test do
   gem 'rspec'
   gem 'capybara'
   gem 'launchy'
+  gem 'capybara-webkit'
   gem 'pry-rails'
   gem 'pry'
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem "factory_girl_rails"
   gem "database_cleaner"
+  gem 'rails_12factor'
   gem 'mocha'
   gem 'simplecov', :require => false
 
