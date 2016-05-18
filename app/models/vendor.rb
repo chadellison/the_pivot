@@ -3,6 +3,7 @@ class Vendor < ActiveRecord::Base
   has_many :photos
   has_many :user_roles
   has_many :users, through: :user_roles
+  has_many :order_photos
   has_many :orders, through: :order_photos
   has_attached_file :logo
   validates_attachment_content_type :logo, content_type: ["image/jpg", "image/jpeg", "image/png"]
