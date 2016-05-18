@@ -7,16 +7,15 @@ class PhotosController < ApplicationController
   end
 
   def create
+    binding.pry
     params_parser = UploadPhotoParser.new(params)
     @photo = params_parser.vendor.photos.new(params_parser.photo_info)
 
     if @photo.save
       @photo.categories << params_parser.category
       render json: { message: "success" }, :status => 200
-      flash.now[:success] = "Photo: #{@photo.title} Created"
     else
       render json: { error: "Failed - Please Enter Valid Info" }, :status => 400
-      flash.now[:alert] = @photo.errors.full_messages.join(", ")
     end
   end
 
