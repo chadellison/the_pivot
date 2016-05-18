@@ -1,0 +1,17 @@
+<div class="form full-create-account">
+<div class="row login-page">
+  <div class="medium-6 medium-centered large-6 large-centered columns">
+    <%=form_for @user do |f| %>
+      <div class="row column log-in-form">
+        <h4 class="text-center pad-header">Create a New Admin</h4>
+        <div class="login_form">
+          <%= f.text_field :username, placeholder: "Username" %>
+          <%= f.text_field :email, placeholder: "Email" %>
+          <%= f.password_field :password, placeholder: "Password" %>
+          <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
+          <%= f.submit "Add Admin", class: "button success expanded", url: vendor_admin_add_path%>
+      </div>
+      </div>
+      <% end %>
+  </div>
+</div>

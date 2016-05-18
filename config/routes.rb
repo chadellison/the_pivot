@@ -14,6 +14,7 @@
 
   namespace :vendor_admin do
     resources :vendors, only: [:show, :update]
+    resources :users, only: [:new]
   end
 
   get '/login',              to: "sessions#new"
@@ -52,18 +53,4 @@
   end
 
   get "/:vendor",            to: "vendors#show", as: :vendor
-
-  # resources :trip_packages, only: [:create, :destroy, :update]
-  # resources :orders, only: [:show, :create]
-  # resources :destinations, only: [:create]
-  #
-  # get '/dashboard', to: "users#show"
-  # get '/orders' , to: "orders#index"
-  #
-  #
-  # namespace :admin do
-  #   resources :users, only: [:update, :delete]
-  #   get '/orders' , to: "orders#index"
-  # end
-  #
 end
