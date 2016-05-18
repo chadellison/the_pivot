@@ -18,4 +18,12 @@ class Vendor < ActiveRecord::Base
   def generate_slug
     self.slug = name.parameterize
   end
+
+  def most_popular_photos
+    orders.map do |order|
+      order.photos
+    end.flatten
+    # orders.joins(:photos).where(photos: { })
+    orders.joins(:photos).where(photos)
+  end
 end
