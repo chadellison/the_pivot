@@ -13,10 +13,10 @@ class VendorsController < ApplicationController
   end
 
   def create
-    
+
     vendor = Vendor.new(vendor_params)
     if vendor.save
-      role = Role.find_by(name: "customer")
+      role = Role.create(name: "vendor_admin")
       current_user.user_roles.create(user: current_user, vendor: vendor, role: role)
       flash["success"] = "Request for business sent"
       redirect_to dashboard_path(current_user.id)

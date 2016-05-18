@@ -7,7 +7,9 @@ class PlatformAdmin::VendorsController < ApplicationController
     if params[:pending]
       vendor = Vendor.find(params[:id])
       vendor.update(status: params[:pending])
+      binding.pry
       vendor.users.last.roles.create(name: "vendor_admin")
+
       flash[:success] = "#{vendor.name} has been approved" if params[:pending] == "active"
     else
       vendor = Vendor.find(params[:id])
