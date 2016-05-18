@@ -64,7 +64,6 @@ class Seeds
   def create_roles
     Role.create(name: "platform_admin")
     Role.create(name: "vendor_admin")
-    Role.create(name: "customer")
     puts "created roles"
   end
 

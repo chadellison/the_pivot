@@ -21,4 +21,8 @@ class Order < ActiveRecord::Base
     photos.includes(:vendor).pluck(:name).join(",")
   end
 
+  def user_demographic
+    user.vendors
+  end
+
 end
