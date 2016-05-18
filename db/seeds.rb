@@ -81,7 +81,6 @@ class Seeds
                              logo: File.new("#{Rails.root}/app/assets/staff_headshots/#{headshot}"))
 
       category = %w(buildings food nature people technology objects).sample
-      country = %w(France Spain United-States, England, Australia).sample
       user = User.create(username: Faker::Internet.user_name,
                          password: "password",
                          password_confirmation: "password",
