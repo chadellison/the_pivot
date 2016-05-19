@@ -20,10 +20,20 @@ class Vendor < ActiveRecord::Base
   end
 
   def most_popular_photos
-    orders.map do |order|
-      order.photos
-    end.flatten
-    # orders.joins(:photos).where(photos: { })
-    orders.joins(:photos).where(photos)
+    photo_ids = OrderPhoto.where(vendor_id: id).group(:photo_id).count
+    photo_ids.reduce({}) do |hash, photo|
+      photo_name = Photo.find(photo[0]).title
+      hash[photo_name] = photo[1]
+      hash
+    end
+  end
+
+  def customer_demographic
+    user_ids = Order.where(id: order_ids).pluck(:user_id)
+    User.where(id: user_ids)
+  end
+
+  def order_ids
+    OrderPhoto.where(vendor_id: id).pluck(:order_id)
   end
 end

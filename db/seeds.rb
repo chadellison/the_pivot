@@ -49,15 +49,20 @@ class Seeds
                   email: Faker::Internet.email,
                   country: Faker::Address.country)
       10.times do
-        rand(1..10).times do
+        rand(10..15).times do
           vendor = Vendor.order("RANDOM()").first
-          photo = vendor.photos.last
-          Vendor.order("RANDOM()")
-          order_photo = OrderPhoto.create(order: Order.create, photo: photo, vendor: vendor)
+          photo = vendor.photos.order("RANDOM()").first
+          if photo.nil?
+            cost = 100
+          else
+            cost = photo.price
+          end
+          order_photo = OrderPhoto.create(order: Order.create, photo: photo, vendor: vendor, cost: cost)
           user.orders << order_photo.order
         end
       end
     end
+    User.create(username: "josh@turing.io", password: "password", password_confirmation: "password", email: "josh@turing.io", country: "Germany")
     puts "created customer with order"
   end
 
@@ -97,6 +102,9 @@ class Seeds
         puts "created vendor and photos"
       end
     end
+    user = User.create(username: "andrew@turing.io", password: "password", password_confirmation: "password", email: "andrew@turing.io", country: "Argentina")
+    UserRole.create(user: user, role_id: Role.find_by(name: "vendor_admin"), vendor: Vendor.first)
+    puts "created vendor for andrew"
   end
 
   def create_pending_vendors
@@ -106,7 +114,7 @@ class Seeds
                              status: "pending")
 
       user = User.create(username: Faker::Internet.user_name, password: "password", password_confirmation: "password", email: Faker::Internet.email)
-      UserRole.create(user: user, role: Role.find_by(name: "vendor_admin"), vendor: vendor)
+      UserRole.create(user: user, role: Role.find_by(name: "vendor_admin"), vendor: vendor) 
     end
     puts "created pending vendors"
   end

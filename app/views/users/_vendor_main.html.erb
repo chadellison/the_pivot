@@ -4,18 +4,17 @@
   <% current_user.vendors.each do |vendor| %>
 
   <div class="analytics">
-    <h3 class="text-center title analytics">Analytics</h3>
+    <h3 class="text-center title analytics">Analytics for <%= vendor.name %></h3>
     <h4 class="text-center analytics">User Demographic</h4>
-    <div class="geo-chart analytics"><%= geo_chart vendor.users.group(:country).count %></div>
-    <div class="pie-chart analytics"><%= pie_chart vendor.most_popular_photos.group(:title).count %></div>
-    <h4 class="text-center">Photo prices</h4>
-    <div class="bar-chart analytics"><%= column_chart Photo.group(:price).count %></div>
+    <div class="geo-chart analytics"><%= geo_chart vendor.customer_demographic.group(:country).count %></div>
+    <h4 class="text-center analytics">Most Popular Photos</h4>
+    <div class="pie-chart analytics"><%= pie_chart vendor.most_popular_photos %></div>
   </div>
+  <hr>
 
   <div class="vendor-form" id="<%= vendor.slug %>-form">
     <h3 class="text-center">|<%= vendor.name %>|</h3>
     <br>
-
 
     <div class="small-6 columns">
       <h4 class="text-center">Edit Your Store</h4>
