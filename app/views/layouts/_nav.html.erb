@@ -25,9 +25,12 @@
     <i class="fi-shopping-bag"><span class="quantity"><%= @cart.quantity %></span></i>
   </a>
   <% if current_user %>
-    <%= link_to "", dashboard_path(current_user.id), class: "login fi-widget" if current_user.customer? || current_user.vendor_admin? %>
-    <%= link_to "", platform_admin_dashboard_path(current_user.id), class: "login fi-widget" if current_user.platform_admin? %>
-    <%= link_to "Log Out", logout_path, method: :delete,  class: "login" %>
+    <% if current_user.platform_admin? %>
+      <%= link_to "", platform_admin_dashboard_path, class: "login fi-widget" %>
+    <% elsif current_user.customer? || current_user.vendor_admin? %>
+      <%= link_to "", dashboard_path(current_user.id), class: "login fi-widget" %>
+    <% end %>
+      <%= link_to "Log Out", logout_path, method: :delete,  class: "login" %>
   <% else %>
     <p class="login"><a data-open="login" href="#" class="login">Login</a></p>
   <% end %>

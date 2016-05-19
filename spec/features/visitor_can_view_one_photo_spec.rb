@@ -6,7 +6,7 @@ RSpec.feature "visitor can view a single photo" do
     photo = vender.photos.create(title: "You're not a real hipster",
                                  description: "This is a description",
                                  price: 10,
-                                 image: Photo.image_from_url("https://source.unsplash.com/category/people/800x600/"))
+                                 image: File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"))
 
 
     visit photo_path(photo.id)
