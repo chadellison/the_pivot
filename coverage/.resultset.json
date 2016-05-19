@@ -49,7 +49,7 @@
         null,
         null,
         1,
-        109,
+        108,
         null,
         null,
         null
@@ -424,15 +424,9 @@
         null,
         null,
         1,
-<<<<<<< HEAD
-        5,
-        5,
-=======
-        null,
         4,
         null,
         4,
->>>>>>> master
         3,
         3,
         3,
@@ -730,10 +724,6 @@
         0
       ]
     },
-<<<<<<< HEAD
-    "timestamp": 1463676740
-=======
-    "timestamp": 1463673183
->>>>>>> master
+    "timestamp": 1463678201
   }
 }
