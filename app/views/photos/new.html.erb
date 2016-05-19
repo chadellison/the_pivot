@@ -1,0 +1,23 @@
+<br>
+
+<div class="row vendor-photo-upload">
+  <h3 class: ""><%= @vendor.name  %></h3>
+</div>
+
+<div class="row">
+  <div class="small-10 columns uploadPhoto">
+    <%= render partial: 'dropzone' %>
+  </div>
+</div>
+
+
+<div class="reveal centered-text" id="photoForm" data-reveal>
+  <h4>Enter Photo Info</h4>
+  <%= form_for(@photo) do |f| %>
+    <%= f.text_field :title, placeholder: "Photo Title", id: "title"%>
+    <%= f.text_area :description, rows: 4, placeholder: "Photo Description", id: "description" %>
+    <%= f.number_field :price, in: 1000..10000, step: "any", placeholder: "Price", id: "price" %>
+    <%= f.collection_select :category_ids, @categories, :id, :name, {:id=>"category"}, include_blank: false %>
+    <a href="#" class="photo-button button success" data-close aria-label="Close modal", id="photoInfo">Upload Photo</a>
+  <% end %>
+</div>

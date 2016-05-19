@@ -22,8 +22,6 @@ $(document).ready(function(){
 
     $('#photoInfo').on("click", function(){
       dropzone.processQueue()
-      // var elem = new Foundation.Reveal($('#photoForm'));
-      // elem.close();
     })
 
     dropzone.on('sending', function(file, xhr, formData){
@@ -31,7 +29,7 @@ $(document).ready(function(){
       var description = $('#description').val();
       var price = $('#price').val();
       var category = $('#photo_category_ids').val();
-      var vendor = $('.side-menu .highlight').text();
+      var vendor = $('h3').text();
       formData.append("title", title);
       formData.append("description", description);
       formData.append("price", price);

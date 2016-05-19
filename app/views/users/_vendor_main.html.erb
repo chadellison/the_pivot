@@ -30,23 +30,8 @@
       <% end %>
     </div>
     <div class="small-6 columns">
-      <h4 class="text-center upload">Upload a New Photo</h4>
-        <%= form_for(vendor.photos.new, html: { multipart: true, class: "dropzone"}) do |f|  %>
-          <div class="fallback">
-            <%= f.file_field :image %>
-            <%= f.submit "Upload Photo" %>
-          </div>
-        <% end %>
-      <div class="reveal centered-text" id="photoForm" data-reveal>
-        <h4>Enter Photo Info</h4>
-        <%= form_for(vendor.photos.new) do |f| %>
-          <%= f.text_field :title, placeholder: "Photo Title", id: "title"%>
-          <%= f.text_area :description, rows: 4, placeholder: "Photo Description", id: "description" %>
-          <%= f.number_field :price, in: 1000..10000, step: "any", placeholder: "Price", id: "price" %>
-          <%= f.collection_select :category_ids, @categories, :id, :name, {:id=>"category"}, include_blank: false %>
-          <a href="#" class="photo-button button success" data-close aria-label="Close modal", id="photoInfo">Upload Photo</a>
-        <% end %>
-      </div>
+      <br>
+      <%= link_to "Upload Photo", new_photo_path(vendor: vendor.slug), class: "button success expanded" %>
     </div>
   </div>
   <% end %>
@@ -70,7 +55,7 @@
     <div class="small-6 columns">
       <h4 class="text-center">Create New Admin</h4>
       <div class="create-admin-form">
-        <%= form_for User.new do |f| %>
+        <%= form_for @user do |f| %>
           <%= f.text_field :username, placeholder: "Username" %>
           <%= f.text_field :email, placeholder: "Email" %>
           <%= f.password_field :password, placeholder: "Password" %>
@@ -83,7 +68,7 @@
     <div class="small-6 columns">
       <h4 class="text-center">Add Existing User As Admin</h4>
       <div class="add-admin-form">
-        <%= form_for User.new do |f| %>
+        <%= form_for @user do |f| %>
           <%= f.text_field :username, placeholder: "Username" %>
           <%= f.collection_select :vendor_ids, current_user.vendors, :id, :name, include_blank: false %>
           <%= f.submit "Add Admin", class: "button expanded"%>

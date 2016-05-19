@@ -51,11 +51,12 @@ RSpec.feature "Vendor can edit their store" do
     within(".side-menu") do
       click_on "Vendor1"
     end
+
     within(".vendor-form") do
       fill_in "vendor[name]", with: ""
       fill_in "vendor[about]", with: "New Vendor Description"
       click_on "Update Vendor"
-    endgs
+    end
 
     expect(current_path).to eq("/vendor_admin/vendors/#{vendor.id}")
     expect(page).to have_content("Please try again.")

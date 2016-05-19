@@ -21,6 +21,10 @@ RSpec.feature "Vendor can upload a photo" do
       click_on "Vendor1"
     end
 
+    click_on "Upload Photo"
+
+    expect(current_path).to eq new_photo_path
+
     image = Rails.root.join("spec/support/fixtures/people_1.jpg")
 
     drop_in_dropzone image
@@ -57,6 +61,10 @@ RSpec.feature "Vendor can upload a photo" do
     within(".side-menu") do
       click_on "Vendor1"
     end
+
+    click_on "Upload Photo"
+
+    expect(current_path).to eq new_photo_path
 
     image = Rails.root.join("spec/support/fixtures/people_1.jpg")
 
