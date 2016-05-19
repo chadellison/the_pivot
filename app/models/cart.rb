@@ -34,9 +34,4 @@ class Cart
     cart_photos.keys.count
   end
 
-
-  def stripe_price
-    total_price.to_i * 100
-  end
-
 end
