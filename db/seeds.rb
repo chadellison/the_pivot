@@ -103,7 +103,7 @@ class Seeds
       end
     end
     user = User.create(username: "andrew@turing.io", password: "password", password_confirmation: "password", email: "andrew@turing.io", country: "Argentina")
-    UserRole.create(user: user, role_id: Role.find_by(name: "vendor_admin"), vendor: Vendor.first)
+    user.user_roles.create(role: Role.find_by(name: "vendor_admin"), vendor: Vendor.first)
     puts "created vendor for andrew"
   end
 
@@ -114,7 +114,7 @@ class Seeds
                              status: "pending")
 
       user = User.create(username: Faker::Internet.user_name, password: "password", password_confirmation: "password", email: Faker::Internet.email)
-      UserRole.create(user: user, role: Role.find_by(name: "vendor_admin"), vendor: vendor) 
+      UserRole.create(user: user, role: Role.find_by(name: "vendor_admin"), vendor: vendor)
     end
     puts "created pending vendors"
   end
