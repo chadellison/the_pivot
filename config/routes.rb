@@ -4,7 +4,7 @@
   get '/cart', to: "carts#show"
   post '/cart', to: "carts#create"
   delete '/cart', to: "carts#destroy"
-  resources :photos, only: [:index, :show, :create]
+  resources :photos, only: [:index, :show, :create, :new]
 
   namespace :platform_admin do
     resources :vendors, only: [:index, :show, :destroy, :edit, :update]

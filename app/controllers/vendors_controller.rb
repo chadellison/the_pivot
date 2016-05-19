@@ -15,6 +15,7 @@ class VendorsController < ApplicationController
   def create
 
     vendor = Vendor.new(vendor_params)
+
     if vendor.save
       current_user.user_roles.create(vendor: vendor, role: Role.find_by(name: "vendor_admin"))
       flash["success"] = "Request for business sent"
@@ -28,6 +29,6 @@ class VendorsController < ApplicationController
   private
 
     def vendor_params
-      params.require(:vendor).permit(:name, :about)
+      params.require(:vendor).permit(:name, :about, :logo)
     end
 end
