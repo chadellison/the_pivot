@@ -36,7 +36,7 @@ class Permissions
     def vendor_admin_permissions
       [customer_permissions,
         controller == "vendor_admin/vendors",
-        controller == "photos" && action.in?(%w(create))].any?
+        controller == "photos" && action.in?(%w(create new))].any?
     end
 
     def customer_permissions

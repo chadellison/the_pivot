@@ -20,7 +20,9 @@ RSpec.feature "platform admin can approve a vendor" do
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
     visit dashboard_path(user.id)
-    click_on "Create Business"
+    within(".side-menu") do
+      click_on "Become a Vendor"
+    end
     fill_in "Name", with: "Beautiful Photos"
     fill_in "About", with: "This business is about beautiful photos"
     click_on "Create Business"
@@ -70,10 +72,14 @@ RSpec.feature "platform admin can approve a vendor" do
     expect(User.find(user.id).roles.last).to eq Role.find_by(name: "vendor_admin")
     expect(Role.count).to eq 1
 
-    click_on "Create Business"
-    fill_in "Name", with: "hipster Photos"
-    fill_in "About", with: "This business is about hipsters photos"
-    click_on "Create Business"
+    within(".side-menu") do
+      click_on "Create Business"
+    end
+    within(".create-business-form") do
+      fill_in "Name", with: "hipster Photos"
+      fill_in "About", with: "This business is about hipsters photos"
+      click_on "Create Business"
+    end
 
     expect(User.find(user.id).roles.last).to eq Role.find_by(name: "vendor_admin")
     expect(Role.count).to eq 1
