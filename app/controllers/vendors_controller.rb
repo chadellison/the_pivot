@@ -13,7 +13,6 @@ class VendorsController < ApplicationController
   end
 
   def create
-
     vendor = Vendor.new(vendor_params)
 
     if vendor.save

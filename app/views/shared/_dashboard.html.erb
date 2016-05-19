@@ -41,7 +41,7 @@
           <%= f.text_field :title, placeholder: "Package Title" %>
           <%= f.text_area :description, placeholder: "Package Description" %>
           <%= f.label :price, "Choose a Price for the New Package" %>
-          <%= f.number_field :price, in: 1000..10000, step: "any" %>
+          <%= f.number_field :price, step: "any" %>
           <%= f.label :destination_id, "Choose a Destination for the New Package" %>
           <%= f.collection_select :destination_id, @destinations, :id, :planet, include_blank: true %>
           <%= f.label :image, "Choose an Image" %>

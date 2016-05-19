@@ -13,7 +13,6 @@
           <th width "200">Photo Name</th>
           <th width "200" class="squish">Vendor</th>
           <th width "200">Price</th>
-          <th width "100">Passengers</th>
           <th width "100">Sub Total</th>
           <th width "100"></th>
 
@@ -26,13 +25,13 @@
             <td><%= photo.title %></td>
             <td><%= photo.vendor.name %></td>
             <td><%= number_to_currency photo.price %></td>
-            <td><%= @cart.quantity %></td>
             <td><%= link_to "", cart_path(photo: photo.id), method: :delete, class: "fi-x"%></td>
         </tr>
         <% end %>
       </tbody>
     </table>
-    <div class="text-right">Total: $<%= @cart.total_price %></div>
+    <div class="text-right">Total Quantity: <%= @cart.quantity %></div>
+    <div class="text-right">Total Cost: $<%= @cart.total_price %></div>
     <div class="text-center">
       <% unless current_user %>
         <%= link_to "Login or Create Account to Purchase", login_path, class: "button primary" %>

@@ -28,7 +28,7 @@ RSpec.feature "A user can add photos to their cart" do
       expect(page).to have_content "$2"
       expect(page).to have_xpath("//img[@src=\"#{photo2.image}\"]")
     end
-    expect(page).to have_content "Total: $22"
+    expect(page).to have_content "Total Cost: $22"
   end
 
   scenario "registered user can remove photos from their cart" do

@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  $(".analytics").addClass("hidden")
+  $(".vendor-form").addClass("hidden")
   $(".side-menu").on("click", ".vendor-button", function() {
     var vendor = this.id;
     $(".user-form").addClass("hidden")

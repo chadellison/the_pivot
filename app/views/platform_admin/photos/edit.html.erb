@@ -6,7 +6,7 @@
       <%= f.text_field :title, placeholder: "Photo Title" %>
       <%= f.text_area :description, placeholder: "Photo Description", rows: 8 %>
       <%= f.label :price, "Choose a Price for the New Photo" %>
-      <%= f.number_field :price, in: 1000..10000, step: "any" %>
+      <%= f.number_field :price, step: "any" %>
       <%= f.label :category %>
       <%= f.collection_select :category_ids, @categories, :id, :name, include_blank: false %>
       <%= f.label :image, "Choose an Image" %>

@@ -5,6 +5,7 @@ RSpec.describe Vendor, type: :model do
     it {is_expected.to validate_presence_of(:name)}
     it {should have_many(:photos)}
     it {should have_many(:users)}
+    it {should have_many(:orders)}
   end
 
   it "can create a slug" do

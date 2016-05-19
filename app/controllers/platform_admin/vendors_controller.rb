@@ -8,6 +8,7 @@ class PlatformAdmin::VendorsController < ApplicationController
       vendor = Vendor.find(params[:id])
       vendor.update(status: params[:pending])
       flash[:success] = "#{vendor.name} has been approved" if params[:pending] == "active"
+      flash[:success] = "#{vendor.name} has been taken offline" if params[:pending] == "inactive"
     else
       vendor = Vendor.find(params[:id])
       vendor.update(vendor_params)
@@ -16,17 +17,9 @@ class PlatformAdmin::VendorsController < ApplicationController
     redirect_to platform_admin_dashboard_path
   end
 
-  def destroy
-    vendor = Vendor.find(params[:id])
-    vendor.photos.destroy_all
-    vendor.destroy
-    flash[:success] = "#{vendor.name} was successfully removed!"
-    redirect_to platform_admin_dashboard_path
-  end
-
   private
 
     def vendor_params
-      params.require(:vendor).permit(:name, :about, :status)
+      params.require(:vendor).permit(:name, :about, :status, :logo)
     end
 end
