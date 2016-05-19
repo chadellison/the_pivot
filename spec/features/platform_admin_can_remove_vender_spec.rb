@@ -7,7 +7,7 @@ RSpec.feature "Platform admin can remove a vendor" do
     user.roles << role
 
     vendor = Vendor.create(name: "Jojo blu", status: "active")
-    photo = Photo.create(title: "photo", image: Photo.image_from_url("https://source.unsplash.com/random"), price: 20, description: "description")
+    photo = Photo.create(title: "photo", image: File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"), price: 20, description: "description", vendor_id: vendor.id)
 
     vendor.photos << photo
 

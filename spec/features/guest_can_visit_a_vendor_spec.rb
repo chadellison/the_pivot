@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "guest can visit a vendor" do
   scenario "guest sees a vendor's pictures" do
     vendor = Vendor.create(name: "vendor")
-    photo = vendor.photos.create(title: "photo", image: Photo.image_from_url("https://source.unsplash.com/random"), price: 20, description: "description")
+    photo = vendor.photos.create(title: "photo", image: File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"), price: 20, description: "description", vendor_id: vendor.id)
 
     visit "/#{vendor.name}"
 
@@ -14,7 +14,7 @@ RSpec.feature "guest can visit a vendor" do
 
   scenario "guest doesn't see pictures for a vendor that doesn't exist" do
     vendor = Vendor.create(name: "vendor")
-    photo = vendor.photos.create(title: "photo", image: Photo.image_from_url("https://source.unsplash.com/random"), price: 20, description: "description")
+    photo = vendor.photos.create(title: "photo", image: File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"), price: 20, description: "description", vendor_id: vendor.id)
 
     visit "/something-else"
 
