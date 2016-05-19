@@ -33,7 +33,7 @@
         <div class="third">
           <h5><%= link_to vendor.name, vendor_path(vendor.slug) %></h5>
           <p>Status: <%= vendor.status %></p>
-          <%= button_to "Delete", platform_admin_vendor_path(vendor.id), method: :delete, class: "button in-row" %>
+          <%= button_to "Take Offline", platform_admin_vendor_path(vendor.id, pending: "inactive"), method: :patch, class: "button in-row" %>
           <%= button_to "Edit", edit_platform_admin_vendor_path(vendor.id), method: :get, class: "button in-row" %>
         </div>
       <% end %>
@@ -46,7 +46,7 @@
         <div class="third">
           <h5><%= link_to vendor.name, vendor_path(vendor.slug) %></h5>
           <p>Status: <%= vendor.status %></p>
-          <%= button_to "Delete", platform_admin_vendor_path(vendor.id), method: :delete, class: "button in-row" %>
+          <%= button_to "Take Offline", platform_admin_vendor_path(vendor.id, pending: "inactive"), method: :patch, class: "button in-row" %>
           <%= button_to "Edit", edit_platform_admin_vendor_path(vendor.id), method: :get, class: "button in-row" %>
         </div>
       <% end %>

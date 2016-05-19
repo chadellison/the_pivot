@@ -4,7 +4,7 @@ class Seeds
     create_categories
     create_roles
     create_vendors_and_photos
-    create_users
+    create_vendor_admins
     create_platform_admin
     create_pending_vendors
     create_customers
@@ -27,18 +27,17 @@ class Seeds
     puts "created platform admin"
   end
 
-  def create_users
-    user1 = User.create(username: Faker::Internet.user_name, password: "password", password_confirmation: "password", email: Faker::Internet.email)
-    user2 = User.create(username: Faker::Internet.user_name, password: "password", password_confirmation: "password", email: Faker::Internet.email)
-    user3 = User.create(username: Faker::Internet.user_name, password: "password", password_confirmation: "password", email: Faker::Internet.email)
-    role1 = Role.find_by(name: "customer")
-    role2 = Role.find_by(name: "vendor_admin")
-    role3 = Role.find_by(name: "platform_admin")
+  def create_vendor_admins
+    user = User.create(username: Faker::Internet.user_name, password: "password", password_confirmation: "password", email: Faker::Internet.email)
+    role = Role.find_by(name: "vendor_admin")
     vendors = Vendor.all.sample(2)
     vendors.each do |vendor|
-      UserRole.create(user_id: user2.id, role_id: role2.id, vendor_id: vendor.id)
+      UserRole.create(user_id: user.id, role_id: role.id, vendor_id: vendor.id)
     end
-    puts "created users"
+    user = User.create(username: "andrew@turing.io", password: "password", password_confirmation: "password", email: "andrew@turing.io", country: "Argentina")
+    user.user_roles.create(role: Role.find_by(name: "vendor_admin"), vendor: Vendor.first)
+    puts "created vendor for andrew"
+    puts "created vendor admins"
   end
 
   def create_customers
@@ -50,14 +49,9 @@ class Seeds
                   country: Faker::Address.country)
       10.times do
         rand(10..15).times do
-          vendor = Vendor.order("RANDOM()").first
+          vendor = Vendor.active.order("RANDOM()").first
           photo = vendor.photos.order("RANDOM()").first
-          if photo.nil?
-            cost = 100
-          else
-            cost = photo.price
-          end
-          order_photo = OrderPhoto.create(order: Order.create, photo: photo, vendor: vendor, cost: cost)
+          order_photo = OrderPhoto.create(order: Order.create, photo: photo, vendor: vendor, cost: photo.price)
           user.orders << order_photo.order
         end
       end
@@ -102,9 +96,6 @@ class Seeds
         puts "created vendor and photos"
       end
     end
-    user = User.create(username: "andrew@turing.io", password: "password", password_confirmation: "password", email: "andrew@turing.io", country: "Argentina")
-    user.user_roles.create(role: Role.find_by(name: "vendor_admin"), vendor: Vendor.first)
-    puts "created vendor for andrew"
   end
 
   def create_pending_vendors

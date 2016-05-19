@@ -30,7 +30,7 @@ class Vendor < ActiveRecord::Base
 
   def customer_demographic
     user_ids = Order.where(id: order_ids).pluck(:user_id)
-    User.where(id: user_ids)
+    User.where(id: user_ids).group(:country).count
   end
 
   def order_ids

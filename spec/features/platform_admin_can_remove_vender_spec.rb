@@ -8,7 +8,7 @@ RSpec.feature "Platform admin can remove a vendor" do
 
     vendor = Vendor.create(name: "Jojo blu", status: "active")
     photo = Photo.create(title: "photo", image: File.new("#{Rails.root}/spec/support/fixtures/people_1.jpg"), price: 20, description: "description", vendor_id: vendor.id)
-
+    photo.categories.create(name: "food")
     vendor.photos << photo
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
@@ -20,9 +20,9 @@ RSpec.feature "Platform admin can remove a vendor" do
 
     click_on "All Vendors"
 
-    click_button "Delete"
-    expect(page).to have_content "Jojo blu was successfully removed!"
-    expect(Vendor.all).to eq []
+    click_button "Take Offline"
+    expect(page).to have_content "Jojo blu has been taken offline"
+    expect(Vendor.active).to eq []
 
     visit root_path
   end
