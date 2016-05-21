@@ -41,23 +41,14 @@ class Seeds
   end
 
   def create_customers
-    100.times do
+    10.times do
       user = User.create(username: Faker::Internet.user_name,
                   password: "password",
                   password_confirmation: "password",
                   email: Faker::Internet.email,
                   country: Faker::Address.country)
-      10.times do
-        rand(10..15).times do
-          vendor = Vendor.active.order("RANDOM()").first
-          photo = vendor.photos.order("RANDOM()").first
-          order_photo = OrderPhoto.create(order: Order.create, photo: photo, vendor: vendor, cost: photo.price)
-          user.orders << order_photo.order
-        end
       end
-    end
     User.create(username: "josh@turing.io", password: "password", password_confirmation: "password", email: "josh@turing.io", country: "Germany")
-    puts "created customer with order"
   end
 
   def create_roles

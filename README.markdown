@@ -1,15 +1,42 @@
-## Eccentric Travel E-Commerce Site
+# Eccentric Photos E-Commerce Site
 
-Spage Age is an e-commerce site for space travel for Eccentric Travel. Shop various packages on three different planets and book your flight today!
+Multi-tenancy ecommerce website adapted from an existing codebase in 2 weeks.
 
-**Want to interact with the app?** [Click here](https://http://eccentric-travel.herokuapp.com/).
-Or, [view the original spec](https://github.com/turingschool/curriculum/blob/master/source/projects/little_shop.markdown).
+## Features:
 
-#### Features
+### Guest Customer
 
-* **Index:** Full view of packages with javascript and Foundation 5 framework used
-* **Cart** Ability to shop and add packages to a cart
-* **Stripe** Ability to pay using the Stripe API.
-* **Testing** Feature and model testing with RSpec and Capybara
+Visit different businesses.
+Add items from multiple businesses into a single cart.
+Log in or create an account before completing checkout.
 
-[App in Action](http://recordit.co/nbFNiwYYC6)
+
+### Registered Customer
+
+Make purchases on any business
+Interactive Dashboard with jQuery
+Manage my account information
+View my purchase history
+
+
+### Business Admin
+
+Manage items on my business
+Update my business information
+Interactive Dashboard with jQuery
+Business Analytics with Chartkick and Chats.js
+Drag and Drop Image upload using Dropzone JS
+Manage other business admins for your store
+
+
+### Platform Admin
+
+Approve or decline the creation of new businesses
+Interactive Dashboard with jQuery
+Take a business offline / online
+Perform any functionality restricted to business admins
+
+
+**Project Goals**: Multi-tenancy, authentication, brownfield development, agile, risk-taking
+
+**Tech Stack**: Ruby on Rails, RSpec, Capybara and Capybara Webkit,  PostgreSQL, Foundation, DropzoneJS, Heroku.
